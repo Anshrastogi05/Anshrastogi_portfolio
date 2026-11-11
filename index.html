@@ -1,0 +1,2573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ansh Rastogi — Full-Stack & AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --ink: #e2e8f0;
+      --mute: #94a3b8;
+      --dim: #64748b;
+      --g1: #22c55e;
+      --g2: #4ade80;
+      --g3: #86efac;
+      --glass: rgba(255, 255, 255, .035);
+      --bd: rgba(255, 255, 255, .09);
+      color-scheme: dark;
+      --d: 'Space Grotesk', 'Inter', sans-serif;
+      --s: 'Inter', system-ui, sans-serif;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      scroll-padding-top: 90px
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 400 16px/1.65 var(--s);
+      overflow-x: hidden;
+      background: radial-gradient(ellipse 80% 60% at 20% 8%, rgba(34, 197, 94, .09), transparent 60%), radial-gradient(ellipse 60% 50% at 85% 85%, rgba(59, 130, 246, .07), transparent 60%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(168, 85, 247, .045), transparent 60%), var(--bg)
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .5;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E")
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--g2);
+      outline-offset: 3px
+    }
+
+    main,
+    header,
+    footer {
+      position: relative;
+      z-index: 1
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 32px)
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--d);
+      margin: 0
+    }
+
+    .gt {
+      background: linear-gradient(120deg, #22c55e, #4ade80 35%, #a7f3d0 60%, #4ade80 85%, #22c55e);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: flow 7s linear infinite
+    }
+
+    @keyframes flow {
+      to {
+        background-position: -250% 0
+      }
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--bd);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s, box-shadow .3s
+    }
+
+    .glass:hover {
+      border-color: rgba(34, 197, 94, .35)
+    }
+
+    .fl {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      opacity: var(--fo, 0);
+      transition: opacity .3s;
+      mix-blend-mode: screen;
+      background: radial-gradient(360px circle at var(--fx, 50%) var(--fy, 50%), rgba(34, 197, 94, .22), rgba(59, 130, 246, .08) 40%, transparent 70%)
+    }
+
+    .tilt:not(.flip) {
+      transition: transform .5s cubic-bezier(.34, 1.4, .64, 1), border-color .3s;
+      transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+    }
+
+    .tilt.hot:not(.flip) {
+      transition: transform .08s linear, border-color .3s
+    }
+
+    #prog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--g1), var(--g3));
+      z-index: 60;
+      box-shadow: 0 0 12px var(--g1)
+    }
+
+    header {
+      position: fixed;
+      top: calc(env(safe-area-inset-top, 0px) + 14px);
+      left: 0;
+      right: 0;
+      z-index: 40;
+      display: flex;
+      justify-content: center;
+      padding: 0 12px
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      padding: 10px 12px 10px 22px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .72);
+      border: 1px solid rgba(255, 255, 255, .12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      animation: bob 5s ease-in-out infinite
+    }
+
+    @keyframes bob {
+      50% {
+        transform: translateY(-4px)
+      }
+    }
+
+    nav b {
+      font: 700 15px var(--d)
+    }
+
+    nav .ls {
+      display: none;
+      gap: 22px
+    }
+
+    @media(min-width:760px) {
+      nav .ls {
+        display: flex
+      }
+    }
+
+    nav .ls a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--mute);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color .2s
+    }
+
+    nav .ls a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 1.5px;
+      width: 0;
+      background: var(--g1);
+      transition: width .3s
+    }
+
+    nav .ls a:hover,
+    nav .ls a.on {
+      color: #fff
+    }
+
+    nav .ls a:hover::after,
+    nav .ls a.on::after {
+      width: 100%
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font: 600 14px var(--d);
+      color: #fff;
+      padding: 11px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22c55e, #16a34a, #15803d);
+      background-size: 200% 200%;
+      animation: flow2 5s ease infinite;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s
+    }
+
+    nav .btn {
+      padding: 8px 18px;
+      font-size: 13px
+    }
+
+    @keyframes flow2 {
+      50% {
+        background-position: 100% 50%
+      }
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .2), transparent);
+      transition: left .5s
+    }
+
+    .btn:hover::before {
+      left: 100%
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(34, 197, 94, .4)
+    }
+
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font: 600 14px var(--d);
+      color: #cbd5e1;
+      padding: 11px 26px;
+      border-radius: 999px
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 110px 16px 80px
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      opacity: .06;
+      background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
+      background-size: 60px 60px;
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+      mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%)
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      animation: drift 14s ease-in-out infinite alternate
+    }
+
+    @keyframes drift {
+      to {
+        transform: translate(50px, -40px) scale(1.15)
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: #cbd5e1;
+      margin-bottom: 30px
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--g1);
+      box-shadow: 0 0 12px rgba(34, 197, 94, .9);
+      animation: pulse 2s ease-in-out infinite;
+      flex-shrink: 0
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: .4;
+        transform: scale(.8)
+      }
+    }
+
+    .badge small {
+      color: var(--g2);
+      background: rgba(74, 222, 128, .1);
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-weight: 600
+    }
+
+    .av {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 28px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      font: 700 30px var(--d);
+      color: #03140a;
+      background: linear-gradient(135deg, #4ade80, #16a34a);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, .35), 0 0 0 7px rgba(34, 197, 94, .15), 0 0 45px rgba(34, 197, 94, .35);
+      animation: bob 4s ease-in-out infinite;
+      overflow: visible;
+      cursor: pointer;
+      transition: transform .35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .35s ease;
+      will-change: transform, box-shadow;
+    }
+
+    .av:hover {
+      animation-play-state: paused;
+      transform: scale(1.15) translateY(-6px);
+      box-shadow: 0 0 0 4px rgba(74, 222, 128, .85), 0 0 0 10px rgba(34, 197, 94, .25), 0 15px 40px rgba(34, 197, 94, .5), 0 20px 45px rgba(0, 0, 0, .7);
+      z-index: 15;
+    }
+
+    .av img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 2.5px solid rgba(34, 197, 94, .6);
+      position: relative;
+      z-index: 1;
+      transition: transform .35s cubic-bezier(0.34, 1.56, 0.64, 1), filter .35s ease;
+    }
+
+    .av:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.06) contrast(1.02);
+    }
+
+    .av i {
+      position: absolute;
+      right: -2px;
+      bottom: -2px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--g1);
+      border: 3px solid var(--bg);
+      display: grid;
+      place-items: center;
+      font: 700 13px var(--s);
+      font-style: normal;
+      color: #fff;
+      z-index: 2;
+      transition: transform .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .av:hover i {
+      transform: scale(1.22) rotate(12deg);
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: clamp(3.2rem, 11vw, 7.2rem);
+      line-height: .95;
+      letter-spacing: -.045em
+    }
+
+    .role {
+      height: 2rem;
+      margin: 20px 0 18px;
+      font: 500 clamp(1.1rem, 2.6vw, 1.6rem) var(--d);
+      color: #cbd5e1
+    }
+
+    .role::after {
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background: var(--g2);
+      margin-left: 5px;
+      vertical-align: -.2em;
+      animation: pulse 1s steps(2) infinite
+    }
+
+    .bio {
+      max-width: 640px;
+      margin: 0 auto 36px;
+      font-size: 1.1rem;
+      color: var(--dim)
+    }
+
+    .bio em {
+      font-style: normal;
+      color: var(--g2)
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 48px
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 480px;
+      margin: 0 auto
+    }
+
+    .stat {
+      padding: 18px 8px
+    }
+
+    .stat b {
+      display: block;
+      font: 700 2rem/1 var(--d)
+    }
+
+    .stat span {
+      font-size: 12px;
+      color: var(--dim)
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 46px;
+      background: linear-gradient(var(--g1), transparent);
+      opacity: .6;
+      animation: pulse 2.4s infinite
+    }
+
+    .strip {
+      border-block: 1px solid var(--bd);
+      overflow: hidden;
+      padding: 16px 0;
+      background: rgba(255, 255, 255, .015);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent)
+    }
+
+    .strip div {
+      display: flex;
+      gap: 44px;
+      width: max-content;
+      animation: mq 38s linear infinite;
+      font: 500 15px var(--d);
+      color: var(--dim);
+      white-space: nowrap
+    }
+
+    .strip span::before {
+      content: "◆";
+      color: var(--g1);
+      font-size: 8px;
+      margin-right: 44px;
+      vertical-align: 2px
+    }
+
+    @keyframes mq {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    section.sec {
+      padding: clamp(70px, 10vw, 120px) 0
+    }
+
+    .eyb {
+      font: 600 13px var(--s);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--g2);
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .eyb::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--g1), var(--g2))
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      margin-bottom: clamp(34px, 6vw, 60px)
+    }
+
+    .two {
+      display: grid;
+      gap: 36px
+    }
+
+    @media(min-width:860px) {
+      .two {
+        grid-template-columns: 1fr 1fr;
+        gap: 48px
+      }
+    }
+
+    .card {
+      padding: 24px
+    }
+
+    .card p {
+      margin: 0 0 14px;
+      color: var(--mute)
+    }
+
+    .card p:last-child {
+      margin: 0
+    }
+
+    .card strong {
+      color: #fff;
+      font-weight: 500
+    }
+
+    .card em {
+      font-style: normal;
+      color: var(--g2);
+      font-weight: 500
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .pill {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--g3);
+      background: rgba(34, 197, 94, .08);
+      border: 1px solid rgba(34, 197, 94, .22);
+      border-radius: 999px;
+      transition: background .2s, transform .2s
+    }
+
+    .pill:hover {
+      background: rgba(34, 197, 94, .16);
+      transform: scale(1.05)
+    }
+
+    .built {
+      display: grid;
+      gap: 12px
+    }
+
+    .built .glass {
+      padding: 16px 18px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start
+    }
+
+    .built .dot {
+      margin-top: 9px;
+      animation: none
+    }
+
+    .built b {
+      display: block;
+      font: 600 15px var(--d);
+      color: #fff
+    }
+
+    .built span {
+      font-size: 13px;
+      color: var(--dim)
+    }
+
+    h3.sub {
+      font: 600 1.1rem var(--d);
+      margin-bottom: 16px;
+      color: #e2e8f0
+    }
+
+    .tl {
+      position: relative;
+      max-width: 880px
+    }
+
+    .tl::before {
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 6px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(var(--g1), rgba(34, 197, 94, .15), transparent)
+    }
+
+    .job {
+      position: relative;
+      padding-left: 52px;
+      margin-bottom: 22px
+    }
+
+    .job::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 28px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--g1);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, .25), 0 0 14px rgba(34, 197, 94, .6)
+    }
+
+    .job .glass {
+      padding: 24px
+    }
+
+    .job h3 {
+      font-size: 1.15rem;
+      color: #fff
+    }
+
+    .job .co {
+      color: var(--g2);
+      font-weight: 500;
+      font-size: 14px;
+      margin: 2px 0 10px
+    }
+
+    .job p {
+      margin: 0 0 14px;
+      color: var(--mute);
+      font-size: 15px
+    }
+
+    .new {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--bd);
+      color: var(--mute)
+    }
+
+    .pg {
+      display: grid;
+      gap: 24px
+    }
+
+    @media(min-width:720px) {
+      .pg {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(min-width:1040px) {
+      .pg {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .flip {
+      min-height: 470px;
+      position: relative;
+      perspective: 1300px;
+      cursor: pointer
+    }
+
+    .fin {
+      position: absolute;
+      inset: 0;
+      transform-style: preserve-3d;
+      transition: transform .85s cubic-bezier(.34, 1.4, .64, 1);
+      transform: rotateX(var(--rx, 0deg)) rotateY(calc(var(--ry, 0deg) + var(--rot, 0deg)))
+    }
+
+    .flip.hot .fin {
+      transition: transform .1s linear
+    }
+
+    .flip.on {
+      --rot: 180deg
+    }
+
+    .face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex;
+      flex-direction: column
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      padding: 22px;
+      background: rgba(8, 13, 28, .96);
+      border-color: color-mix(in srgb, var(--c) 45%, transparent);
+      border-top: 2px solid var(--c);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 40px color-mix(in srgb, var(--c) 14%, transparent);
+      justify-content: space-between
+    }
+
+    .cover {
+      height: 150px;
+      position: relative;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-size: 3.4rem;
+      overflow: hidden;
+      background: radial-gradient(circle at 25% 20%, color-mix(in srgb, var(--c) 45%, transparent), transparent 65%), linear-gradient(135deg, color-mix(in srgb, var(--c) 22%, #050b1a), #050b1a)
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--c) 14%, transparent) 0 6deg, transparent 6deg 18deg);
+      animation: spin 40s linear infinite;
+      -webkit-mask-image: radial-gradient(circle, #000, transparent 65%);
+      mask-image: radial-gradient(circle, #000, transparent 65%)
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(1turn)
+      }
+    }
+
+    .cover span {
+      position: relative;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, .5))
+    }
+
+    .cover .tag {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      font: 600 11px var(--s);
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--c) 75%, #000);
+      color: #fff
+    }
+
+    .fb {
+      border: 1px solid rgba(74, 222, 128, .4);
+      background: rgba(0, 0, 0, .65);
+      color: var(--g2);
+      font: 600 12px var(--s);
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .2s
+    }
+
+    .fb:hover {
+      background: rgba(34, 197, 94, .25)
+    }
+
+    .cover .fb {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      z-index: 5;
+      animation: flut 4s ease-in-out infinite
+    }
+
+    @keyframes flut {
+      20% {
+        transform: translateY(-3px) rotate(-3deg)
+      }
+
+      40% {
+        transform: translateY(2px) rotate(2deg)
+      }
+
+      60% {
+        transform: translateY(-2px) rotate(-1deg)
+      }
+    }
+
+    .pbody {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      gap: 14px
+    }
+
+    .pbody h3,
+    .back h4 {
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 6px
+    }
+
+    .pbody p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--dim);
+      line-height: 1.55
+    }
+
+    .acts {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px
+    }
+
+    .acts a,
+    .acts .fb {
+      flex: 1;
+      text-align: center;
+      font: 500 12px var(--s);
+      padding: 9px 10px;
+      border-radius: 9px;
+      background: var(--glass);
+      border: 1px solid var(--bd);
+      color: #cbd5e1;
+      transition: border-color .2s
+    }
+
+    .acts a:hover {
+      border-color: rgba(34, 197, 94, .45)
+    }
+
+    .acts a.live {
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      border: 0;
+      color: #fff;
+      font-weight: 600
+    }
+
+    .bh {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--bd);
+      font: 700 11px var(--s);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--c)
+    }
+
+    .bh .dot {
+      background: var(--c);
+      box-shadow: 0 0 10px var(--c)
+    }
+
+    .bh span {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-right: auto
+    }
+
+    .bh .fb {
+      padding: 2px 9px;
+      border-color: var(--bd);
+      color: var(--mute)
+    }
+
+    .back ul {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+      font-size: 13px;
+      color: #cbd5e1
+    }
+
+    .back li {
+      display: flex;
+      gap: 10px
+    }
+
+    .back li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c);
+      margin-top: 7px;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px var(--c)
+    }
+
+    .back li b {
+      color: #fff;
+      font-weight: 600
+    }
+
+    .more {
+      text-align: center;
+      margin-top: 48px
+    }
+
+    .sg {
+      display: grid;
+      gap: 20px
+    }
+
+    @media(min-width:720px) {
+      .sg {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(min-width:1040px) {
+      .sg {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .sg .card h3 {
+      font-size: 1rem;
+      color: #fff;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px
+    }
+
+    .sg .ic {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      background: var(--ic)
+    }
+
+    .exp {
+      margin-top: 20px
+    }
+
+    .exp h3 {
+      font-size: 1rem;
+      color: #fff;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px
+    }
+
+    .exp .pill {
+      padding: 8px 16px;
+      font-size: 14px;
+      background: rgba(34, 197, 94, .1);
+      border-color: rgba(34, 197, 94, .3)
+    }
+
+    .contact {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto
+    }
+
+    .contact p.lead {
+      font-size: 1.15rem;
+      color: var(--mute);
+      margin: -24px auto 44px;
+      max-width: 540px
+    }
+
+    .cg {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 40px
+    }
+
+    @media(min-width:640px) {
+      .cg {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .cg a {
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px
+    }
+
+    .cg .ic {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      background: rgba(34, 197, 94, .12)
+    }
+
+    .cg b {
+      font: 600 14px var(--d);
+      color: #fff
+    }
+
+    .cg span {
+      font-size: 12px;
+      color: var(--dim);
+      word-break: break-all
+    }
+
+    footer {
+      border-top: 1px solid var(--bd);
+      padding: 28px 0 36px;
+      font-size: 13px;
+      color: var(--dim)
+    }
+
+    footer .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    footer b {
+      font: 600 15px var(--d);
+      color: #fff
+    }
+
+    footer a:hover {
+      color: #fff
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s, transform .7s
+    }
+
+    .reveal.vis {
+      opacity: 1;
+      transform: none
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg)
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(34, 197, 94, .4);
+      border-radius: 99px
+    }
+
+    @property --gh {
+      syntax: "<number>";
+      inherits: true;
+      initial-value: 140
+    }
+
+    #glow {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      transition: --gh 1.2s;
+      background: radial-gradient(700px circle at 85% 15%, hsl(var(--gh) 75% 50%/.13), transparent 70%)
+    }
+
+    .now {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--mute);
+      margin: -14px 0 28px
+    }
+
+    kbd {
+      font: 500 11px ui-monospace, Menlo, monospace;
+      border: 1px solid var(--bd);
+      border-bottom-width: 2px;
+      border-radius: 5px;
+      padding: 0 6px;
+      color: var(--g3)
+    }
+
+    #ring {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 34px;
+      height: 34px;
+      margin: -17px 0 0 -17px;
+      border: 1.5px solid var(--g2);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0;
+      transition: width .25s, height .25s, margin .25s, background .25s, opacity .3s
+    }
+
+    #ring.big {
+      width: 64px;
+      height: 64px;
+      margin: -32px 0 0 -32px;
+      background: rgba(34, 197, 94, .14)
+    }
+
+    body.has-overlay #ring,
+    .ov.on ~ #ring,
+    .ov.on #ring {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+
+    @media (hover:none) {
+      #ring {
+        display: none
+      }
+    }
+
+    .fabs {
+      position: fixed;
+      right: 16px;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px
+    }
+
+    .fab {
+      font: 600 13px var(--d);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      background: rgba(0, 0, 0, .78);
+      border: 1px solid rgba(74, 222, 128, .4);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .4)
+    }
+
+    .ov {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      place-items: center;
+      padding: 16px;
+      background: rgba(2, 6, 23, .75);
+      backdrop-filter: blur(10px)
+    }
+
+    .ov.on {
+      display: grid;
+      animation: ovin .2s both
+    }
+
+    @keyframes ovin {
+      from {
+        opacity: 0;
+        transform: scale(.98)
+      }
+    }
+
+    .box {
+      width: min(640px, 100%);
+      max-height: 84vh;
+      display: flex;
+      flex-direction: column;
+      padding: 18px
+    }
+
+    .box h3 {
+      font-size: 1.1rem;
+      color: #fff
+    }
+
+    /* Quick Action Hire Modal */
+    .hire-box {
+      width: min(480px, 94%);
+      padding: 24px;
+      gap: 16px;
+      border-radius: 20px;
+    }
+
+    .hire-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--bd);
+    }
+
+    .hire-user {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hire-av {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hire-av img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 2px solid rgba(34, 197, 94, .5);
+    }
+
+    .hire-av i {
+      position: absolute;
+      right: -2px;
+      bottom: -2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--g1);
+      border: 2px solid var(--bg);
+      display: grid;
+      place-items: center;
+      font: 700 9px var(--s);
+      font-style: normal;
+      color: #fff;
+    }
+
+    .hire-user h3 {
+      font-size: 1.15rem;
+      margin: 0 0 2px;
+      color: #fff;
+    }
+
+    .hire-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--g3);
+    }
+
+    .hire-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--g1);
+      box-shadow: 0 0 8px var(--g1);
+    }
+
+    .hire-close {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--bd);
+      color: var(--dim);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      transition: all .2s;
+    }
+
+    .hire-close:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .15);
+    }
+
+    .hire-desc {
+      font-size: 13.5px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .hire-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hire-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--bd);
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .2s ease;
+      font-family: inherit;
+      text-align: left;
+      width: 100%;
+    }
+
+    .hire-card:hover {
+      background: rgba(34, 197, 94, .08);
+      border-color: rgba(34, 197, 94, .4);
+      transform: translateY(-1px);
+    }
+
+    .hire-icon {
+      font-size: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .05);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .hire-card div {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hire-card div b {
+      display: block;
+      font-size: 13.5px;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .hire-card div span {
+      display: block;
+      font-size: 11.5px;
+      color: var(--dim);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .hire-arrow {
+      font-size: 12px;
+      color: var(--g3);
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(34, 197, 94, .1);
+    }
+
+    #pi,
+    #ci,
+    #ti {
+      width: 100%;
+      font: 500 16px var(--s);
+      color: #fff;
+      background: transparent;
+      border: 0;
+      outline: 0
+    }
+
+    #pi {
+      padding: 6px 4px 14px;
+      border-bottom: 1px solid var(--bd)
+    }
+
+    #pl {
+      list-style: none;
+      margin: 8px 0 0;
+      padding: 0;
+      overflow: auto
+    }
+
+    #pl li {
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--mute)
+    }
+
+    #pl li.s,
+    #pl li:hover {
+      background: rgba(34, 197, 94, .14);
+      color: #fff
+    }
+
+    .term {
+      background: #030a08;
+      border: 1px solid rgba(34, 197, 94, .4);
+      border-radius: 14px;
+      font: 14px/1.6 ui-monospace, Menlo, monospace;
+      color: var(--g3);
+      box-shadow: 0 0 60px rgba(34, 197, 94, .15)
+    }
+
+    #to {
+      overflow: auto;
+      white-space: pre-wrap;
+      height: min(50vh, 360px)
+    }
+
+    #to .u {
+      color: #fff
+    }
+
+    #to .m {
+      color: var(--dim)
+    }
+
+    .pr {
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid rgba(34, 197, 94, .25);
+      padding-top: 10px;
+      margin-top: 8px
+    }
+
+    #ti {
+      font: inherit;
+      color: #fff
+    }
+
+    .gm {
+      align-items: center;
+      gap: 14px;
+      width: min(340px, 100%)
+    }
+
+    #bd {
+      display: grid;
+      grid-template-columns: repeat(3, 84px);
+      gap: 8px
+    }
+
+    #bd button {
+      height: 84px;
+      font: 700 2rem var(--d);
+      color: var(--g2);
+      background: var(--glass);
+      border: 1px solid var(--bd);
+      border-radius: 12px;
+      cursor: pointer
+    }
+
+    #cl {
+      overflow: auto;
+      display: grid;
+      gap: 10px;
+      min-height: 110px;
+      max-height: 40vh;
+      margin: 12px 0
+    }
+
+    .msg {
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 92%;
+      white-space: pre-wrap
+    }
+
+    .msg.me {
+      justify-self: end;
+      background: rgba(34, 197, 94, .18);
+      color: #fff
+    }
+
+    .msg.bot {
+      background: var(--glass);
+      border: 1px solid var(--bd);
+      color: #cbd5e1
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px
+    }
+
+    .chip {
+      font: 500 12px var(--s);
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, .08);
+      border: 1px solid rgba(34, 197, 94, .25);
+      color: var(--g3);
+      cursor: pointer
+    }
+
+    #cf {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    #cf input {
+      border: 1px solid var(--bd);
+      border-radius: 999px;
+      padding: 11px 16px;
+      background: rgba(255, 255, 255, .03)
+    }
+
+    #cf .btn {
+      border: 0;
+      cursor: pointer
+    }
+
+    .hint {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: var(--dim)
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+      transform: translateX(-50%);
+      z-index: 99;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #000;
+      border: 1px solid var(--g1);
+      font-size: 14px
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      margin: 16px 0 0;
+      font: 500 10px var(--s)
+    }
+
+    .flow span {
+      padding: 4px 7px;
+      border: 1px solid color-mix(in srgb, var(--c) 55%, transparent);
+      border-radius: 6px;
+      white-space: nowrap;
+      color: #e2e8f0
+    }
+
+    .flow i {
+      flex: 1;
+      min-width: 8px;
+      height: 1px;
+      position: relative;
+      background: var(--bd)
+    }
+
+    .flow i::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c);
+      box-shadow: 0 0 8px var(--c);
+      animation: pkt 1.6s linear infinite
+    }
+
+    @keyframes pkt {
+      from {
+        left: 0
+      }
+
+      to {
+        left: calc(100% - 5px)
+      }
+    }
+
+    .mx main,
+    .mx #glow {
+      filter: hue-rotate(160deg)
+    }
+
+    #globe {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(92vw, 680px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      opacity: .8;
+      z-index: 1;
+      pointer-events: none
+    }
+
+    .loc {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font: 500 12.5px var(--s);
+      color: var(--mute);
+      white-space: nowrap
+    }
+
+    .loc b {
+      color: #fff;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums
+    }
+
+    @media(max-width:520px) {
+      .loc .city {
+        display: none
+      }
+
+      nav {
+        gap: 14px
+      }
+    }
+
+    nav .ls {
+      gap: 20px
+    }
+
+    .stat.lead {
+      display: block
+    }
+
+    .stat.lead b {
+      font-size: 1.5rem;
+      line-height: 1.25
+    }
+
+    .passes {
+      display: grid;
+      gap: 34px 24px;
+      margin-top: 88px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+    }
+
+    .pass {
+      position: relative;
+      transform-origin: 50% -70px;
+      animation: swing 6s ease-in-out infinite alternate;
+      animation-delay: var(--dl)
+    }
+
+    @keyframes swing {
+      from {
+        transform: rotate(-2deg)
+      }
+
+      to {
+        transform: rotate(2deg)
+      }
+    }
+
+    .pass:hover {
+      animation-play-state: paused
+    }
+
+    .pass::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -70px;
+      width: 22px;
+      height: 70px;
+      margin-left: -11px;
+      border-radius: 3px 3px 0 0;
+      background: repeating-linear-gradient(-45deg, var(--c) 0 6px, color-mix(in srgb, var(--c) 35%, #000) 6px 12px)
+    }
+
+    .pc {
+      padding: 46px 22px 22px;
+      border-top: 3px solid var(--c);
+      background: linear-gradient(160deg, color-mix(in srgb, var(--c) 14%, transparent), var(--glass) 55%)
+    }
+
+    .pc:hover {
+      box-shadow: 0 20px 60px color-mix(in srgb, var(--c) 28%, transparent)
+    }
+
+    .hole {
+      position: absolute;
+      left: 50%;
+      top: 14px;
+      width: 46px;
+      height: 9px;
+      margin-left: -23px;
+      border-radius: 9px;
+      background: var(--bg);
+      box-shadow: inset 0 1px 3px #000
+    }
+
+    .tg {
+      display: inline-block;
+      font: 600 11px var(--s);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--c)
+    }
+
+    .big {
+      display: block;
+      font: 700 clamp(2.6rem, 6vw, 3.6rem)/1 var(--d);
+      letter-spacing: -.04em;
+      margin: 8px 0 10px;
+      background: linear-gradient(120deg, var(--c), #fff 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .pc h3 {
+      font-size: 1.15rem;
+      color: #fff
+    }
+
+    .pc p {
+      margin: 4px 0 14px;
+      font-size: 14px;
+      color: var(--mute)
+    }
+
+    .bar {
+      height: 26px;
+      margin-top: 18px;
+      opacity: .5;
+      background: repeating-linear-gradient(90deg, #cbd5e1 0 2px, transparent 2px 5px, #cbd5e1 5px 6px, transparent 6px 11px)
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        transition-duration: .01ms !important
+      }
+
+      #trail {
+        display: none
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="prog"></div>
+
+  <header>
+    <nav>
+      <b><a href="#top">AR</a></b>
+      <div class="ls"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a
+          href="#leadership">Leadership</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
+      <span class="loc" title="Local time in Noida"><span class="dot"></span><span class="city">Noida, India</span><b
+          id="clk"></b></span>
+      <button class="btn" id="btnHire" type="button">Hire me</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="orb" style="width:380px;height:380px;background:rgba(34,197,94,.14);top:40px;left:-100px"></div>
+      <div class="orb"
+        style="width:320px;height:320px;background:rgba(59,130,246,.11);bottom:60px;right:-90px;animation-delay:-5s">
+      </div>
+      <div class="orb"
+        style="width:260px;height:260px;background:rgba(168,85,247,.09);top:45%;left:50%;margin-left:-130px;animation-delay:-9s">
+      </div>
+      <div class="grid"></div><canvas id="globe" aria-hidden="true"></canvas>
+      <div style="position:relative;z-index:2;max-width:900px">
+        <div class="badge glass"><span class="dot"></span>Open to SDE &amp; AI Engineering roles <small>2026</small>
+        </div>
+        <div class="av"><img src="ansh.jpg" alt="Ansh Rastogi" onerror="this.src='https://avatars.githubusercontent.com/u/159460435?v=4'"><i>✓</i></div>
+        <h1>Ansh <span class="gt">Rastogi</span></h1>
+        <div class="role" id="role"></div>
+        <p class="bio">B.Tech at NIT Jalandhar. Building <em>scalable software</em>, AI applications and cloud-native
+          systems. 4× hackathon finalist.</p>
+        <p class="now"><span><kbd>Ctrl</kbd> <kbd>K</kbd> opens the command palette</span></p>
+        <div class="cta"><a class="btn" id="rs" href="#" target="_blank" rel="noopener">Resume ↓</a></div>
+        <div class="stats">
+          <div class="glass tilt stat">
+            <div class="fl"></div><b class="gt" data-n="5" data-s="+">0</b><span>Internships</span>
+          </div>
+          <div class="glass tilt stat">
+            <div class="fl"></div><b class="gt" data-n="4" data-s="×">0</b><span>Hackathons</span>
+          </div>
+          <a class="glass tilt stat lead" href="#leadership">
+            <div class="fl"></div><b class="gt">Leader</b><span>Stratabiz · Consult Corp</span>
+          </a>
+        </div>
+      </div>
+      <div class="scroll"></div>
+    </section>
+
+    <div class="strip" aria-hidden="true">
+      <div id="mq"></div>
+    </div>
+
+    <section class="sec" id="about">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyb">About me</p>
+          <h2>Building <span class="gt">impactful</span> technology</h2>
+        </div>
+        <div class="two">
+          <div class="reveal">
+            <div class="glass card" style="margin-bottom:18px">
+              <p>I’m a B.Tech student at <strong>NIT Jalandhar</strong>, passionate about full-stack development, AI
+                engineering and cloud-native systems that scale.</p>
+              <p>My work spans <em>distributed systems</em>, AI-powered applications and real-time backends. I like
+                turning complex problems into clean, production-ready solutions.</p>
+              <p>Right now I’m exploring <em>LLMs, AI agents and RAG pipelines</em>, and open to backend, full-stack and
+                AI engineering roles.</p>
+            </div>
+           
+          <div class="reveal" id="built">
+            <h3 class="sub">What I’ve built</h3>
+            <div class="built"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="experience">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyb">Career</p>
+          <h2>Work <span class="gt">experience</span></h2>
+        </div>
+        <div class="tl" id="tl"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="projects">
+      <div class="wrap">
+        <div class="reveal" style="text-align:center">
+          <p class="eyb" style="justify-content:center">Portfolio</p>
+          <h2 style="margin-bottom:14px">Featured <span class="gt">projects</span></h2>
+          <p style="color:var(--dim);margin:0 0 40px">Hover for 3D motion. Tap a card to flip it for architecture
+            details.</p>
+        </div>
+        <div class="pg" id="pg"></div>
+        <div class="more reveal"><a class="ghost glass" href="https://github.com/Anshrastogi05?tab=repositories"
+            target="_blank" rel="noopener">View all 31+ repositories →</a></div>
+      </div>
+    </section>
+
+    <section class="sec" id="leadership">
+      <div class="wrap">
+        <div class="reveal" style="text-align:center">
+          <p class="eyb" style="justify-content:center">Leadership</p>
+          <h2 style="margin-bottom:12px">Leading as well as <span class="gt">building</span></h2>
+          <p style="color:var(--dim);margin:0">Clubs, events and teams I’ve led. Hover a pass.</p>
+        </div>
+        <div class="passes reveal">
+          <div class="pass" style="--c:#22c55e;--dl:0.0s">
+            <div class="glass tilt pc">
+              <div class="fl"></div><i class="hole"></i><span class="tg">Club head</span><b class="big">Head</b>
+              <h3>Stratabiz</h3>
+              <p>Business and Consulting Club, NIT Jalandhar</p>
+              <div class="pills"><span class="pill">Leadership</span><span class="pill">Consulting</span><span
+                  class="pill">Community</span></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="pass" style="--c:#60a5fa;--dl:-1.7s">
+            <div class="glass tilt pc">
+              <div class="fl"></div><i class="hole"></i><span class="tg">Execution lead</span><b class="big">400+</b>
+              <h3>Consult Corp</h3>
+              <p>Offline consulting hackathon, led end to end</p>
+              <div class="pills"><span class="pill">Strategy</span><span class="pill">Operations</span><span
+                  class="pill">Team coordination</span></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="pass" style="--c:#c084fc;--dl:-3.4s">
+            <div class="glass tilt pc">
+              <div class="fl"></div><i class="hole"></i><span class="tg">Team lead</span><b class="big">6</b>
+              <h3>Lovers AI</h3>
+              <p>Developers in the core-site team I led</p>
+              <div class="pills"><span class="pill">AI platform</span><span class="pill">Real-time</span><span
+                  class="pill">Delivery</span></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="skills">
+      <div class="wrap">
+        <div class="reveal" style="text-align:center">
+          <p class="eyb" style="justify-content:center">Stack</p>
+          <h2>Tech <span class="gt">skills</span></h2>
+        </div>
+        <div class="sg" id="sg"></div>
+        <div class="glass tilt card exp reveal">
+          <div class="fl"></div>
+          <h3><span class="dot"></span>Currently exploring</h3>
+          <div class="pills"><span class="pill">🧠 Large language models</span><span class="pill">🤖 AI agents &amp;
+              agentic workflows</span><span class="pill">📚 Retrieval-augmented generation</span><span class="pill">🌐
+              Distributed systems</span><span class="pill">☁️ Cloud infrastructure &amp; DevOps</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div class="reveal">
+            <p class="eyb" style="justify-content:center">Get in touch</p>
+            <h2>Let’s <span class="gt">work together</span></h2>
+            <p class="lead">Open to software engineering, backend, full-stack and AI engineering roles. Let’s build
+              something scalable, intelligent and impactful.</p>
+          </div>
+          <div class="cg reveal">
+            <a class="glass tilt" href="mailto:rastogiansh13@gmail.com">
+              <div class="fl"></div>
+              <div class="ic">✉️</div><b>Email</b><span>rastogiansh13@gmail.com</span>
+            </a>
+            <a class="glass tilt" href="https://linkedin.com/in/anshrastogi23" target="_blank" rel="noopener">
+              <div class="fl"></div>
+              <div class="ic">💼</div><b>LinkedIn</b><span>anshrastogi23</span>
+            </a>
+            <a class="glass tilt" href="https://github.com/Anshrastogi05" target="_blank" rel="noopener">
+              <div class="fl"></div>
+              <div class="ic">💻</div><b>GitHub</b><span>Anshrastogi05</span>
+            </a>
+          </div>
+          <a class="btn reveal" href="mailto:rastogiansh13@gmail.com" style="padding:15px 38px;font-size:16px">Send me
+            an email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div><b>Ansh Rastogi</b> &nbsp;·&nbsp; Full-Stack &amp; AI Engineer</div>
+      <div><a href="https://github.com/Anshrastogi05" target="_blank" rel="noopener">GitHub</a> &nbsp; <a
+          href="https://linkedin.com/in/anshrastogi23" target="_blank" rel="noopener">LinkedIn</a> &nbsp; <a
+          href="https://x.com/Ansh05rastogi" target="_blank" rel="noopener">X</a></div>
+    </div>
+  </footer>
+  <div id="glow"></div>
+  <div class="fabs"><button class="fab" id="fc" type="button">✦ Ask Ansh</button></div>
+  <div class="ov" id="pal" role="dialog" aria-label="Command palette">
+    <div class="box glass"><input id="pi" placeholder="Type a command…" autocomplete="off">
+      <ul id="pl"></ul>
+    </div>
+  </div>
+  <div class="ov" id="term" role="dialog" aria-label="Terminal">
+    <div class="box term">
+      <div id="to"></div><label class="pr">$<input id="ti" autocomplete="off" spellcheck="false"
+          aria-label="Terminal command"></label>
+    </div>
+  </div>
+  <div class="ov" id="game" role="dialog" aria-label="Tic-tac-toe">
+    <div class="box glass gm">
+      <h3 id="gs"></h3>
+      <div id="bd"></div><button class="fb" id="gr" type="button">New game</button>
+    </div>
+  </div>
+  <div class="ov" id="hire" role="dialog" aria-label="Hire Ansh Rastogi">
+    <div class="box glass hire-box">
+      <div class="hire-head">
+        <div class="hire-user">
+          <div class="hire-av"><img src="ansh.jpg" alt="Ansh Rastogi" onerror="this.src='https://avatars.githubusercontent.com/u/159460435?v=4'"><i>✓</i></div>
+          <div>
+            <h3>Ansh Rastogi</h3>
+            <span class="hire-badge"><span class="dot"></span>Open to SDE &amp; AI Roles · 2026</span>
+          </div>
+        </div>
+        <button class="hire-close" id="closeHire" type="button" aria-label="Close">✕</button>
+      </div>
+      <p class="hire-desc">Looking for a full-stack engineer, backend architect, or AI specialist? Choose how you'd like to connect:</p>
+      <div class="hire-actions">
+        <a class="hire-card" href="mailto:rastogiansh13@gmail.com?subject=Job%20Opportunity%20-%20Software%20Engineer&body=Hi%20Ansh,%20we%20reviewed%20your%20portfolio%20and%20would%20love%20to%20discuss%20an%20engineering%20opportunity%20with%20our%20team.">
+          <span class="hire-icon">✉️</span>
+          <div>
+            <b>Draft an Email</b>
+            <span>Pre-filled subject &amp; direct message</span>
+          </div>
+          <span class="hire-arrow">↗</span>
+        </a>
+        <button class="hire-card" type="button" id="hireCopy">
+          <span class="hire-icon">📋</span>
+          <div>
+            <b>Copy Email Address</b>
+            <span id="hireEmailVal">rastogiansh13@gmail.com</span>
+          </div>
+          <span class="hire-arrow">Copy</span>
+        </button>
+        <a class="hire-card" href="https://linkedin.com/in/anshrastogi23" target="_blank" rel="noopener">
+          <span class="hire-icon">💼</span>
+          <div>
+            <b>Connect on LinkedIn</b>
+            <span>linkedin.com/in/anshrastogi23</span>
+          </div>
+          <span class="hire-arrow">↗</span>
+        </a>
+        <a class="hire-card" id="hireGMeet" href="https://meet.google.com/new" target="_blank" rel="noopener">
+          <span class="hire-icon">📹</span>
+          <div>
+            <b>Connect on Google Meet</b>
+            <span id="gmeetLinkText">Instant 1-on-1 video call · rastogiansh13@gmail.com</span>
+          </div>
+          <span class="hire-arrow">Meet ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="ov" id="chat" role="dialog" aria-label="Ask about Ansh">
+    <div class="box glass">
+      <h3>Ask about Ansh</h3>
+      <p class="hint">Instant answers verified against GitHub &amp; LinkedIn records.</p>
+      <div id="cl"></div>
+      <div class="chips"><button class="chip" type="button">What has he built with AI?</button><button class="chip"
+          type="button">Is he strong in backend?</button><button class="chip" type="button">What is he learning
+          now?</button><button class="chip" type="button">Tell me about his internships</button><button class="chip"
+          type="button">How can I contact Ansh?</button></div>
+      <form id="cf"><input id="ci" placeholder="Ask about his projects, skills or experience" autocomplete="off"><button
+          class="btn" type="submit">Ask</button></form>
+    </div>
+  </div>
+
+  <script>
+    const G = "https://github.com/Anshrastogi05", $ = s => document.querySelector(s);
+    const roles = ["Full-Stack Developer", "AI Engineer", "Backend Architect", "Cloud-Native Builder", "NIT Jalandhar"];
+    const built = [["Real-time event management systems", "Payments, notifications, role-based access control"], ["AI-powered CRM platforms", "Workflow automation and intelligent task orchestration"], ["AI-driven fraud detection", "Explainable ML with production deployment"], ["Deep packet inspection engine", "High-performance network traffic analysis"], ["Customer analytics dashboards", "Business intelligence with Power BI and Elasticsearch"]];
+    const jobs = [["AI Full-Stack Intern", "Lovers.Ai", "Built AI-powered wedding planning features with workflow automation, intelligent task orchestration and real-time collaboration tools.", ["React.js", "Node.js", "OpenAI API", "AI Agents"], 1],
+    ["Full-Stack Developer Intern", "UBNext", "Developed production-ready web apps on a scalable backend, with real-time features, API integrations and database optimization.", ["Next.js", "PostgreSQL", "Redis", "Docker"]],
+    ["Backend Developer Intern", "QSkills", "Built and maintained REST APIs, implemented authentication and improved performance with Redis caching.", ["Express.js", "MongoDB", "JWT", "REST APIs"]],
+    ["Data Analyst Intern", "Edulyt India", "Analysed large datasets with Python and Power BI, and built interactive dashboards and automated reporting.", ["Python", "Power BI", "Pandas", "NumPy"]],
+    ["Frontend Developer Intern", "AD Infocom Pvt. Ltd.", "Built responsive UI components and landing pages, turning Figma designs into React.", ["React.js", "Tailwind CSS", "Figma"]]];
+    const P = [
+      { t: "VideoLens — Video Intelligence & RAG", k: "AI · Video RAG", i: "🎥", c: "#ec4899", d: "AI assistant turning YouTube videos and recordings into searchable structured summaries, action items, key decisions, and conversational Q&A.", s: ["Python", "Streamlit", "Whisper", "LangChain", "RAG"], b: [["Whisper transcription:", "local audio extraction and high-fidelity speech-to-text."], ["Vector knowledge base:", "chunked semantic indexing with conversational Q&A chat."], ["Action item extraction:", "automated key decisions, timestamps, and executive summaries."]], l: [["Code", G + "/Video-Lens"]] },
+      { t: "EventManager — Real-Time Ticketing", k: "Full-Stack · Real-Time", i: "🎫", c: "#3b82f6", d: "Full-stack event discovery, booking, and QR-coded PDF ticketing platform with organizer dashboards, participant analytics, and live Socket.IO check-ins.", s: ["React", "Node.js", "Express", "MongoDB", "Socket.io"], b: [["QR ticketing & PDF:", "dynamic cryptographic QR codes on downloadable PDF passes."], ["Socket.IO live check-ins:", "instant real-time gate scanner and attendee verification."], ["Organizer analytics:", "event lifecycle management, participant CSV export, and reviews."]], l: [["Code", G + "/Event-management-system"], ["Demo", "https://event-management-system-main-xi.vercel.app", 1]] },
+      { t: "TrustGuard — AI Fraud Detection", k: "AI / ML · Security", i: "🛡️", c: "#ef4444", d: "AI-driven fraud detection platform using explainable machine learning, deployed with FastAPI for real-time scoring, SHAP telemetry, and live analytics.", s: ["Python", "scikit-learn", "FastAPI", "SHAP", "React"], b: [["Explainable AI (XAI):", "real-time SHAP attributions explaining risk reason codes per event."], ["Sub-50ms inference:", "asynchronous FastAPI microservice optimized for high throughput."], ["Imbalanced data:", "SMOTE synthesis and ensemble bagging to catch rare fraud vectors."]], l: [["Code", G + "/TrustGuard"], ["Demo", "https://trust-guard-zeta.vercel.app", 1]] },
+      { t: "FleetOps — Smart Transport Logistics", k: "Enterprise · Logistics", i: "🚛", c: "#10b981", d: "Enterprise fleet operations platform digitizing vehicle lifecycle, asset tracking, trip dispatch, safety compliance, and maintenance financial telemetry.", s: ["React 19", "TypeScript", "Node.js", "PostgreSQL", "Prisma 7"], b: [["Asset telemetry:", "centralized vehicle lifecycle, odometer logs, and maintenance tracking."], ["Dispatch engine:", "automated trip dispatching, driver manifests, and route scheduling."], ["Enterprise stack:", "PostgreSQL backed with Prisma 7 and type-safe Oxlint validation."]], l: [["Code", G + "/FleetOps"]] },
+      { t: "Adaptive RAG — Agentic Search & Chat", k: "Agentic AI · LangGraph", i: "🤖", c: "#8b5cf6", d: "Agentic AI chatbot with multi-route adaptive query routing, LangGraph state machine, Qdrant vector database, and self-correcting retrieval.", s: ["Python", "LangGraph", "FastAPI", "Qdrant", "OpenAI"], b: [["Adaptive query routing:", "dynamic intent classifier selecting vector search or web fallback."], ["LangGraph workflow:", "cyclic state machine with self-reflective hallucination grading."], ["Qdrant vector DB:", "high-speed dense vector embeddings with metadata filtering."]], l: [["Code", G + "/Adaptive-Rag-main"]] },
+      { t: "Deep Packet Inspection Engine", k: "Systems · C++", i: "⚡", c: "#06b6d4", d: "High-performance DPI engine for real-time network traffic analysis, designed for gigabit packet processing with zero-copy buffer parsing.", s: ["C++", "Networking", "Systems", "Multi-Threading"], b: [["Zero-copy parsing:", "direct buffer parsing of Ethernet, IP, and TCP packet headers."], ["Protocol fingerprinting:", "heuristic signature matching for L4 through L7 protocols."], ["Lock-free queues:", "multi-threaded ring buffers decoupling packet capture from analysis."]], l: [["Code", G + "/Deep-Packet-Inspection"]] },
+      { t: "Mox-Player — 3D WebGL Music School", k: "Creative · 3D WebGL", i: "🎵", c: "#f59e0b", d: "Animation-driven interactive online music school with 3D WebGL globe, scroll-driven choreographies, dynamic course catalog, and strict TypeScript.", s: ["TypeScript", "React", "Three.js", "WebGL", "Tailwind"], b: [["3D WebGL globe:", "custom shader-driven particle sphere interactive on mouse move."], ["Scroll animations:", "cinematic viewport transitions tied to timeline progress."], ["Strict TypeScript:", "modular component architecture with zero runtime type leaks."]], l: [["Code", G + "/mox-plyer"], ["Demo", "https://mox-plyer.vercel.app", 1]] },
+      { t: "Lovers.Ai CRM — Wedding AI Platform", k: "AI · Full-Stack", i: "💍", c: "#f43f5e", d: "AI-powered CRM and event platform for wedding planners with workflow automation, role-based vendor access, and real-time event notifications.", s: ["React.js", "Node.js", "OpenAI", "Docker"], b: [["AI workflow orchestration:", "scheduling, vendor coordination, and task delegation."], ["Role-based access:", "separate permissions for couples, organizers, and vendors."], ["Real-time updates:", "live sync for budgets, milestones, and RSVPs."]], l: [["Code", G + "/Lover.ai-crm"]] },
+      { t: "CareerSpy — AI Interview Coach", k: "AI · Next.js 16", i: "🕵️", c: "#6366f1", d: "AI interview preparation platform delivering personalized mock interviews, speech analysis, real-time feedback, and dynamic question generation.", s: ["Next.js 16", "React 19", "FastAPI", "Python", "Tailwind"], b: [["Speech analysis:", "audio evaluation measuring clarity, pace, and response structure."], ["Dynamic questions:", "LLM interview generation customized for job description and level."], ["Real-time feedback:", "constructive scoring on delivery, technical depth, and confidence."]], l: [["Code", G + "/CareerSpy"]] }];
+    const S = [["⌨️", "rgba(34,197,94,.15)", "Languages", ["C++", "Python", "JavaScript", "TypeScript", "SQL", "C"]], ["🎨", "rgba(59,130,246,.15)", "Frontend", ["React.js", "Next.js", "Tailwind CSS", "Redux", "Vue.js"]], ["⚙️", "rgba(234,179,8,.15)", "Backend", ["Node.js", "Express.js", "FastAPI", "Socket.io", "REST APIs"]], ["🗄️", "rgba(168,85,247,.15)", "Databases", ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Elasticsearch"]], ["🤖", "rgba(236,72,153,.15)", "AI & Data", ["OpenAI API", "LLM Integration", "scikit-learn", "Pandas", "Power BI"]], ["☁️", "rgba(6,182,212,.15)", "Cloud & DevOps", ["Docker", "Kubernetes", "AWS", "GitHub Actions", "CI/CD"]]];
+    const pl = a => a.map(x => `<span class="pill">${x}</span>`).join("");
+
+    $(".built").innerHTML = built.map(b => `<div class="glass tilt"><div class="fl"></div><span class="dot"></span><div><b>${b[0]}</b><span>${b[1]}</span></div></div>`).join("");
+    $("#tl").innerHTML = jobs.map(j => `<div class="job reveal"><div class="glass tilt"><div class="fl"></div>${j[4] ? '<span class="new">Recent</span>' : ''}<h3>${j[0]}</h3><div class="co">${j[1]}</div><p>${j[2]}</p><div class="pills">${pl(j[3])}</div></div></div>`).join("");
+    $("#pg").innerHTML = P.map(p => {
+      const a = p.l.map(l => `<a href="${l[1]}" target="_blank" rel="noopener"${l[2] ? ' class="live"' : ''}>${l[0]}${l[2] ? ' ↗' : ''}</a>`).join("");
+      return `<div class="flip tilt reveal" style="--c:${p.c}"><div class="fin">
+<div class="face front glass"><div class="fl"></div><div class="cover"><span>${p.i}</span><span class="tag">${p.k}</span><button class="fb" type="button">Flip ↻</button></div>
+<div class="pbody"><div><h3>${p.t}</h3><p>${p.d}</p></div><div><div class="pills">${pl(p.s)}</div><div class="acts">${a}<button class="fb" type="button">Details ↻</button></div></div></div></div>
+<div class="face back glass"><div class="fl"></div><div><div class="bh"><span><i class="dot"></i>Architecture &amp; highlights</span><button class="fb" type="button" aria-label="Flip back">✕</button></div>
+<h4 style="margin-top:14px">${p.t}</h4><ul>${p.b.map(b => `<li><div><b>${b[0]}</b> ${b[1]}</div></li>`).join("")}</ul></div>
+<div><div class="pills">${pl(p.s)}</div><div class="acts">${a}<button class="fb" type="button">↺ Flip back</button></div></div></div></div></div>`
+    }).join("");
+    $("#sg").innerHTML = S.map(s => `<div class="glass tilt card reveal"><div class="fl"></div><h3><span class="ic" style="--ic:${s[1]}">${s[0]}</span>${s[2]}</h3><div class="pills">${pl(s[3])}</div></div>`).join("");
+    const tech = ["React", "Next.js", "Node.js", "FastAPI", "Python", "C++", "TypeScript", "PostgreSQL", "Redis", "MongoDB", "Docker", "Kubernetes", "AWS", "OpenAI API", "RAG", "scikit-learn"];
+    $("#mq").innerHTML = [...tech, ...tech].map(t => `<span>${t}</span>`).join("");
+
+    // typewriter
+    let ri = 0, ci = 0, del = 0; const rl = $("#role"); (function tw() {
+      const w = roles[ri]; ci += del ? -1 : 1; rl.textContent = w.slice(0, ci); let t = del ? 45 : 90;
+      if (!del && ci === w.length) { t = 1800; del = 1 } else if (del && ci === 0) { del = 0; ri = (ri + 1) % roles.length; t = 300 } setTimeout(tw, t)
+    })();
+
+    // reveal, counters, active nav
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vis"); io.unobserve(e.target) } }), { threshold: .1, rootMargin: "0px 0px -50px" });
+    document.querySelectorAll(".reveal").forEach(e => io.observe(e));
+    document.querySelectorAll("[data-n]").forEach(el => { const n = +el.dataset.n, s = el.dataset.s; let v = 0; const id = setInterval(() => { v = Math.min(n, v + Math.max(1, n / 30)); el.textContent = Math.round(v) + s; if (v >= n) clearInterval(id) }, 40) });
+    const links = [...document.querySelectorAll(".ls a")];
+    const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => l.classList.toggle("on", l.getAttribute("href") === "#" + e.target.id)) }), { rootMargin: "-45% 0px -50%" });
+    document.querySelectorAll("section.sec").forEach(s => so.observe(s));
+    const pg = $("#prog"); addEventListener("scroll", () => { pg.style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - innerHeight || 1)})` }, { passive: true });
+
+    // 3D tilt + moving flapper flare (mouse & touch), flip on click
+    document.querySelectorAll(".tilt").forEach(el => {
+      const max = el.classList.contains("flip") ? 10 : 7;
+      const onMove = e => {
+        const pt = e.touches && e.touches[0] ? e.touches[0] : e;
+        const r = el.getBoundingClientRect(), x = pt.clientX - r.left, y = pt.clientY - r.top;
+        el.classList.add("hot"); el.style.setProperty("--fx", x + "px"); el.style.setProperty("--fy", y + "px"); el.style.setProperty("--fo", 1);
+        el.style.setProperty("--ry", ((x / r.width - .5) * 2 * max).toFixed(2) + "deg"); el.style.setProperty("--rx", (-(y / r.height - .5) * 2 * max).toFixed(2) + "deg");
+      };
+      const onEnd = () => { el.classList.remove("hot"); ["--fo", "--rx", "--ry"].forEach(v => el.style.setProperty(v, v === "--fo" ? 0 : "0deg")) };
+      el.addEventListener("pointermove", onMove);
+      el.addEventListener("pointerleave", onEnd);
+      el.addEventListener("pointercancel", onEnd);
+      el.addEventListener("touchmove", onMove, { passive: true });
+      el.addEventListener("touchend", onEnd, { passive: true });
+      if (el.classList.contains("flip")) el.addEventListener("click", e => { if (e.target.closest("a")) return; el.classList.toggle("on") })
+    });
+
+
+  </script>
+  <script>
+    (() => {
+      const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)], RM = matchMedia("(prefers-reduced-motion:reduce)").matches;
+      const toast = t => { const d = document.createElement("div"); d.className = "toast"; d.textContent = t; document.body.append(d); setTimeout(() => d.remove(), 2600) };
+      const RES = "/_blob/66fe6ec30c6c9425dcdbe4894c751ef5"; $("#rs").href = RES;
+      const tf = new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", hour12: true }), tk = () => { $("#clk").textContent = tf.format(new Date()).toUpperCase() + " IST" }; tk(); setInterval(tk, 15000);
+      // architecture flows on card backs
+      const FL = [
+        ["Media Ingest", "Whisper STT", "Vector RAG", "Chat UI"],
+        ["Discovery", "QR Tickets", "Socket.IO", "Live Check-in"],
+        ["Event Stream", "FastAPI", "Ensemble ML", "SHAP Telemetry"],
+        ["Telemetry", "Prisma ORM", "Dispatch Engine", "Real-Time UI"],
+        ["User Query", "Route Classifier", "Qdrant Search", "LangGraph Loop"],
+        ["NIC Capture", "Ring Buffer", "Zero-Copy Parser", "Protocol Match"],
+        ["WebGL Shaders", "Audio Engine", "Scroll Timeline", "React 19"],
+        ["Planner UI", "Node API", "OpenAI Agent", "Live Events"],
+        ["Audio Stream", "FastAPI Engine", "LLM Evaluation", "Feedback UI"]
+      ];
+      $$(".flip").forEach((f, i) => { if (FL[i]) { const d = document.createElement("div"); d.className = "flow"; d.innerHTML = FL[i].map(x => `<span>${x}</span>`).join("<i></i>"); const ul = f.querySelector(".back ul"); if (ul) ul.after(d) } });
+      // three.js network globe (no rings), loaded after the page so it never blocks first paint
+      const gc = $("#globe");
+      const initGlobe = () => {
+        const T = THREE, rd = new T.WebGLRenderer({ canvas: gc, alpha: true, antialias: true }), sc = new T.Scene(), cam = new T.PerspectiveCamera(45, 1, .1, 100), grp = new T.Group(), N = 150, pp = [];
+        cam.position.z = 4.2; rd.setPixelRatio(Math.min(devicePixelRatio || 1, 2)); sc.add(grp);
+        for (let i = 0; i < N; i++) { const y = 1 - 2 * (i + .5) / N, r = Math.sqrt(1 - y * y), a = i * 2.39996; pp.push(new T.Vector3(Math.cos(a) * r, y, Math.sin(a) * r)) }
+        grp.add(new T.Points(new T.BufferGeometry().setFromPoints(pp), new T.PointsMaterial({ color: 0xa7f3d0, size: .05, transparent: true, opacity: .95 })));
+        const ls = []; for (let i = 0; i < N; i++)for (let j = i + 1; j < N; j++)if (pp[i].distanceTo(pp[j]) < .4) ls.push(pp[i], pp[j]);
+        grp.add(new T.LineSegments(new T.BufferGeometry().setFromPoints(ls), new T.LineBasicMaterial({ color: 0x22c55e, transparent: true, opacity: .4 })));
+        grp.add(new T.Mesh(new T.SphereGeometry(.96, 32, 32), new T.MeshBasicMaterial({ color: 0x052e16, transparent: true, opacity: .6 })));
+        let mx = 0, my = 0, vis = true, t = 0;
+        const fit = () => { const w = gc.clientWidth, h = gc.clientHeight; if (!w || !h) return; rd.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix() }; fit(); addEventListener("resize", fit);
+        addEventListener("pointermove", e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
+        new IntersectionObserver(e => vis = e[0].isIntersecting).observe(gc);
+        (function loop() {
+          requestAnimationFrame(loop); if (!vis) return; if (!RM) t += .01;
+          grp.rotation.y += ((t * .35 + mx * 1.2) - grp.rotation.y) * .08; grp.rotation.x += (my * .7 - grp.rotation.x) * .06; rd.render(sc, cam)
+        })()
+      };
+      const ts = document.createElement("script"); ts.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"; ts.async = true; ts.onload = initGlobe;
+      addEventListener("load", () => document.head.append(ts));
+      // magnetic ring cursor
+      const ring = document.createElement("div"); ring.id = "ring"; document.body.append(ring); let rx = 0, ry = 0, px = 0, py = 0;
+      addEventListener("pointermove", e => {
+        if (e.pointerType !== "mouse") return;
+        px = e.clientX; py = e.clientY;
+        if (document.body.classList.contains("has-overlay") || (e.target.closest && e.target.closest(".ov, .box, input, textarea, button"))) {
+          ring.style.opacity = 0;
+          return;
+        }
+        ring.style.opacity = 1;
+        ring.classList.toggle("big", !!(e.target.closest && e.target.closest("a,button,.flip,li,.av")));
+      });
+      (function r() { rx += (px - rx) * .18; ry += (py - ry) * .18; ring.style.transform = `translate(${rx}px,${ry}px)`; requestAnimationFrame(r) })();
+      // magnetic buttons
+      $$(".btn,.ghost,.fab").forEach(b => { b.addEventListener("pointermove", e => { if (e.pointerType !== "mouse") return; const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .22}px,${(e.clientY - r.top - r.height / 2) * .32}px)` }); b.addEventListener("pointerleave", () => b.style.transform = "") });
+      // scroll-driven glow colour
+      const gl = $("#glow"), H = { about: 195, experience: 265, projects: 150, leadership: 300, skills: 35 };
+      const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) gl.style.setProperty("--gh", H[e.target.id] || 140) }), { rootMargin: "-45% 0px -50%" }); $$("section").forEach(s => so.observe(s));
+      // overlays
+      const show = id => {
+        close();
+        document.body.classList.add("has-overlay");
+        if (ring) ring.style.opacity = 0;
+        $(id).classList.add("on");
+        const i = $(id).querySelector("input");
+        if (i) setTimeout(() => i.focus(), 30);
+      };
+      const close = () => {
+        document.body.classList.remove("has-overlay");
+        $$(".ov").forEach(o => o.classList.remove("on"));
+      };
+      $$(".ov").forEach(o => o.addEventListener("pointerdown", e => { if (e.target === o) close() }));
+      $("#fc").onclick = () => show("#chat");
+      if ($(".av")) $(".av").onclick = () => show("#hire");
+      if ($("#btnHire")) $("#btnHire").onclick = () => show("#hire");
+      if ($("#closeHire")) $("#closeHire").onclick = () => close();
+      if ($("#hireCopy")) $("#hireCopy").onclick = () => {
+        navigator.clipboard && navigator.clipboard.writeText("rastogiansh13@gmail.com").then(() => {
+          toast("Email copied to clipboard!");
+          const el = $("#hireEmailVal");
+          if (el) { const old = el.textContent; el.textContent = "Copied to clipboard! ✓"; setTimeout(() => el.textContent = old, 2000); }
+        }, () => toast("rastogiansh13@gmail.com"));
+      };
+      if ($("#hireGMeet")) $("#hireGMeet").onclick = () => {
+        toast("Opening Google Meet for discussion with Ansh...");
+      };
+      // command palette
+      const jump = h => { close(); $(h).scrollIntoView({ behavior: RM ? "auto" : "smooth" }) };
+      const acts = [["Open resume", () => { close(); window.open(RES, "_blank", "noopener") }], ["Go to About", () => jump("#about")], ["Go to Leadership", () => jump("#leadership")], ["Go to Experience", () => jump("#experience")], ["Go to Projects", () => jump("#projects")], ["Go to Skills", () => jump("#skills")], ["Go to Contact", () => jump("#contact")], ["Ask Ansh (AI chat)", () => show("#chat")], ["Open terminal", () => show("#term")], ["Play tic-tac-toe", () => show("#game")], ["Copy email address", () => { close(); navigator.clipboard && navigator.clipboard.writeText("rastogiansh13@gmail.com").then(() => toast("Email copied"), () => toast("rastogiansh13@gmail.com")) }], ["Open GitHub", () => { close(); window.open(G, "_blank", "noopener") }]];
+      let sel = 0, list = acts; const paint = () => { $("#pl").innerHTML = list.map((a, i) => `<li class="${i === sel ? "s" : ""}" data-i="${i}">${a[0]}</li>`).join("") || "<li>No match</li>" };
+      const filt = q => { list = acts.filter(a => a[0].toLowerCase().includes(q.toLowerCase())); sel = 0; paint() };
+      $("#pi").addEventListener("input", e => filt(e.target.value));
+      $("#pi").addEventListener("keydown", e => { if (e.key === "ArrowDown") { sel = Math.min(list.length - 1, sel + 1); paint(); e.preventDefault() } else if (e.key === "ArrowUp") { sel = Math.max(0, sel - 1); paint(); e.preventDefault() } else if (e.key === "Enter" && list[sel]) list[sel][1]() });
+      $("#pl").addEventListener("click", e => { const li = e.target.closest("li[data-i]"); if (li) list[li.dataset.i][1]() });
+      addEventListener("keydown", e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); $("#pi").value = ""; filt(""); show("#pal") } else if (e.key === "Escape") close() });
+      // terminal
+      const to = $("#to"), ti = $("#ti"); const say = (t, c) => { const d = document.createElement("div"); d.textContent = t; if (c) d.className = c; to.append(d); to.scrollTop = to.scrollHeight };
+      say("Ansh’s terminal. Type help.", "m");
+      const CM = { help: () => "Commands: about, experience, projects, skills, contact, play, ask <question>, clear, exit", about: () => "Ansh Rastogi. B.Tech at NIT Jalandhar. Full-stack and AI engineer based in Noida.", experience: () => jobs.map(j => j[0] + " at " + j[1]).join("\n"), projects: () => P.map(p => "• " + p.t.split(" — ")[0] + " (" + p.k + ")").join("\n"), skills: () => S.map(s => s[2] + ": " + s[3].join(", ")).join("\n"), contact: () => "rastogiansh13@gmail.com\nlinkedin.com/in/anshrastogi23\ngithub.com/Anshrastogi05", whoami: () => "a visitor about to meet a good engineer", play: () => { show("#game"); return "" }, exit: () => { close(); return "" }, clear: () => { to.innerHTML = ""; return "" }, sudo: () => "Permission granted. Offer letter drafted. Send it to rastogiansh13@gmail.com" };
+      ti.addEventListener("keydown", e => { if (e.key !== "Enter") return; const v = ti.value.trim(); ti.value = ""; say("$ " + v, "u"); const [c, ...r] = v.split(" "); if (c === "ask") { show("#chat"); $("#ci").value = r.join(" "); return } const f = CM[c]; const o = f ? f() : c ? "command not found: " + c + ". Try help." : ""; if (o) say(o) });
+      // tic-tac-toe vs a simple bot
+      const bd = $("#bd"), gs = $("#gs"), WL = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]; let cells, over;
+      const won = m => WL.some(l => l.every(i => cells[i] === m));
+      const reset = () => { cells = Array(9).fill(""); over = 0; gs.textContent = "Your move (X)"; bd.innerHTML = cells.map((_, i) => `<button type="button" data-i="${i}" aria-label="Cell ${i + 1}"></button>`).join("") };
+      const put = (i, m) => { cells[i] = m; bd.children[i].textContent = m };
+      const pick = () => { const e = cells.map((v, i) => v ? -1 : i).filter(i => i >= 0), t = m => e.find(i => { cells[i] = m; const w = won(m); cells[i] = ""; return w }); let k = t("O"); if (k === undefined) k = t("X"); if (k === undefined) k = cells[4] ? e[Math.random() * e.length | 0] : 4; return k };
+      bd.addEventListener("click", e => { const i = +e.target.dataset.i; if (over || isNaN(i) || cells[i]) return; put(i, "X"); if (won("X")) { over = 1; gs.textContent = "You win!"; return } if (cells.every(Boolean)) { over = 1; gs.textContent = "Draw"; return } put(pick(), "O"); if (won("O")) { over = 1; gs.textContent = "The bot wins" } else if (cells.every(Boolean)) { over = 1; gs.textContent = "Draw" } });
+      $("#gr").onclick = reset; reset();
+      // Ask Ansh chat, powered by verified GitHub & LinkedIn knowledge engine + Groq RAG
+      const cl = $("#cl"), ci = $("#ci"), msg = (t, c) => { const d = document.createElement("div"); d.className = "msg " + c; d.textContent = t; cl.append(d); cl.scrollTop = cl.scrollHeight; return d };
+      msg("Hi! I'm Ansh's portfolio AI assistant. Ask me anything about his AI platforms, backend architecture, internships, or tech stack — or tap a prompt below!", "bot");
+
+      function answerQuery(q) {
+        const s = q.toLowerCase().trim();
+        const test = re => re.test(s);
+
+        if (test(/\b(contact|email|reach|phone|touch|message|write to)\b/i)) {
+          return "You can get in touch with Ansh directly:\n\n• Email: rastogiansh13@gmail.com\n• LinkedIn: linkedin.com/in/anshrastogi23\n• GitHub: github.com/Anshrastogi05\n• Resume: Available via the 'Resume' button in the top navigation.";
+        }
+        if (test(/\b(resume|cv)\b/i)) {
+          return "Ansh's resume is available directly from the navigation bar button ('Resume') or by emailing him at rastogiansh13@gmail.com.";
+        }
+        if (test(/\b(github|repos|repositories)\b/i) && !test(/\b(what|tell|project|built)\b/i)) {
+          return "Explore Ansh's code and 31+ open-source repositories on GitHub at https://github.com/Anshrastogi05.";
+        }
+        if (test(/\blinkedin\b/i)) {
+          return "Connect with Ansh professionally on LinkedIn at https://www.linkedin.com/in/anshrastogi23.";
+        }
+
+        // Specific Projects
+        if (test(/\b(videolens|video-lens|video lens)\b/i)) {
+          return "VideoLens is an AI video intelligence platform built with Python, Streamlit, OpenAI Whisper, and LangChain. It transcribes audio from YouTube or uploaded recordings locally, indexes transcript chunks into a semantic vector store, and provides conversational Q&A with timestamped action-item extraction.";
+        }
+        if (test(/\b(eventmanager|event management|ticketing|qr ticket)\b/i)) {
+          return "EventManager is a full-stack real-time ticketing platform built with React, Node.js, Express, MongoDB, and Socket.IO. It features encrypted QR-coded PDF ticket generation, live gate check-in scanners with instant WebSocket verification, organizer revenue analytics, and CSV attendee export. (Live demo available!)";
+        }
+        if (test(/\b(trustguard|fraud|shap)\b/i)) {
+          return "TrustGuard is an explainable AI fraud detection system powered by scikit-learn, FastAPI, SHAP, and React. It achieves sub-50ms inference, tackles imbalanced transaction datasets using SMOTE synthesis and ensemble bagging, and renders real-time SHAP feature attributions explaining exactly why a transaction was flagged.";
+        }
+        if (test(/\b(fleetops|fleet|logistics|transport)\b/i)) {
+          return "FleetOps is an enterprise logistics and transport management platform built with React 19, TypeScript, Node.js, PostgreSQL, and Prisma 7. It digitizes asset lifecycle tracking, maintenance telematics, driver dispatching, safety compliance, and route schedules.";
+        }
+        if (test(/\b(adaptive rag|langgraph|qdrant)\b/i)) {
+          return "Adaptive RAG is an agentic AI system combining LangGraph, FastAPI, and Qdrant. It features dynamic query routing that classifies user intent, routes queries to dense vector search or live web search, and applies self-reflective hallucination grading to ensure factual, high-confidence responses.";
+        }
+        if (test(/\b(packet inspection|dpi|deep packet|networking)\b/i)) {
+          return "Deep Packet Inspection (DPI) Engine is a high-performance C++ network traffic analysis tool. Designed for gigabit streams, it uses zero-copy buffer parsing across Ethernet, IP, and TCP headers, heuristic L4-L7 protocol fingerprinting, and lock-free ring buffers to decouple packet capture from analysis.";
+        }
+        if (test(/\b(mox|mox-player|music school|webgl|three\.?js)\b/i)) {
+          return "Mox-Player is an animation-driven interactive 3D WebGL music school platform built with TypeScript, React, and Three.js. It features a custom interactive particle sphere, scroll-choreographed transitions, and strict type safety with a live demo deployed on Vercel.";
+        }
+        if (test(/\b(lovers\.?ai|lovers|wedding)\b/i)) {
+          return "Lovers.Ai CRM is an AI-powered wedding planning and event management platform built with React.js, Node.js, OpenAI API, and Docker. It automates scheduling and vendor coordination with role-based access for couples, organizers, and vendors with real-time budget and RSVP sync.";
+        }
+        if (test(/\b(careerspy|career spy|interview coach|mock interview)\b/i)) {
+          return "CareerSpy is an AI interview coaching platform built with Next.js 16, React 19, FastAPI, and Python. It delivers personalized mock interviews with audio speech clarity analysis, dynamic LLM-generated questions tailored to job descriptions, and constructive scoring.";
+        }
+
+        // Chip 1: AI & ML Projects
+        if (test(/\b(built.*with.*ai|ai.*projects?|artificial intelligence|machine learning|\bml\b|llm|rag|whisper|shap|gpt)\b/i) ||
+            (test(/\bai\b/i) && test(/\b(built|projects?|work|do|done|what|portfolio)\b/i))) {
+          return "Ansh has architected multiple production-grade AI & ML systems:\n\n• Adaptive RAG: Agentic AI chatbot using LangGraph cyclic state machines and a Qdrant vector database.\n• VideoLens: Video intelligence assistant with Whisper speech-to-text, LangChain semantic chunking, and conversational Q&A.\n• TrustGuard: Explainable fraud detection platform with sub-50ms FastAPI inference, SMOTE rebalancing, and live SHAP risk attributions.\n• Lovers.Ai CRM: AI-driven wedding platform orchestrating autonomous workflows, task scheduling, and vendor coordination.\n• CareerSpy: AI mock interview coach featuring speech clarity analysis and real-time LLM question generation.";
+        }
+
+        // Chip 2: Backend Architecture
+        if (test(/\b(strong.*in.*backend|backend.*strong|good.*at.*backend)\b/i) ||
+            (test(/\bbackend\b/i) && !test(/\bfrontend\b/i))) {
+          return "Yes, backend architecture is one of Ansh's primary strengths:\n\n• High-Performance APIs: Built high-throughput microservices in FastAPI, Node.js, and Express with JWT auth, rate limiting, and Redis caching.\n• Low-Level Systems: Engineered a C++ Deep Packet Inspection engine with zero-copy packet parsing and lock-free ring buffers for gigabit network streams.\n• Real-Time WebSockets: Implemented bi-directional event pipelines with Socket.IO in EventManager for live gate check-in verification.\n• Production Databases: Extensive experience with PostgreSQL (Prisma 7), MongoDB, and Redis caching across internships at UBNext and QSkills.";
+        }
+
+        // Chip 3: Current learning / focus
+        if (test(/\b(learning.*now|currently.*learning|exploring|current.*focus|future.*interest|what.*studying)\b/i)) {
+          return "Ansh is currently exploring and advancing his expertise in:\n\n• Agentic AI Workflows: Autonomous multi-agent coordination with LangGraph, tool-calling, and cyclic self-reflection.\n• Advanced RAG Architectures: Adaptive multi-route query classification, hybrid dense/sparse vector search, and reranking pipelines.\n• Distributed Systems: Scalable pub-sub architectures, event-driven microservices, and fault-tolerant cloud deployments.\n• Cloud-Native DevOps: Advanced Kubernetes orchestration, container networking, and automated CI/CD deployment pipelines.";
+        }
+
+        // Specific Company Internships (handled BEFORE generic internships overview)
+        if (test(/\b(ub\s*next|ubnext|uv\s*next|uvnext)\b/i)) {
+          return "At UBNext, Ansh worked as a Full-Stack Developer Intern:\n\n" +
+            "• Scalable Production Backend: Built production-ready web apps on a scalable Next.js and Node.js architecture.\n" +
+            "• Database Performance: Engineered and optimized PostgreSQL schemas and integrated Prisma ORM for type-safe database queries.\n" +
+            "• Low-Latency Caching: Implemented Redis caching layers to cut database query latency and handle high-throughput traffic.\n" +
+            "• Real-Time Integrations: Developed real-time features and third-party REST API integrations for logistics/supply-chain tools.\n" +
+            "• Containerization: Dockerized local development and staging environments for seamless CI/CD.\n" +
+            "• Core Tech Stack: Next.js, PostgreSQL, Redis, Docker, TypeScript, REST APIs.";
+        }
+        if (test(/\b(lovers|lovers\.?ai|wedding)\b/i) && !test(/\bcrm\b/i)) {
+          return "At Lovers.Ai, Ansh worked as an AI Full-Stack Intern:\n\n" +
+            "• AI Workflow Orchestration: Architected automated wedding planning workflows with intelligent task delegation and AI agent coordination.\n" +
+            "• Full-Stack Integration: Integrated OpenAI APIs with a React frontend and Node.js backend.\n" +
+            "• Real-Time Sync: Implemented live updates for budgets, milestone tracking, and RSVP management.\n" +
+            "• Core Tech Stack: React.js, Node.js, OpenAI API, AI Agents, Docker.";
+        }
+        if (test(/\b(qskills|q\s*skills)\b/i)) {
+          return "At QSkills, Ansh worked as a Backend Developer Intern:\n\n" +
+            "• API Architecture: Built and maintained high-throughput REST APIs using Express.js and MongoDB.\n" +
+            "• Auth & Security: Implemented secure role-based JWT authentication and token refresh lifecycles.\n" +
+            "• Performance: Optimized server response latency by establishing Redis caching strategies.\n" +
+            "• Core Tech Stack: Express.js, MongoDB, Redis, JWT, REST APIs, Node.js.";
+        }
+        if (test(/\b(edulyt|edulyt\s*india)\b/i)) {
+          return "At Edulyt India, Ansh served as a Data Analyst Intern:\n\n" +
+            "• Data Analytics: Analyzed high-volume transaction datasets using Python, Pandas, and NumPy.\n" +
+            "• Business Intelligence: Designed interactive executive dashboards and automated report pipelines in Power BI.\n" +
+            "• Insights & Segmentation: Extracted actionable customer behavior trends and business telemetry.\n" +
+            "• Core Tech Stack: Python, Power BI, Pandas, NumPy, Data Analytics.";
+        }
+        if (test(/\b(ad\s*infocom|adinfocom)\b/i)) {
+          return "At AD Infocom Pvt. Ltd., Ansh worked as a Frontend Developer Intern:\n\n" +
+            "• UI Engineering: Translated complex Figma design specifications into accessible, pixel-perfect React.js components.\n" +
+            "• Styling & Responsiveness: Built modern, responsive interfaces styled with Tailwind CSS.\n" +
+            "• Core Tech Stack: React.js, Tailwind CSS, JavaScript, Figma.";
+        }
+
+        // Generic Internships Overview (triggered only if no specific company is named)
+        if (test(/\b(internships?|experiences?|work experience|jobs?|companies|where did he work|where has he worked)\b/i)) {
+          return "Ansh has completed 5 professional internships:\n\n• Lovers.Ai (AI Full-Stack Intern): Built AI-powered wedding planning features, workflow automation, and real-time collaboration tools (React, Node, OpenAI).\n• UBNext (Full-Stack Developer Intern): Developed scalable production web apps with real-time features, API integrations, and database optimization (Next.js, PostgreSQL, Redis, Docker).\n• QSkills (Backend Developer Intern): Built and maintained REST APIs, implemented JWT authentication, and optimized performance via Redis caching (Express, MongoDB).\n• Edulyt India (Data Analyst Intern): Analyzed large datasets with Python and Power BI, creating automated reporting dashboards (Pandas, NumPy, Power BI).\n• AD Infocom (Frontend Developer Intern): Turned Figma designs into responsive, high-performance React components (React, Tailwind CSS).";
+        }
+
+        // General Projects Overview
+        if (test(/\b(projects?|portfolio|what did he build|what has he built|list projects)\b/i)) {
+          return "Ansh has built 9 featured projects across 4 key engineering domains:\n\n1. AI & RAG: Adaptive RAG (LangGraph + Qdrant), VideoLens (Whisper + LangChain), TrustGuard (XAI Fraud Detection), CareerSpy (AI Interview Coach).\n2. Full-Stack & Real-Time: EventManager (QR Ticketing + WebSockets), Lovers.Ai CRM (AI Event Management).\n3. Enterprise & Systems: FleetOps (React 19 + PostgreSQL + Prisma 7), Deep Packet Inspection Engine (C++ Gigabit Parsing).\n4. Creative & 3D: Mox-Player (Interactive 3D WebGL Music School).";
+        }
+
+        // Skills & Tech Stack
+        if (test(/\b(skills?|tech stack|technologies|tools?|what does he know|what can he do)\b/i)) {
+          return "Ansh's technical repertoire spans full-stack, AI, and systems engineering:\n\n• Languages: C++, Python, JavaScript, TypeScript, SQL, C\n• Frontend: React.js, Next.js, Tailwind CSS, Redux, Vue.js\n• Backend: Node.js, Express.js, FastAPI, Socket.IO, REST APIs\n• Databases: PostgreSQL, MongoDB, Redis, MySQL, Elasticsearch\n• AI & ML: OpenAI API, LangGraph, LangChain, Whisper, SHAP, scikit-learn, Pandas\n• Cloud & DevOps: Docker, Kubernetes, AWS, GitHub Actions, CI/CD pipelines.";
+        }
+
+        if (test(/\b(languages?|c\+\+|python|typescript|javascript|\bc\b)\b/i)) {
+          return "Ansh is proficient in C++, Python, TypeScript, JavaScript, SQL, and C. He uses C++ for low-level systems programming (e.g., Deep Packet Inspection), Python for AI/ML and FastAPI backends, and TypeScript/JavaScript for modern full-stack web applications.";
+        }
+        if (test(/\b(frontend|react|next\.?js|nextjs|tailwind|ui|vue)\b/i)) {
+          return "On the frontend, Ansh specializes in React.js and Next.js (including React 19 and Next.js 16). He builds responsive, high-performance interfaces styled with Tailwind CSS, state management with Redux, and interactive 3D WebGL experiences with Three.js.";
+        }
+        if (test(/\b(databases?|postgres|postgresql|mongodb|redis|mysql|elasticsearch|prisma)\b/i)) {
+          return "Ansh has hands-on production experience with PostgreSQL (Prisma 7 ORM), MongoDB, Redis (caching and pub/sub), MySQL, and Elasticsearch for fast querying and full-text search.";
+        }
+        if (test(/\b(cloud|devops|docker|kubernetes|k8s|aws|ci\/cd|ci cd)\b/i)) {
+          return "In cloud and DevOps, Ansh works with Docker containerization, Kubernetes container orchestration, AWS cloud infrastructure, and automated GitHub Actions CI/CD deployment pipelines.";
+        }
+
+        // Education & College
+        if (test(/\b(education|college|university|degree|nit|jalandhar|btech|b\.?tech|academic|study|graduate|graduation)\b/i)) {
+          return "Ansh is pursuing his B.Tech at Dr. B. R. Ambedkar National Institute of Technology (NIT) Jalandhar, graduating in 2026. He maintains strong academic fundamentals in computer science, data structures, algorithms, and distributed systems.";
+        }
+
+        // Location & Relocation
+        if (test(/\b(location|based|where does he live|where are you based|city|noida|delhi|relocate|relocation)\b/i)) {
+          return "Ansh is based in Noida, India and NIT Jalandhar. He is open to on-site, hybrid, or remote software engineering roles worldwide, including relocation.";
+        }
+
+        // Hiring / Role Availability / Graduation
+        if (test(/\b(hire|hiring|open to|roles?|opportunity|full time|sde|available|when can he join)\b/i)) {
+          return "Ansh is actively open to full-time Software Development Engineer (SDE), Backend Engineer, Full-Stack Developer, and AI Engineer roles for 2026. You can reach out directly via email at rastogiansh13@gmail.com or connect on LinkedIn!";
+        }
+
+        // Achievements, Hackathons & Stats
+        if (test(/\b(achievements?|hackathons?|finalists?|awards?|stats?|how many repos)\b/i)) {
+          return "Key highlights from Ansh's portfolio:\n\n• 4x Hackathon Finalist across national technical competitions.\n• 5+ Professional Internships across AI, full-stack, backend, data, and frontend.\n• 31+ Public GitHub Repositories spanning AI agents, systems programming, and full-stack platforms.";
+        }
+
+        // Greetings & Identity
+        if (test(/\b(hi|hello|hey|who are you|what are you|who is ansh|tell me about yourself|about ansh)\b/i)) {
+          return "Hello! I am Ansh Rastogi's AI portfolio assistant. Ansh is a B.Tech student at NIT Jalandhar (graduating 2026), 4x hackathon finalist, and full-stack & AI engineer with 5+ internships. Ask me about his AI projects, backend architecture, work experience, or tech stack!";
+        }
+
+        // Personal / Out-of-Domain Questions Filter
+        if (test(/\b(height|how tall|tallness|weight|age|how old|birthday|birth date|girlfriend|boyfriend|marital|single|married|religion|caste|salary|net worth|wealth)\b/i)) {
+          return "I don't have personal details such as Ansh's height, age, or private background. As his professional portfolio assistant, I can answer questions about his software engineering projects, internships, technical skills, or how to contact him for engineering roles.";
+        }
+
+        // Fallback search over project tags and descriptions
+        for (const p of P) {
+          const pTitle = p.t.toLowerCase();
+          const pKey = p.k.toLowerCase();
+          const pStack = p.s.join(" ").toLowerCase();
+          if (s.split(/\s+/).some(token => token.length > 2 && (pTitle.includes(token) || pKey.includes(token) || pStack.includes(token)))) {
+            return `Here is information on ${p.t} (${p.k}):\n\n${p.d}\n\n• Tech Stack: ${p.s.join(", ")}\n• Key highlights: ${p.b.map(b => b[0] + " " + b[1]).join(" ")}`;
+          }
+        }
+
+        return "I don't have information about that in Ansh's verified records. You can ask me about his AI systems, backend architecture, his 5 internships, or technical skills — or reach him directly at rastogiansh13@gmail.com.";
+      }
+
+      function getLocalFollowups(q) {
+        const s = q.toLowerCase();
+        if (/\b(ai|ml|rag|whisper|langgraph|videolens|trustguard|careerspy)\b/i.test(s)) {
+          return ["Is he strong in backend?", "Tell me about Lovers.Ai", "Tell me about the UBNext internship"];
+        }
+        if (/\b(backend|database|fastapi|systems|c\+\+|redis|postgres|dpi)\b/i.test(s)) {
+          return ["What has he built with AI?", "What did he do at UBNext?", "Can I hire Ansh for an SDE role?"];
+        }
+        if (/\b(ub\s*next|ubnext|uv\s*next|uvnext)\b/i.test(s)) {
+          return ["Tell me about Lovers.Ai", "What are his top AI projects?", "How can I contact Ansh?"];
+        }
+        if (/\b(internships?|experience|jobs?|lovers|qskills|edulyt|ad\s*infocom)\b/i.test(s)) {
+          return ["Tell me about the UBNext internship", "What has he built with AI?", "Is he open to SDE roles?"];
+        }
+        if (/\b(hire|contact|email|reach|roles?)\b/i.test(s)) {
+          return ["What are his top AI projects?", "Is he strong in backend?", "Where does he study?"];
+        }
+        return ["What has he built with AI?", "Is he strong in backend?", "Tell me about his internships"];
+      }
+
+      function streamResponse(el, fullText, followups) {
+        let i = 0; el.textContent = "";
+        const step = Math.max(1, Math.floor(fullText.length / 90));
+        const timer = setInterval(() => {
+          i = Math.min(fullText.length, i + step);
+          el.textContent = fullText.slice(0, i);
+          cl.scrollTop = cl.scrollHeight;
+          if (i >= fullText.length) {
+            clearInterval(timer);
+            if (followups && followups.length) {
+              const fBox = document.createElement("div");
+              fBox.className = "fup-chips";
+              followups.forEach(f => {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "fup-chip";
+                btn.textContent = f + " ↗";
+                btn.onclick = () => {
+                  ci.value = f;
+                  $("#cf").requestSubmit();
+                };
+                fBox.append(btn);
+              });
+              el.after(fBox);
+              cl.scrollTop = cl.scrollHeight;
+            }
+          }
+        }, 12);
+      }
+
+      async function getAnswerData(q) {
+        // Attempt to connect to local Structured RAG server if active
+        try {
+          const res = await fetch("http://localhost:8000/api/ask", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: q, top_k: 3 }),
+            signal: AbortSignal.timeout ? AbortSignal.timeout(12000) : undefined
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.executive_summary) {
+              let text = data.executive_summary;
+              if (data.detailed_breakdown && data.detailed_breakdown.length) {
+                text += "\n\nHighlights:\n" + data.detailed_breakdown.map(b => "• " + b).join("\n");
+              }
+              if (data.citations && data.citations.length) {
+                text += "\n\nVerified Sources:\n" + data.citations.map(c => `• ${c.source_name}`).join("\n");
+              }
+              const followups = data.suggested_followups && data.suggested_followups.length ? data.suggested_followups : getLocalFollowups(q);
+              return { text, followups };
+            }
+          }
+        } catch (_) {
+          // Local fallback
+        }
+        return { text: answerQuery(q), followups: getLocalFollowups(q) };
+      }
+
+      $$(".chip").forEach(c => c.onclick = () => { ci.value = c.textContent; $("#cf").requestSubmit() });
+      $("#cf").addEventListener("submit", async e => {
+        e.preventDefault(); const q = ci.value.trim(); if (!q) return; ci.value = "";
+        msg(q, "me");
+        const b = msg("Thinking…", "bot");
+        const { text, followups } = await getAnswerData(q);
+        streamResponse(b, text, followups);
+      });
+      // Konami code
+      const K = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; let ki = 0; addEventListener("keydown", e => { ki = e.keyCode === K[ki] ? ki + 1 : 0; if (ki === K.length) { ki = 0; document.body.classList.toggle("mx"); toast("Konami code accepted. Colours shifted.") } });
+    })();
+  </script>
+</body>
+
+</html>
