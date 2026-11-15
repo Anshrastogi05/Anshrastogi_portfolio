@@ -2035,14 +2035,12 @@
     .pc {
       padding: 46px 22px 22px;
       border-top: 3px solid var(--c);
-      background: linear-gradient(160deg, color-mix(in srgb, var(--c) 14%, transparent), var(--glass) 55%) background: linear-gradient(160deg, color-mix(in srgb, var(--c) 14%, transparent), var(--glass) 55%);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
+      background: linear-gradient(160deg, color-mix(in srgb, var(--c) 14%, transparent), var(--glass) 55%);
+      position: relative;
     }
 
     .pc:hover {
-      box-shadow: 0 20px 60px color-mix(in srgb, var(--c) 28%, transparent)
+      box-shadow: 0 20px 60px color-mix(in srgb, var(--c) 28%, transparent);
     }
 
     .hole {
@@ -2054,7 +2052,25 @@
       margin-left: -23px;
       border-radius: 9px;
       background: var(--bg);
-      box-shadow: inset 0 1px 3px #000
+      box-shadow: inset 0 1px 3px #000;
+    }
+
+    .pc-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .pass-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1.5px solid color-mix(in srgb, var(--c) 45%, rgba(255, 255, 255, .15));
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .45), 0 0 14px color-mix(in srgb, var(--c) 30%, transparent);
+      background: #0b0f19;
+      flex-shrink: 0;
     }
 
     .tg {
@@ -2062,7 +2078,7 @@
       font: 600 11px var(--s);
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--c)
+      color: var(--c);
     }
 
     .big {
@@ -2073,35 +2089,25 @@
       background: linear-gradient(120deg, var(--c), #fff 90%);
       -webkit-background-clip: text;
       background-clip: text;
-      -webkit-text-fill-color: transparent
+      -webkit-text-fill-color: transparent;
     }
 
     .pc h3 {
       font-size: 1.15rem;
-      color: #fff
+      color: #fff;
     }
 
     .pc p {
       margin: 4px 0 14px;
       font-size: 14px;
-      margin: 6px 0 16px;
-      font-size: 13.5px;
-      line-height: 1.55;
-      color: var(--mute)
-    }
-
-    .pc .pills {
-      margin-top: auto;
-      padding-top: 10px;
+      color: var(--mute);
     }
 
     .bar {
       height: 26px;
       margin-top: 18px;
-      height: 24px;
-      margin-top: 16px;
       opacity: .5;
-      background: repeating-linear-gradient(90deg, #cbd5e1 0 2px, transparent 2px 5px, #cbd5e1 5px 6px, transparent 6px 11px)
+      background: repeating-linear-gradient(90deg, #cbd5e1 0 2px, transparent 2px 5px, #cbd5e1 5px 6px, transparent 6px 11px);
     }
 
     /* Interactive Skill Pills with Tech Logos */
@@ -2311,6 +2317,8 @@
           systems. 4× hackathon finalist.</p>
         <p class="now"><span><kbd>Ctrl</kbd> <kbd>K</kbd> opens the command palette</span></p>
         <div class="cta"><a class="btn" id="rs" href="#" target="_blank" rel="noopener">Resume ↓</a></div>
+        <div class="cta"><a class="btn" id="rs" href="Ansh_Rastogi_Resume.pdf" target="_blank" rel="noopener">Resume
+            ↓</a></div>
         <div class="stats">
           <div class="glass tilt stat">
             <div class="fl"></div><b class="gt" data-n="5" data-s="+">0</b><span>Internships</span>
@@ -2385,73 +2393,66 @@
         <div class="passes reveal">
           <div class="pass" style="--c:#22c55e;--dl:0.0s">
             <div class="glass tilt pc">
-              <div class="fl"></div><i class="hole"></i><span class="tg">Club head</span><b class="big">Head</b>
-              <h3>Stratabiz</h3>
-              <p>Business and Consulting Club, NIT Jalandhar</p>
-              <div class="pills"><span class="pill">Leadership</span><span class="pill">Consulting</span><span
-                  class="pill">Community</span></div>
-              <div class="fl"></div><i class="hole"></i><span class="tg">President · 2026 – Present</span><b
-                class="big">Head</b>
+              <div class="fl"></div><i class="hole"></i>
+              <div class="pc-hero">
+                <div>
+                  <span class="tg">President · 2026–Present</span>
+                  <b class="big">Head</b>
+                </div>
+                <img src="stratabiz.jpg" class="pass-logo" alt="StrataBiz Club Logo" loading="lazy">
+              </div>
               <h3>StrataBiz Club</h3>
-              <p>Official Business &amp; Consulting Club, NIT Jalandhar. Directed the end-to-end planning and execution
-                of ConsultCorp, securing sponsorships, coordinating logistics, and managing event operations to host 70+
-                participating teams and over 300 attendees.</p>
+              <p>Official Business &amp; Consulting Club, NIT Jalandhar</p>
               <div class="pills">
-                <span class="pill">ConsultCorp</span>
-                <span class="pill">Sponsorships</span>
-                <span class="pill">Event Operations</span>
-                <span class="pill">300+ Attendees</span>
+                <span class="pill">Leadership</span>
+                <span class="pill">Consulting</span>
+                <span class="pill">Operations</span>
               </div>
               <div class="bar"></div>
             </div>
           </div>
-          <div class="pass" style="--c:#60a5fa;--dl:-1.7s">
-            <div class="pass" style="--c:#38bdf8;--dl:-1.7s">
-              <div class="glass tilt pc">
-                <div class="fl"></div><i class="hole"></i><span class="tg">Execution lead</span><b class="big">400+</b>
-                <h3>Consult Corp</h3>
-                <p>Offline consulting hackathon, led end to end</p>
-                <div class="pills"><span class="pill">Strategy</span><span class="pill">Operations</span><span
-                    class="pill">Team coordination</span></div>
-                <div class="fl"></div><i class="hole"></i><span class="tg">Social Media Head · 2025 – Present</span><b
-                  class="big">IIC</b>
-                <h3>Institution’s Innovation Council</h3>
-                <p>Ministry of Education Initiative, NIT Jalandhar. Managed social media campaigns and promotional
-                  content for innovation and entrepreneurship events, increasing student participation and enhancing the
-                  club's digital presence.</p>
-                <div class="pills">
-                  <span class="pill">Social Campaigns</span>
-                  <span class="pill">Digital Outreach</span>
-                  <span class="pill">Brand Growth</span>
-                  <span class="pill">Student Engagement</span>
+          <div class="pass" style="--c:#38bdf8;--dl:-1.7s">
+            <div class="glass tilt pc">
+              <div class="fl"></div><i class="hole"></i>
+              <div class="pc-hero">
+                <div>
+                  <span class="tg">Social Media Head · 2025–Present</span>
+                  <b class="big">IIC</b>
                 </div>
-                <div class="bar"></div>
+                <img src="iic.jpg" class="pass-logo" alt="IIC Logo" loading="lazy">
               </div>
+              <h3>Institution’s Innovation Council</h3>
+              <p>MoE Innovation Cell · Social campaigns &amp; digital outreach</p>
+              <div class="pills">
+                <span class="pill">Media Campaigns</span>
+                <span class="pill">Promotions</span>
+                <span class="pill">Outreach</span>
+              </div>
+              <div class="bar"></div>
             </div>
-            <div class="pass" style="--c:#c084fc;--dl:-3.4s">
-              <div class="glass tilt pc">
-                <div class="fl"></div><i class="hole"></i><span class="tg">Team lead</span><b class="big">6</b>
-                <h3>Lovers AI</h3>
-                <p>Developers in the core-site team I led</p>
-                <div class="pills"><span class="pill">AI platform</span><span class="pill">Real-time</span><span
-                    class="pill">Delivery</span></div>
-                <div class="fl"></div><i class="hole"></i><span class="tg">Operational Director</span><b
-                  class="big">Bawre</b>
-                <h3>Bawre Theatre Society</h3>
-                <p>Official Dramatics Society, NIT Jalandhar. Directed end-to-end theatrical production operations,
-                  stage logistics, budget allocation, technical execution (sound &amp; lighting), and cast/crew
-                  coordination for flagship collegiate stage and street productions.</p>
-                <div class="pills">
-                  <span class="pill">Stage Operations</span>
-                  <span class="pill">Production Logistics</span>
-                  <span class="pill">Budget Management</span>
-                  <span class="pill">Crew Leadership</span>
+          </div>
+          <div class="pass" style="--c:#c084fc;--dl:-3.4s">
+            <div class="glass tilt pc">
+              <div class="fl"></div><i class="hole"></i>
+              <div class="pc-hero">
+                <div>
+                  <span class="tg">Operational Director</span>
+                  <b class="big">Bawre</b>
                 </div>
-                <div class="bar"></div>
+                <img src="bawre.jpg" class="pass-logo" alt="Bawre Theatre Logo" loading="lazy">
               </div>
+              <h3>Bawre Theatre Society</h3>
+              <p>Official Dramatics Society · Stage &amp; production ops</p>
+              <div class="pills">
+                <span class="pill">Stage Ops</span>
+                <span class="pill">Logistics</span>
+                <span class="pill">Production</span>
+              </div>
+              <div class="bar"></div>
             </div>
           </div>
         </div>
+      </div>
     </section>
 
     <section class="sec" id="skills">
@@ -2899,6 +2900,7 @@
       const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)], RM = matchMedia("(prefers-reduced-motion:reduce)").matches;
       const toast = t => { const d = document.createElement("div"); d.className = "toast"; d.textContent = t; document.body.append(d); setTimeout(() => d.remove(), 2600) };
       const RES = "/_blob/66fe6ec30c6c9425dcdbe4894c751ef5"; $("#rs").href = RES;
+      const RES = "Ansh_Rastogi_Resume.pdf"; $("#rs").href = RES;
       const CAL_URL = "https://cal.com/ansh-rastogi-qeqqay/30min"; // 1-Click scheduling: Cal.com or Google Calendar appointment schedule link
       const tf = new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", hour12: true }), tk = () => { $("#clk").textContent = tf.format(new Date()).toUpperCase() + " IST" }; tk(); setInterval(tk, 15000);
       // architecture flows on card backs
@@ -3159,7 +3161,6 @@
       // terminal
       const to = $("#to"), ti = $("#ti"); const say = (t, c) => { const d = document.createElement("div"); d.textContent = t; if (c) d.className = c; to.append(d); to.scrollTop = to.scrollHeight };
       say("Ansh’s terminal. Type help.", "m");
-      const CM = { help: () => "Commands: about, experience, projects, skills, contact, play, ask <question>, clear, exit", about: () => "Ansh Rastogi. B.Tech at NIT Jalandhar. Full-stack and AI engineer based in Noida.", experience: () => jobs.map(j => j[0] + " at " + j[1]).join("\n"), projects: () => P.map(p => "• " + p.t.split(" — ")[0] + " (" + p.k + ")").join("\n"), skills: () => S.map(s => s[2] + ": " + s[3].join(", ")).join("\n"), contact: () => "rastogiansh13@gmail.com\nlinkedin.com/in/anshrastogi23\ngithub.com/Anshrastogi05", whoami: () => "a visitor about to meet a good engineer", play: () => { show("#game"); return "" }, exit: () => { close(); return "" }, clear: () => { to.innerHTML = ""; return "" }, sudo: () => "Permission granted. Offer letter drafted. Send it to rastogiansh13@gmail.com" };
       const CM = { help: () => "Commands: about, experience, projects, skills, leadership, contact, play, ask <question>, clear, exit", about: () => "Ansh Rastogi. B.Tech at NIT Jalandhar. Full-stack and AI engineer based in Noida.", experience: () => jobs.map(j => j[0] + " at " + j[1]).join("\n"), projects: () => P.map(p => "• " + p.t.split(" — ")[0] + " (" + p.k + ")").join("\n"), skills: () => S.map(s => s[2] + ": " + s[3].join(", ")).join("\n"), leadership: () => "• President · StrataBiz (NIT Jalandhar Business & Consulting Club)\n• Social Media Head · Institution's Innovation Council (IIC)\n• Operational Director · Bawre Theatre Society", contact: () => "rastogiansh13@gmail.com\nlinkedin.com/in/anshrastogi23\ngithub.com/Anshrastogi05", whoami: () => "a visitor about to meet a good engineer", play: () => { show("#game"); return "" }, exit: () => { close(); return "" }, clear: () => { to.innerHTML = ""; return "" }, sudo: () => "Permission granted. Offer letter drafted. Send it to rastogiansh13@gmail.com" };
       ti.addEventListener("keydown", e => { if (e.key !== "Enter") return; const v = ti.value.trim(); ti.value = ""; say("$ " + v, "u"); const [c, ...r] = v.split(" "); if (c === "ask") { show("#chat"); $("#ci").value = r.join(" "); return } const f = CM[c]; const o = f ? f() : c ? "command not found: " + c + ". Try help." : ""; if (o) say(o) });
       // tic-tac-toe vs a simple bot
