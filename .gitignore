@@ -71,5 +71,6 @@ Desktop.ini
 # Log files
 # ==========================================
 *.log
- knowledge_base
- 
+
+knowledge_base/corpus.json
+knowledge_base/github_data.json

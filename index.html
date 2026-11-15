@@ -273,6 +273,35 @@
       box-shadow: 0 12px 36px rgba(34, 197, 94, .4)
     }
 
+    #rs {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      padding: 13px 34px;
+      background: linear-gradient(135deg, #4ade80, #22c55e 40%, #15803d);
+      box-shadow: 0 0 32px rgba(34, 197, 94, .65), 0 6px 20px rgba(0, 0, 0, .45);
+      border: 1.5px solid rgba(167, 243, 208, .75);
+      animation: rsGlow 3s ease-in-out infinite, flow2 5s ease infinite;
+    }
+
+    @keyframes rsGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 28px rgba(34, 197, 94, .6), 0 6px 18px rgba(0, 0, 0, .45);
+      }
+
+      50% {
+        box-shadow: 0 0 48px rgba(74, 222, 128, .95), 0 8px 26px rgba(34, 197, 94, .4);
+      }
+    }
+
+    #rs:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 54px rgba(74, 222, 128, 1), 0 10px 30px rgba(0, 0, 0, .55);
+      border-color: #fff;
+    }
+
     .ghost {
       display: inline-flex;
       align-items: center;
@@ -1039,58 +1068,237 @@
       border-color: rgba(34, 197, 94, .3)
     }
 
-    .contact {
+    /* Contact Section: 2-Column Grid with Vertical Cards and Message Box */
+    .contact-header {
       text-align: center;
       max-width: 780px;
-      margin: 0 auto
+      margin: 0 auto 36px;
     }
 
-    .contact p.lead {
+    .contact-header p.lead {
       font-size: 1.15rem;
       color: var(--mute);
-      margin: -24px auto 44px;
-      max-width: 540px
+      margin: 12px auto 0;
+      max-width: 580px;
     }
 
-    .cg {
+    .contact-grid {
       display: grid;
-      gap: 14px;
-      margin-bottom: 40px
+      gap: 24px;
+      max-width: 1060px;
+      margin: 0 auto;
     }
 
-    @media(min-width:640px) {
-      .cg {
-        grid-template-columns: repeat(3, 1fr)
+    @media (min-width: 820px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1.35fr;
+        gap: 32px;
+        align-items: start;
       }
     }
 
-    .cg a {
-      padding: 24px 16px;
+    .contact-left {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 10px
+      gap: 16px;
     }
 
-    .cg .ic {
+    .contact-card {
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(74, 222, 128, 0.45);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 24px rgba(34, 197, 94, 0.15);
+    }
+
+    .contact-card-ic {
       width: 48px;
       height: 48px;
       border-radius: 14px;
       display: grid;
       place-items: center;
       font-size: 1.5rem;
-      background: rgba(34, 197, 94, .12)
+      background: rgba(34, 197, 94, .12);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      flex-shrink: 0;
     }
 
-    .cg b {
-      font: 600 14px var(--d);
-      color: #fff
+    .contact-card-content {
+      flex: 1;
+      min-width: 0;
+      text-align: left;
     }
 
-    .cg span {
-      font-size: 12px;
+    .contact-card-content b {
+      display: block;
+      font: 600 15px var(--d);
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .contact-card-content span {
+      display: block;
+      font-size: 13px;
       color: var(--dim);
-      word-break: break-all
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .contact-card-arrow {
+      color: var(--g3);
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform .2s ease;
+    }
+
+    .contact-card:hover .contact-card-arrow {
+      transform: translate(2px, -2px);
+      color: #fff;
+    }
+
+    /* Message Dialogue Box / Card */
+    .contact-form-card {
+      padding: 30px 32px;
+      border-radius: 20px;
+    }
+
+    .contact-form-head {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font: 600 11px var(--d);
+      color: var(--g2);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-head h3 {
+      font-size: 22px;
+      color: #fff;
+      margin: 0 0 6px;
+    }
+
+    .contact-form-head p {
+      font-size: 13.5px;
+      color: var(--mute);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .contact-msg-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 540px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: left;
+    }
+
+    .form-group label {
+      font: 500 12px var(--s);
+      color: var(--dim);
+      letter-spacing: 0.2px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      font: 400 14px var(--s);
+      color: #fff;
+      background: rgba(2, 6, 23, 0.65);
+      border: 1px solid var(--bd);
+      border-radius: 12px;
+      padding: 11px 14px;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: rgba(74, 222, 128, 0.6);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 95px;
+      font-family: inherit;
+    }
+
+    .send-msg-btn {
+      align-self: flex-start;
+      padding: 12px 28px;
+      font-size: 14.5px;
+      cursor: pointer;
+      border: 0;
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-status {
+      font-size: 13px;
+      min-height: 20px;
+      transition: opacity .3s;
+      text-align: left;
+    }
+
+    .form-status.success {
+      color: var(--g2);
+      font-weight: 500;
+    }
+
+    .form-status.error {
+      color: #f87171;
+    }
+
+    /* 1-to-1 Google Meet Modal */
+    .meet-box {
+      width: min(480px, 94%);
+      padding: 26px;
+      border-radius: 20px;
+    }
+
+    .meet-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
     }
 
     footer {
@@ -1157,23 +1365,41 @@
     }
 
     .now {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 12px;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
-      color: var(--mute);
-      margin: -14px 0 28px
+      gap: 9px;
+      font: 500 13px var(--s);
+      color: #f1f5f9;
+      background: rgba(2, 6, 23, 0.88);
+      border: 1px solid rgba(74, 222, 128, 0.5);
+      box-shadow: 0 0 22px rgba(34, 197, 94, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 7px 18px;
+      border-radius: 999px;
+      margin: -10px auto 26px;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+
+    .now:hover {
+      border-color: rgba(134, 239, 172, 0.85);
+      box-shadow: 0 0 32px rgba(34, 197, 94, 0.5);
+      color: #fff;
+      transform: translateY(-2px);
     }
 
     kbd {
-      font: 500 11px ui-monospace, Menlo, monospace;
-      border: 1px solid var(--bd);
-      border-bottom-width: 2px;
-      border-radius: 5px;
-      padding: 0 6px;
-      color: var(--g3)
+      font: 700 11.5px ui-monospace, Menlo, monospace;
+      border: 1px solid rgba(74, 222, 128, 0.6);
+      border-bottom: 2px solid #22c55e;
+      border-radius: 6px;
+      padding: 2px 7px;
+      background: rgba(34, 197, 94, 0.2);
+      color: #86efac;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.5px;
     }
 
     #ring {
@@ -1199,7 +1425,7 @@
     }
 
     body.has-overlay #ring,
-    .ov.on ~ #ring,
+    .ov.on~#ring,
     .ov.on #ring {
       display: none !important;
       opacity: 0 !important;
@@ -1404,6 +1630,30 @@
       transform: translateY(-1px);
     }
 
+    .hire-card.hire-card-spotlight {
+      background: linear-gradient(135deg, rgba(34, 197, 94, .12), rgba(255, 255, 255, .03));
+      border: 1px solid rgba(34, 197, 94, .45);
+      box-shadow: 0 4px 18px rgba(34, 197, 94, .12);
+    }
+
+    .hire-card.hire-card-spotlight:hover {
+      background: linear-gradient(135deg, rgba(34, 197, 94, .2), rgba(34, 197, 94, .06));
+      border-color: rgba(34, 197, 94, .7);
+      box-shadow: 0 6px 24px rgba(34, 197, 94, .25);
+    }
+
+    .hire-badge-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, .2);
+      color: #86efac;
+      border: 1px solid rgba(34, 197, 94, .4);
+    }
+
     .hire-icon {
       font-size: 18px;
       width: 36px;
@@ -1569,21 +1819,40 @@
       color: #cbd5e1
     }
 
-    .chips {
+    .chips,
+    .fup-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 10px
     }
 
-    .chip {
+    .fup-chips {
+      margin: 10px 0 6px
+    }
+
+    .chip,
+    .fup-chip {
       font: 500 12px var(--s);
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 999px;
       background: rgba(34, 197, 94, .08);
       border: 1px solid rgba(34, 197, 94, .25);
       color: var(--g3);
-      cursor: pointer
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s, transform .15s
+    }
+
+    .chip:hover,
+    .fup-chip:hover {
+      background: rgba(34, 197, 94, .18);
+      border-color: rgba(34, 197, 94, .5);
+      color: #fff;
+      transform: translateY(-1px)
     }
 
     #cf {
@@ -1766,7 +2035,10 @@
     .pc {
       padding: 46px 22px 22px;
       border-top: 3px solid var(--c);
-      background: linear-gradient(160deg, color-mix(in srgb, var(--c) 14%, transparent), var(--glass) 55%)
+      background: linear-gradient(160deg, color-mix(in srgb, var(--c) 14%, transparent), var(--glass) 55%) background: linear-gradient(160deg, color-mix(in srgb, var(--c) 14%, transparent), var(--glass) 55%);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .pc:hover {
@@ -1812,14 +2084,178 @@
     .pc p {
       margin: 4px 0 14px;
       font-size: 14px;
+      margin: 6px 0 16px;
+      font-size: 13.5px;
+      line-height: 1.55;
       color: var(--mute)
+    }
+
+    .pc .pills {
+      margin-top: auto;
+      padding-top: 10px;
     }
 
     .bar {
       height: 26px;
       margin-top: 18px;
+      height: 24px;
+      margin-top: 16px;
       opacity: .5;
       background: repeating-linear-gradient(90deg, #cbd5e1 0 2px, transparent 2px 5px, #cbd5e1 5px 6px, transparent 6px 11px)
+    }
+
+    /* Interactive Skill Pills with Tech Logos */
+    .skill-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, .1);
+      transition: transform .2s cubic-bezier(.34, 1.5, .64, 1), background .2s, border-color .2s, box-shadow .2s;
+      user-select: none;
+    }
+
+    .skill-pill:hover {
+      transform: translateY(-2px) scale(1.05);
+      border-color: rgba(74, 222, 128, .55);
+      background: rgba(34, 197, 94, .14);
+      box-shadow: 0 4px 14px rgba(34, 197, 94, .3);
+      color: #fff;
+    }
+
+    .tech-icon {
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+      pointer-events: none;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .4));
+    }
+
+    /* Tech Stack Logo Popout Modal */
+    .tech-pop-box {
+      max-width: 440px;
+      padding: 28px;
+      text-align: left;
+      animation: techPopIn .35s cubic-bezier(.34, 1.56, .64, 1);
+      border: 1px solid rgba(74, 222, 128, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(34, 197, 94, 0.25);
+    }
+
+    @keyframes techPopIn {
+      0% {
+        transform: scale(0.65) translateY(24px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .tech-pop-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .tech-pop-avatar {
+      width: 66px;
+      height: 66px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .tech-pop-avatar img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      z-index: 2;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+      animation: techFloat 2.6s ease-in-out infinite;
+    }
+
+    @keyframes techFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px) scale(1.05);
+      }
+    }
+
+    .tech-pop-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.4), transparent 70%);
+      filter: blur(10px);
+    }
+
+    .tech-pop-category {
+      font: 600 11px var(--d);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--g2);
+    }
+
+    .tech-pop-header h3 {
+      font-size: 22px;
+      color: #fff;
+      margin: 2px 0 0;
+    }
+
+    .tech-pop-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin: 0 0 20px;
+    }
+
+    .tech-pop-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 14px;
+      border-top: 1px solid var(--bd);
+    }
+
+    .tech-pop-badge {
+      font: 500 12px var(--s);
+      color: var(--dim);
+    }
+
+    .tech-pop-ask-btn {
+      padding: 7px 16px;
+      font-size: 12.5px;
+    }
+
+    .tech-pop-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: transparent;
+      border: 0;
+      color: var(--mute);
+      font-size: 18px;
+      cursor: pointer;
+      transition: color .2s;
+    }
+
+    .tech-pop-close:hover {
+      color: #fff;
     }
 
     @media (prefers-reduced-motion:reduce) {
@@ -1867,7 +2303,8 @@
       <div style="position:relative;z-index:2;max-width:900px">
         <div class="badge glass"><span class="dot"></span>Open to SDE &amp; AI Engineering roles <small>2026</small>
         </div>
-        <div class="av"><img src="ansh.jpg" alt="Ansh Rastogi" onerror="this.src='https://avatars.githubusercontent.com/u/159460435?v=4'"><i>✓</i></div>
+        <div class="av"><img src="ansh.jpg" alt="Ansh Rastogi"
+            onerror="this.src='https://avatars.githubusercontent.com/u/159460435?v=4'"><i>✓</i></div>
         <h1>Ansh <span class="gt">Rastogi</span></h1>
         <div class="role" id="role"></div>
         <p class="bio">B.Tech at NIT Jalandhar. Building <em>scalable software</em>, AI applications and cloud-native
@@ -1883,6 +2320,7 @@
           </div>
           <a class="glass tilt stat lead" href="#leadership">
             <div class="fl"></div><b class="gt">Leader</b><span>Stratabiz · Consult Corp</span>
+            <div class="fl"></div><b class="gt">Leader</b><span>StrataBiz · IIC · Bawre</span>
           </a>
         </div>
       </div>
@@ -1901,7 +2339,7 @@
         </div>
         <div class="two">
           <div class="reveal">
-            <div class="glass card" style="margin-bottom:18px">
+            <div class="glass card" style="margin-bottom:24px">
               <p>I’m a B.Tech student at <strong>NIT Jalandhar</strong>, passionate about full-stack development, AI
                 engineering and cloud-native systems that scale.</p>
               <p>My work spans <em>distributed systems</em>, AI-powered applications and real-time backends. I like
@@ -1909,11 +2347,12 @@
               <p>Right now I’m exploring <em>LLMs, AI agents and RAG pipelines</em>, and open to backend, full-stack and
                 AI engineering roles.</p>
             </div>
-           
-          <div class="reveal" id="built">
-            <h3 class="sub">What I’ve built</h3>
-            <div class="built"></div>
+            <div id="built">
+              <h3 class="sub">What I’ve built</h3>
+              <div class="built"></div>
+            </div>
           </div>
+          <div aria-hidden="true"></div>
         </div>
       </div>
     </section>
@@ -1931,14 +2370,9 @@
     <section class="sec" id="projects">
       <div class="wrap">
         <div class="reveal" style="text-align:center">
-          <p class="eyb" style="justify-content:center">Portfolio</p>
-          <h2 style="margin-bottom:14px">Featured <span class="gt">projects</span></h2>
-          <p style="color:var(--dim);margin:0 0 40px">Hover for 3D motion. Tap a card to flip it for architecture
-            details.</p>
+          <h2 style="margin-bottom:38px">Featured <span class="gt">projects</span></h2>
         </div>
         <div class="pg" id="pg"></div>
-        <div class="more reveal"><a class="ghost glass" href="https://github.com/Anshrastogi05?tab=repositories"
-            target="_blank" rel="noopener">View all 31+ repositories →</a></div>
       </div>
     </section>
 
@@ -1946,8 +2380,7 @@
       <div class="wrap">
         <div class="reveal" style="text-align:center">
           <p class="eyb" style="justify-content:center">Leadership</p>
-          <h2 style="margin-bottom:12px">Leading as well as <span class="gt">building</span></h2>
-          <p style="color:var(--dim);margin:0">Clubs, events and teams I’ve led. Hover a pass.</p>
+          <h2 style="margin-bottom:36px">Leading as well as <span class="gt">building</span></h2>
         </div>
         <div class="passes reveal">
           <div class="pass" style="--c:#22c55e;--dl:0.0s">
@@ -1957,38 +2390,74 @@
               <p>Business and Consulting Club, NIT Jalandhar</p>
               <div class="pills"><span class="pill">Leadership</span><span class="pill">Consulting</span><span
                   class="pill">Community</span></div>
+              <div class="fl"></div><i class="hole"></i><span class="tg">President · 2026 – Present</span><b
+                class="big">Head</b>
+              <h3>StrataBiz Club</h3>
+              <p>Official Business &amp; Consulting Club, NIT Jalandhar. Directed the end-to-end planning and execution
+                of ConsultCorp, securing sponsorships, coordinating logistics, and managing event operations to host 70+
+                participating teams and over 300 attendees.</p>
+              <div class="pills">
+                <span class="pill">ConsultCorp</span>
+                <span class="pill">Sponsorships</span>
+                <span class="pill">Event Operations</span>
+                <span class="pill">300+ Attendees</span>
+              </div>
               <div class="bar"></div>
             </div>
           </div>
           <div class="pass" style="--c:#60a5fa;--dl:-1.7s">
-            <div class="glass tilt pc">
-              <div class="fl"></div><i class="hole"></i><span class="tg">Execution lead</span><b class="big">400+</b>
-              <h3>Consult Corp</h3>
-              <p>Offline consulting hackathon, led end to end</p>
-              <div class="pills"><span class="pill">Strategy</span><span class="pill">Operations</span><span
-                  class="pill">Team coordination</span></div>
-              <div class="bar"></div>
+            <div class="pass" style="--c:#38bdf8;--dl:-1.7s">
+              <div class="glass tilt pc">
+                <div class="fl"></div><i class="hole"></i><span class="tg">Execution lead</span><b class="big">400+</b>
+                <h3>Consult Corp</h3>
+                <p>Offline consulting hackathon, led end to end</p>
+                <div class="pills"><span class="pill">Strategy</span><span class="pill">Operations</span><span
+                    class="pill">Team coordination</span></div>
+                <div class="fl"></div><i class="hole"></i><span class="tg">Social Media Head · 2025 – Present</span><b
+                  class="big">IIC</b>
+                <h3>Institution’s Innovation Council</h3>
+                <p>Ministry of Education Initiative, NIT Jalandhar. Managed social media campaigns and promotional
+                  content for innovation and entrepreneurship events, increasing student participation and enhancing the
+                  club's digital presence.</p>
+                <div class="pills">
+                  <span class="pill">Social Campaigns</span>
+                  <span class="pill">Digital Outreach</span>
+                  <span class="pill">Brand Growth</span>
+                  <span class="pill">Student Engagement</span>
+                </div>
+                <div class="bar"></div>
+              </div>
             </div>
-          </div>
-          <div class="pass" style="--c:#c084fc;--dl:-3.4s">
-            <div class="glass tilt pc">
-              <div class="fl"></div><i class="hole"></i><span class="tg">Team lead</span><b class="big">6</b>
-              <h3>Lovers AI</h3>
-              <p>Developers in the core-site team I led</p>
-              <div class="pills"><span class="pill">AI platform</span><span class="pill">Real-time</span><span
-                  class="pill">Delivery</span></div>
-              <div class="bar"></div>
+            <div class="pass" style="--c:#c084fc;--dl:-3.4s">
+              <div class="glass tilt pc">
+                <div class="fl"></div><i class="hole"></i><span class="tg">Team lead</span><b class="big">6</b>
+                <h3>Lovers AI</h3>
+                <p>Developers in the core-site team I led</p>
+                <div class="pills"><span class="pill">AI platform</span><span class="pill">Real-time</span><span
+                    class="pill">Delivery</span></div>
+                <div class="fl"></div><i class="hole"></i><span class="tg">Operational Director</span><b
+                  class="big">Bawre</b>
+                <h3>Bawre Theatre Society</h3>
+                <p>Official Dramatics Society, NIT Jalandhar. Directed end-to-end theatrical production operations,
+                  stage logistics, budget allocation, technical execution (sound &amp; lighting), and cast/crew
+                  coordination for flagship collegiate stage and street productions.</p>
+                <div class="pills">
+                  <span class="pill">Stage Operations</span>
+                  <span class="pill">Production Logistics</span>
+                  <span class="pill">Budget Management</span>
+                  <span class="pill">Crew Leadership</span>
+                </div>
+                <div class="bar"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <section class="sec" id="skills">
       <div class="wrap">
         <div class="reveal" style="text-align:center">
-          <p class="eyb" style="justify-content:center">Stack</p>
-          <h2>Tech <span class="gt">skills</span></h2>
+          <h2 style="margin-bottom:38px">Tech <span class="gt">skills</span></h2>
         </div>
         <div class="sg" id="sg"></div>
         <div class="glass tilt card exp reveal">
@@ -2003,29 +2472,81 @@
 
     <section class="sec" id="contact">
       <div class="wrap">
-        <div class="contact">
-          <div class="reveal">
-            <p class="eyb" style="justify-content:center">Get in touch</p>
-            <h2>Let’s <span class="gt">work together</span></h2>
-            <p class="lead">Open to software engineering, backend, full-stack and AI engineering roles. Let’s build
-              something scalable, intelligent and impactful.</p>
+        <div class="contact-header reveal">
+          <p class="eyb" style="justify-content:center">Get in touch</p>
+          <h2>Let’s <span class="gt">work together</span></h2>
+          <p class="lead">Open to software engineering, backend, full-stack and AI engineering roles. Let’s build
+            something scalable, intelligent and impactful.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-left reveal">
+            <a class="glass tilt contact-card" href="mailto:rastogiansh13@gmail.com">
+              <div class="fl"></div>
+              <div class="contact-card-ic">✉️</div>
+              <div class="contact-card-content">
+                <b>Email</b>
+                <span>rastogiansh13@gmail.com</span>
+              </div>
+              <span class="contact-card-arrow">↗</span>
+            </a>
+            <a class="glass tilt contact-card" href="https://linkedin.com/in/anshrastogi23" target="_blank"
+              rel="noopener">
+              <div class="fl"></div>
+              <div class="contact-card-ic">💼</div>
+              <div class="contact-card-content">
+                <b>LinkedIn</b>
+                <span>linkedin.com/in/anshrastogi23</span>
+              </div>
+              <span class="contact-card-arrow">↗</span>
+            </a>
+            <a class="glass tilt contact-card" href="https://github.com/Anshrastogi05" target="_blank" rel="noopener">
+              <div class="fl"></div>
+              <div class="contact-card-ic">💻</div>
+              <div class="contact-card-content">
+                <b>GitHub</b>
+                <span>github.com/Anshrastogi05</span>
+              </div>
+              <span class="contact-card-arrow">↗</span>
+            </a>
           </div>
-          <div class="cg reveal">
-            <a class="glass tilt" href="mailto:rastogiansh13@gmail.com">
+          <div class="contact-right reveal">
+            <div class="glass card contact-form-card">
               <div class="fl"></div>
-              <div class="ic">✉️</div><b>Email</b><span>rastogiansh13@gmail.com</span>
-            </a>
-            <a class="glass tilt" href="https://linkedin.com/in/anshrastogi23" target="_blank" rel="noopener">
-              <div class="fl"></div>
-              <div class="ic">💼</div><b>LinkedIn</b><span>anshrastogi23</span>
-            </a>
-            <a class="glass tilt" href="https://github.com/Anshrastogi05" target="_blank" rel="noopener">
-              <div class="fl"></div>
-              <div class="ic">💻</div><b>GitHub</b><span>Anshrastogi05</span>
-            </a>
+              <div class="contact-form-head">
+                <span class="contact-badge"><span class="dot"></span>Direct Inbox</span>
+                <h3>Send a message</h3>
+                <p>Have an opportunity or question? Drop a message and I’ll receive it directly on my email.</p>
+              </div>
+              <form id="contactMsgForm" class="contact-msg-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="msgName">Your Name</label>
+                    <input type="text" id="msgName" name="name" required placeholder="Alex Smith" autocomplete="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="msgEmail">Your Email</label>
+                    <input type="email" id="msgEmail" name="email" required placeholder="alex@company.com"
+                      autocomplete="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="msgSubject">Subject</label>
+                  <input type="text" id="msgSubject" name="_subject"
+                    placeholder="SDE Role / Project Collaboration / Inquiry">
+                </div>
+                <div class="form-group">
+                  <label for="msgBody">Message</label>
+                  <textarea id="msgBody" name="message" rows="4" required
+                    placeholder="Hi Ansh, I saw your work on VideoLens and EventManager..."></textarea>
+                </div>
+                <button type="submit" class="btn send-msg-btn" id="sendMsgBtn">
+                  <span>Send Message</span>
+                  <span class="btn-arrow">↗</span>
+                </button>
+                <div id="contactMsgStatus" class="form-status" aria-live="polite"></div>
+              </form>
+            </div>
           </div>
-          <a class="btn reveal" href="mailto:rastogiansh13@gmail.com" style="padding:15px 38px;font-size:16px">Send me
-            an email</a>
         </div>
       </div>
     </section>
@@ -2040,7 +2561,7 @@
     </div>
   </footer>
   <div id="glow"></div>
-  <div class="fabs"><button class="fab" id="fc" type="button">✦ Ask Ansh</button></div>
+  <div class="fabs"><button class="fab" id="fc" type="button">✦ Ask AshR</button></div>
   <div class="ov" id="pal" role="dialog" aria-label="Command palette">
     <div class="box glass"><input id="pi" placeholder="Type a command…" autocomplete="off">
       <ul id="pl"></ul>
@@ -2062,7 +2583,8 @@
     <div class="box glass hire-box">
       <div class="hire-head">
         <div class="hire-user">
-          <div class="hire-av"><img src="ansh.jpg" alt="Ansh Rastogi" onerror="this.src='https://avatars.githubusercontent.com/u/159460435?v=4'"><i>✓</i></div>
+          <div class="hire-av"><img src="ansh.jpg" alt="Ansh Rastogi"
+              onerror="this.src='https://avatars.githubusercontent.com/u/159460435?v=4'"><i>✓</i></div>
           <div>
             <h3>Ansh Rastogi</h3>
             <span class="hire-badge"><span class="dot"></span>Open to SDE &amp; AI Roles · 2026</span>
@@ -2070,16 +2592,17 @@
         </div>
         <button class="hire-close" id="closeHire" type="button" aria-label="Close">✕</button>
       </div>
-      <p class="hire-desc">Looking for a full-stack engineer, backend architect, or AI specialist? Choose how you'd like to connect:</p>
+      <p class="hire-desc">Looking for a full-stack engineer, backend architect, or AI specialist? Choose how you'd like
+        to connect:</p>
       <div class="hire-actions">
-        <a class="hire-card" href="mailto:rastogiansh13@gmail.com?subject=Job%20Opportunity%20-%20Software%20Engineer&body=Hi%20Ansh,%20we%20reviewed%20your%20portfolio%20and%20would%20love%20to%20discuss%20an%20engineering%20opportunity%20with%20our%20team.">
-          <span class="hire-icon">✉️</span>
+        <button class="hire-card" type="button" id="hireSendMsg">
+          <span class="hire-icon">💬</span>
           <div>
-            <b>Draft an Email</b>
-            <span>Pre-filled subject &amp; direct message</span>
+            <b>Send a Message</b>
+            <span>Direct message to my inbox with instant delivery</span>
           </div>
-          <span class="hire-arrow">↗</span>
-        </a>
+          <span class="hire-arrow">Write ↗</span>
+        </button>
         <button class="hire-card" type="button" id="hireCopy">
           <span class="hire-icon">📋</span>
           <div>
@@ -2096,28 +2619,122 @@
           </div>
           <span class="hire-arrow">↗</span>
         </a>
-        <a class="hire-card" id="hireGMeet" href="https://meet.google.com/new" target="_blank" rel="noopener">
-          <span class="hire-icon">📹</span>
+        <a class="hire-card hire-card-spotlight" id="hireGMeet" href="https://cal.com/anshrastogi" target="_blank"
+          rel="noopener">
+          <span class="hire-icon" style="background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);">📹</span>
           <div>
-            <b>Connect on Google Meet</b>
-            <span id="gmeetLinkText">Instant 1-on-1 video call · rastogiansh13@gmail.com</span>
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+              <b style="margin-bottom:0;">Connect 1-to-1 (Google Meet)</b>
+              <span class="hire-badge-tag">Instant Book</span>
+            </div>
+            <span id="gmeetLinkText">Pick a slot on Cal.com · Auto Google Meet invite</span>
           </div>
-          <span class="hire-arrow">Meet ↗</span>
+          <span class="hire-arrow" style="background:rgba(34,197,94,.22);color:#86efac;">Book ↗</span>
         </a>
+      </div>
+      <div style="text-align:center;margin-top:10px;">
+        <button type="button" id="openCustomMeet"
+          style="background:none;border:none;color:var(--dim);font-size:11.5px;cursor:pointer;text-decoration:underline;font-family:inherit;">Need
+          a custom date/time? Send request</button>
       </div>
     </div>
   </div>
-  <div class="ov" id="chat" role="dialog" aria-label="Ask about Ansh">
+
+  <div class="ov" id="meetModal" role="dialog" aria-label="Connect 1-to-1 on Google Meet">
+    <div class="box glass meet-box">
+      <div class="hire-head">
+        <div class="hire-user">
+          <span class="meet-icon-badge">📹</span>
+          <div>
+            <h3>Connect 1-to-1</h3>
+            <span class="hire-badge"><span class="dot"></span>Google Meet · Cal.com</span>
+          </div>
+        </div>
+        <button class="hire-close" id="closeMeetModal" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <!-- 1-Click Scheduling with Cal.com -->
+      <div
+        style="background:linear-gradient(135deg, rgba(34,197,94,.12), rgba(255,255,255,.02));border:1px solid rgba(34,197,94,.35);border-radius:12px;padding:16px;margin:12px 0 16px;text-align:center;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px;">
+          <span style="font-size:1.2rem;">⚡</span>
+          <b style="color:#f8fafc;font-size:14.5px;">Instant 1-Click Scheduling</b>
+          <span class="hire-badge-tag">Fastest</span>
+        </div>
+        <p style="color:var(--dim);font-size:12px;line-height:1.5;margin-bottom:12px;">
+          Select any available slot directly from live calendar. A Google Meet room &amp; calendar invite are generated
+          automatically.
+        </p>
+        <a id="calBookingBtn" href="https://cal.com/anshrastogi" target="_blank" rel="noopener" class="btn"
+          style="width:100%;justify-content:center;background:#22c55e;color:#052e16;font-weight:700;box-shadow:0 0 18px rgba(34,197,94,.35);border:none;">
+          <span>Select Time Slot on Cal.com ↗</span>
+        </a>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;margin:12px 0;">
+        <div style="flex:1;height:1px;background:var(--bd);"></div>
+        <span style="font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em;">or send custom
+          time request</span>
+        <div style="flex:1;height:1px;background:var(--bd);"></div>
+      </div>
+
+      <p class="hire-desc" style="margin: 0 0 14px; font-size:12px;">Can't find a suitable slot? Send a direct request
+        to Ansh's email (<em>rastogiansh13@gmail.com</em>):</p>
+      <form id="meetRequestForm" class="contact-msg-form">
+        <div class="form-group">
+          <label for="meetName">Your Name &amp; Company</label>
+          <input type="text" id="meetName" required placeholder="e.g. Alex Smith · Engineering Lead"
+            autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="meetEmail">Your Email Address</label>
+          <input type="email" id="meetEmail" required placeholder="alex@company.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="meetTime">Preferred Date &amp; Time / Agenda</label>
+          <input type="text" id="meetTime" required
+            placeholder="e.g. Friday 4:00 PM IST · Technical interview / SDE role">
+        </div>
+        <button type="submit" class="btn send-msg-btn" id="sendMeetBtn"
+          style="width:100%;justify-content:center;margin-top:8px">
+          <span>Send Custom Request to Email ↗</span>
+        </button>
+        <div id="meetStatus" class="form-status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+  <div class="ov" id="chat" role="dialog" aria-label="Ask AshR">
     <div class="box glass">
-      <h3>Ask about Ansh</h3>
+      <h3>Ask AshR</h3>
       <p class="hint">Instant answers verified against GitHub &amp; LinkedIn records.</p>
       <div id="cl"></div>
       <div class="chips"><button class="chip" type="button">What has he built with AI?</button><button class="chip"
           type="button">Is he strong in backend?</button><button class="chip" type="button">What is he learning
           now?</button><button class="chip" type="button">Tell me about his internships</button><button class="chip"
-          type="button">How can I contact Ansh?</button></div>
+          type="button">How can I contact AshR?</button></div>
       <form id="cf"><input id="ci" placeholder="Ask about his projects, skills or experience" autocomplete="off"><button
           class="btn" type="submit">Ask</button></form>
+    </div>
+  </div>
+
+  <div class="ov" id="techPopout" role="dialog" aria-label="Technology Details">
+    <div class="box glass tech-pop-box">
+      <button class="tech-pop-close" id="techPopClose" type="button" aria-label="Close modal">✕</button>
+      <div class="tech-pop-header">
+        <div class="tech-pop-avatar">
+          <img id="techPopImg" src="" alt="Tech logo">
+          <div class="tech-pop-glow"></div>
+        </div>
+        <div>
+          <span class="tech-pop-category" id="techPopCat">Technical Skill</span>
+          <h3 id="techPopName">Technology</h3>
+        </div>
+      </div>
+      <p class="tech-pop-desc" id="techPopDesc">Technology description.</p>
+      <div class="tech-pop-footer">
+        <span class="tech-pop-badge">⚡ Verified Stack</span>
+        <button class="btn tech-pop-ask-btn" id="techPopAskBtn" type="button">Ask AshR about this ↗</button>
+      </div>
     </div>
   </div>
 
@@ -2131,7 +2748,7 @@
     ["Data Analyst Intern", "Edulyt India", "Analysed large datasets with Python and Power BI, and built interactive dashboards and automated reporting.", ["Python", "Power BI", "Pandas", "NumPy"]],
     ["Frontend Developer Intern", "AD Infocom Pvt. Ltd.", "Built responsive UI components and landing pages, turning Figma designs into React.", ["React.js", "Tailwind CSS", "Figma"]]];
     const P = [
-      { t: "VideoLens — Video Intelligence & RAG", k: "AI · Video RAG", i: "🎥", c: "#ec4899", d: "AI assistant turning YouTube videos and recordings into searchable structured summaries, action items, key decisions, and conversational Q&A.", s: ["Python", "Streamlit", "Whisper", "LangChain", "RAG"], b: [["Whisper transcription:", "local audio extraction and high-fidelity speech-to-text."], ["Vector knowledge base:", "chunked semantic indexing with conversational Q&A chat."], ["Action item extraction:", "automated key decisions, timestamps, and executive summaries."]], l: [["Code", G + "/Video-Lens"]] },
+      { t: "VideoLens — Video Intelligence & RAG", k: "AI · Video RAG", i: "🎥", c: "#ec4899", d: "AI assistant turning YouTube videos and recordings into searchable structured summaries, action items, key decisions, and conversational Q&A.", s: ["Python", "Streamlit", "Whisper", "LangChain", "RAG"], b: [["Whisper transcription:", "local audio extraction and high-fidelity speech-to-text."], ["Vector knowledge base:", "chunked semantic indexing with conversational Q&A chat."], ["Action item extraction:", "automated key decisions, timestamps, and executive summaries."]], l: [["Code", G + "/Video-Lens"], ["Demo", "https://video-lens-kjakdvpdzzpm9br6vuyrnv.streamlit.app/", 1]] },
       { t: "EventManager — Real-Time Ticketing", k: "Full-Stack · Real-Time", i: "🎫", c: "#3b82f6", d: "Full-stack event discovery, booking, and QR-coded PDF ticketing platform with organizer dashboards, participant analytics, and live Socket.IO check-ins.", s: ["React", "Node.js", "Express", "MongoDB", "Socket.io"], b: [["QR ticketing & PDF:", "dynamic cryptographic QR codes on downloadable PDF passes."], ["Socket.IO live check-ins:", "instant real-time gate scanner and attendee verification."], ["Organizer analytics:", "event lifecycle management, participant CSV export, and reviews."]], l: [["Code", G + "/Event-management-system"], ["Demo", "https://event-management-system-main-xi.vercel.app", 1]] },
       { t: "TrustGuard — AI Fraud Detection", k: "AI / ML · Security", i: "🛡️", c: "#ef4444", d: "AI-driven fraud detection platform using explainable machine learning, deployed with FastAPI for real-time scoring, SHAP telemetry, and live analytics.", s: ["Python", "scikit-learn", "FastAPI", "SHAP", "React"], b: [["Explainable AI (XAI):", "real-time SHAP attributions explaining risk reason codes per event."], ["Sub-50ms inference:", "asynchronous FastAPI microservice optimized for high throughput."], ["Imbalanced data:", "SMOTE synthesis and ensemble bagging to catch rare fraud vectors."]], l: [["Code", G + "/TrustGuard"], ["Demo", "https://trust-guard-zeta.vercel.app", 1]] },
       { t: "FleetOps — Smart Transport Logistics", k: "Enterprise · Logistics", i: "🚛", c: "#10b981", d: "Enterprise fleet operations platform digitizing vehicle lifecycle, asset tracking, trip dispatch, safety compliance, and maintenance financial telemetry.", s: ["React 19", "TypeScript", "Node.js", "PostgreSQL", "Prisma 7"], b: [["Asset telemetry:", "centralized vehicle lifecycle, odometer logs, and maintenance tracking."], ["Dispatch engine:", "automated trip dispatching, driver manifests, and route scheduling."], ["Enterprise stack:", "PostgreSQL backed with Prisma 7 and type-safe Oxlint validation."]], l: [["Code", G + "/FleetOps"]] },
@@ -2140,21 +2757,105 @@
       { t: "Mox-Player — 3D WebGL Music School", k: "Creative · 3D WebGL", i: "🎵", c: "#f59e0b", d: "Animation-driven interactive online music school with 3D WebGL globe, scroll-driven choreographies, dynamic course catalog, and strict TypeScript.", s: ["TypeScript", "React", "Three.js", "WebGL", "Tailwind"], b: [["3D WebGL globe:", "custom shader-driven particle sphere interactive on mouse move."], ["Scroll animations:", "cinematic viewport transitions tied to timeline progress."], ["Strict TypeScript:", "modular component architecture with zero runtime type leaks."]], l: [["Code", G + "/mox-plyer"], ["Demo", "https://mox-plyer.vercel.app", 1]] },
       { t: "Lovers.Ai CRM — Wedding AI Platform", k: "AI · Full-Stack", i: "💍", c: "#f43f5e", d: "AI-powered CRM and event platform for wedding planners with workflow automation, role-based vendor access, and real-time event notifications.", s: ["React.js", "Node.js", "OpenAI", "Docker"], b: [["AI workflow orchestration:", "scheduling, vendor coordination, and task delegation."], ["Role-based access:", "separate permissions for couples, organizers, and vendors."], ["Real-time updates:", "live sync for budgets, milestones, and RSVPs."]], l: [["Code", G + "/Lover.ai-crm"]] },
       { t: "CareerSpy — AI Interview Coach", k: "AI · Next.js 16", i: "🕵️", c: "#6366f1", d: "AI interview preparation platform delivering personalized mock interviews, speech analysis, real-time feedback, and dynamic question generation.", s: ["Next.js 16", "React 19", "FastAPI", "Python", "Tailwind"], b: [["Speech analysis:", "audio evaluation measuring clarity, pace, and response structure."], ["Dynamic questions:", "LLM interview generation customized for job description and level."], ["Real-time feedback:", "constructive scoring on delivery, technical depth, and confidence."]], l: [["Code", G + "/CareerSpy"]] }];
+    const LOGOS = {
+      "C++": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+      "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+      "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+      "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+      "SQL": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg",
+      "C": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg",
+      "Java": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+      "React.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      "React": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+      "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+      "Tailwind": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+      "Redux": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg",
+      "Vue.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
+      "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+      "Node": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+      "Express.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
+      "Express": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
+      "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+      "Socket.io": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
+      "REST APIs": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
+      "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+      "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+      "Redis": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
+      "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
+      "Elasticsearch": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/elasticsearch/elasticsearch-original.svg",
+      "OpenAI API": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openai/openai-original.svg",
+      "OpenAI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openai/openai-original.svg",
+      "LLM Integration": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+      "scikit-learn": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg",
+      "Pandas": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg",
+      "Power BI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+      "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+      "Kubernetes": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg",
+      "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original.svg",
+      "GitHub Actions": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg",
+      "CI/CD": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+      "Three.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg",
+      "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+    };
+
+    const TECH_INFO = {
+      "C++": "Engineered Deep Packet Inspection engine with zero-copy packet parsing and lock-free ring buffers.",
+      "Python": "Primary language for AI/ML: Whisper RAG, FastAPI microservices, scikit-learn, and LangGraph.",
+      "JavaScript": "Core full-stack web development across modern ESNext, Node.js, and browser runtimes.",
+      "TypeScript": "Strict static typing across Mox-Player 3D, React 19 frontends, and production enterprise code.",
+      "SQL": "Relational query optimization, indexing, and complex joins across PostgreSQL and MySQL.",
+      "C": "Systems programming fundamentals, memory management, and low-level data structures.",
+      "Java": "Object-oriented software engineering, multithreading, and enterprise backend architectures.",
+      "React.js": "Built EventManager, Mox-Player 3D, CareerSpy, and Lovers.Ai with modern React architecture.",
+      "React": "Built EventManager, Mox-Player 3D, CareerSpy, and Lovers.Ai with modern React architecture.",
+      "Next.js": "Engineered full-stack applications with Next.js App Router, SSR, and API route handlers.",
+      "Tailwind CSS": "Utility-first responsive layouts, glassmorphic UI tokens, and high-fidelity styling.",
+      "Tailwind": "Utility-first responsive layouts, glassmorphic UI tokens, and high-fidelity styling.",
+      "Redux": "Predictable centralized state management and immutable data flows for complex web apps.",
+      "Vue.js": "Component-driven single-page web applications with reactive data binding.",
+      "Node.js": "High-throughput asynchronous backends, event emitters, and REST microservices.",
+      "Express.js": "Engineered REST APIs with JWT authentication, middleware security, and Redis rate limiting.",
+      "FastAPI": "Sub-50ms asynchronous AI inference endpoints and real-time machine learning pipelines.",
+      "Socket.io": "Real-time bidirectional event pipelines in EventManager for live gate check-in scanners.",
+      "REST APIs": "RESTful resource design, status semantics, caching headers, and OpenAPI specs.",
+      "PostgreSQL": "Production relational databases with Prisma 7 ORM integration and schema migrations.",
+      "MongoDB": "NoSQL document storage, indexing strategies, and aggregation pipelines in EventManager.",
+      "Redis": "In-memory caching, pub/sub channels, session storage, and latency reduction.",
+      "MySQL": "Relational schema design, ACID transactions, and structured data queries.",
+      "Elasticsearch": "Distributed full-text indexing, faceted search, and analytics querying.",
+      "OpenAI API": "Integrated GPT models, function calling, and structured outputs across Lovers.Ai and chat systems.",
+      "LLM Integration": "Prompt orchestration, structured JSON generation, and multi-turn conversational agents.",
+      "scikit-learn": "Trained classification models, SMOTE imbalanced data handling, and SHAP explainability in TrustGuard.",
+      "Pandas": "Data wrangling, feature engineering, and statistical telemetry analysis.",
+      "Power BI": "Interactive business intelligence dashboards and executive data visualizations.",
+      "Docker": "Containerization of microservices, multi-stage Dockerfiles, and reproducible environments.",
+      "Kubernetes": "Orchestrating containerized deployments, service discovery, and cluster scaling.",
+      "AWS": "Cloud infrastructure, EC2 compute, S3 object storage, and serverless architectures.",
+      "GitHub Actions": "Automated CI/CD pipelines, automated testing, linting, and zero-downtime deployment.",
+      "CI/CD": "Continuous integration, automated build verification, and deployment pipelines.",
+      "Three.js": "Interactive 3D WebGL scenes, procedural geometry, lighting, and camera choreographies."
+    };
+
     const S = [["⌨️", "rgba(34,197,94,.15)", "Languages", ["C++", "Python", "JavaScript", "TypeScript", "SQL", "C"]], ["🎨", "rgba(59,130,246,.15)", "Frontend", ["React.js", "Next.js", "Tailwind CSS", "Redux", "Vue.js"]], ["⚙️", "rgba(234,179,8,.15)", "Backend", ["Node.js", "Express.js", "FastAPI", "Socket.io", "REST APIs"]], ["🗄️", "rgba(168,85,247,.15)", "Databases", ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Elasticsearch"]], ["🤖", "rgba(236,72,153,.15)", "AI & Data", ["OpenAI API", "LLM Integration", "scikit-learn", "Pandas", "Power BI"]], ["☁️", "rgba(6,182,212,.15)", "Cloud & DevOps", ["Docker", "Kubernetes", "AWS", "GitHub Actions", "CI/CD"]]];
-    const pl = a => a.map(x => `<span class="pill">${x}</span>`).join("");
+    const pl = (a, cat) => a.map(x => {
+      const logo = LOGOS[x];
+      const iconHtml = logo ? `<img src="${logo}" class="tech-icon" alt="" loading="lazy">` : "";
+      return `<button type="button" class="pill skill-pill" data-tech="${x}" data-cat="${cat || 'Technical Skill'}">${iconHtml}<span>${x}</span></button>`;
+    }).join("");
 
     $(".built").innerHTML = built.map(b => `<div class="glass tilt"><div class="fl"></div><span class="dot"></span><div><b>${b[0]}</b><span>${b[1]}</span></div></div>`).join("");
-    $("#tl").innerHTML = jobs.map(j => `<div class="job reveal"><div class="glass tilt"><div class="fl"></div>${j[4] ? '<span class="new">Recent</span>' : ''}<h3>${j[0]}</h3><div class="co">${j[1]}</div><p>${j[2]}</p><div class="pills">${pl(j[3])}</div></div></div>`).join("");
+    $("#tl").innerHTML = jobs.map(j => `<div class="job reveal"><div class="glass tilt"><div class="fl"></div>${j[4] ? '<span class="new">Recent</span>' : ''}<h3>${j[0]}</h3><div class="co">${j[1]}</div><p>${j[2]}</p><div class="pills">${pl(j[3], j[0])}</div></div></div>`).join("");
     $("#pg").innerHTML = P.map(p => {
       const a = p.l.map(l => `<a href="${l[1]}" target="_blank" rel="noopener"${l[2] ? ' class="live"' : ''}>${l[0]}${l[2] ? ' ↗' : ''}</a>`).join("");
       return `<div class="flip tilt reveal" style="--c:${p.c}"><div class="fin">
 <div class="face front glass"><div class="fl"></div><div class="cover"><span>${p.i}</span><span class="tag">${p.k}</span><button class="fb" type="button">Flip ↻</button></div>
-<div class="pbody"><div><h3>${p.t}</h3><p>${p.d}</p></div><div><div class="pills">${pl(p.s)}</div><div class="acts">${a}<button class="fb" type="button">Details ↻</button></div></div></div></div>
+<div class="pbody"><div><h3>${p.t}</h3><p>${p.d}</p></div><div><div class="pills">${pl(p.s, p.t)}</div><div class="acts">${a}<button class="fb" type="button">Details ↻</button></div></div></div></div>
 <div class="face back glass"><div class="fl"></div><div><div class="bh"><span><i class="dot"></i>Architecture &amp; highlights</span><button class="fb" type="button" aria-label="Flip back">✕</button></div>
 <h4 style="margin-top:14px">${p.t}</h4><ul>${p.b.map(b => `<li><div><b>${b[0]}</b> ${b[1]}</div></li>`).join("")}</ul></div>
-<div><div class="pills">${pl(p.s)}</div><div class="acts">${a}<button class="fb" type="button">↺ Flip back</button></div></div></div></div></div>`
+<div><div class="pills">${pl(p.s, p.t)}</div><div class="acts">${a}<button class="fb" type="button">↺ Flip back</button></div></div></div></div></div>`
     }).join("");
-    $("#sg").innerHTML = S.map(s => `<div class="glass tilt card reveal"><div class="fl"></div><h3><span class="ic" style="--ic:${s[1]}">${s[0]}</span>${s[2]}</h3><div class="pills">${pl(s[3])}</div></div>`).join("");
+    $("#sg").innerHTML = S.map(s => `<div class="glass tilt card reveal"><div class="fl"></div><h3><span class="ic" style="--ic:${s[1]}">${s[0]}</span>${s[2]}</h3><div class="pills">${pl(s[3], s[2])}</div></div>`).join("");
     const tech = ["React", "Next.js", "Node.js", "FastAPI", "Python", "C++", "TypeScript", "PostgreSQL", "Redis", "MongoDB", "Docker", "Kubernetes", "AWS", "OpenAI API", "RAG", "scikit-learn"];
     $("#mq").innerHTML = [...tech, ...tech].map(t => `<span>${t}</span>`).join("");
 
@@ -2182,7 +2883,7 @@
         el.classList.add("hot"); el.style.setProperty("--fx", x + "px"); el.style.setProperty("--fy", y + "px"); el.style.setProperty("--fo", 1);
         el.style.setProperty("--ry", ((x / r.width - .5) * 2 * max).toFixed(2) + "deg"); el.style.setProperty("--rx", (-(y / r.height - .5) * 2 * max).toFixed(2) + "deg");
       };
-      const onEnd = () => { el.classList.remove("hot"); ["--fo", "--rx", "--ry"].forEach(v => el.style.setProperty(v, v === "--fo" ? 0 : "0deg")) };
+      const onEnd = () => { el.classList.remove("hot");["--fo", "--rx", "--ry"].forEach(v => el.style.setProperty(v, v === "--fo" ? 0 : "0deg")) };
       el.addEventListener("pointermove", onMove);
       el.addEventListener("pointerleave", onEnd);
       el.addEventListener("pointercancel", onEnd);
@@ -2198,6 +2899,7 @@
       const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)], RM = matchMedia("(prefers-reduced-motion:reduce)").matches;
       const toast = t => { const d = document.createElement("div"); d.className = "toast"; d.textContent = t; document.body.append(d); setTimeout(() => d.remove(), 2600) };
       const RES = "/_blob/66fe6ec30c6c9425dcdbe4894c751ef5"; $("#rs").href = RES;
+      const CAL_URL = "https://cal.com/ansh-rastogi-qeqqay/30min"; // 1-Click scheduling: Cal.com or Google Calendar appointment schedule link
       const tf = new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", hour12: true }), tk = () => { $("#clk").textContent = tf.format(new Date()).toUpperCase() + " IST" }; tk(); setInterval(tk, 15000);
       // architecture flows on card backs
       const FL = [
@@ -2269,6 +2971,14 @@
       if ($(".av")) $(".av").onclick = () => show("#hire");
       if ($("#btnHire")) $("#btnHire").onclick = () => show("#hire");
       if ($("#closeHire")) $("#closeHire").onclick = () => close();
+      if ($("#hireSendMsg")) {
+        $("#hireSendMsg").onclick = () => {
+          close();
+          const target = $("#contact");
+          if (target) target.scrollIntoView({ behavior: RM ? "auto" : "smooth" });
+          setTimeout(() => $("#msgName")?.focus(), 450);
+        };
+      }
       if ($("#hireCopy")) $("#hireCopy").onclick = () => {
         navigator.clipboard && navigator.clipboard.writeText("rastogiansh13@gmail.com").then(() => {
           toast("Email copied to clipboard!");
@@ -2276,12 +2986,170 @@
           if (el) { const old = el.textContent; el.textContent = "Copied to clipboard! ✓"; setTimeout(() => el.textContent = old, 2000); }
         }, () => toast("rastogiansh13@gmail.com"));
       };
-      if ($("#hireGMeet")) $("#hireGMeet").onclick = () => {
-        toast("Opening Google Meet for discussion with Ansh...");
-      };
+      if ($("#hireGMeet")) {
+        $("#hireGMeet").href = CAL_URL;
+        $("#hireGMeet").onclick = () => {
+          close();
+        };
+      }
+      if ($("#calBookingBtn")) {
+        $("#calBookingBtn").href = CAL_URL;
+      }
+      if ($("#openCustomMeet")) {
+        $("#openCustomMeet").onclick = () => {
+          close();
+          show("#meetModal");
+        };
+      }
+      if ($("#closeMeetModal")) {
+        $("#closeMeetModal").onclick = close;
+      }
+
+      // 1-to-1 Google Meet Request Form Submission
+      const meetForm = $("#meetRequestForm");
+      if (meetForm) {
+        meetForm.addEventListener("submit", async e => {
+          e.preventDefault();
+          const name = $("#meetName").value.trim();
+          const email = $("#meetEmail").value.trim();
+          const time = $("#meetTime").value.trim();
+          const btn = $("#sendMeetBtn");
+          const status = $("#meetStatus");
+
+          btn.disabled = true;
+          btn.querySelector("span").textContent = "Sending Request…";
+          status.className = "form-status";
+          status.textContent = "Delivering 1-to-1 Meet request to Ansh's email…";
+
+          const payload = {
+            _subject: `[1-to-1 Google Meet Request] from ${name}`,
+            Name: name,
+            Email: email,
+            "Preferred Date & Time / Agenda": time,
+            "Instant Meet Room": "https://meet.google.com/new",
+            "Submitted From": "Portfolio Hire Modal (Connect 1-to-1)"
+          };
+
+          try {
+            const res = await fetch("https://formsubmit.co/ajax/rastogiansh13@gmail.com", {
+              method: "POST",
+              headers: { "Content-Type": "application/json", "Accept": "application/json" },
+              body: JSON.stringify(payload)
+            });
+            if (res.ok) {
+              status.className = "form-status success";
+              status.textContent = "✓ Request sent! Ansh received your Meet invite on email. Opening Google Meet…";
+              setTimeout(() => {
+                window.open("https://meet.google.com/new", "_blank", "noopener");
+                close();
+              }, 1600);
+              return;
+            }
+          } catch (_) { }
+
+          // Fallback to mailto
+          status.className = "form-status success";
+          status.textContent = "✓ Opening email to send request to rastogiansh13@gmail.com…";
+          const mailto = `mailto:rastogiansh13@gmail.com?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+            `Hi Ansh,\n\nI would like to connect 1-to-1 on Google Meet.\n\nName: ${name}\nEmail: ${email}\nPreferred Time / Agenda: ${time}\nGoogle Meet Room: https://meet.google.com/new`
+          )}`;
+          window.location.href = mailto;
+          setTimeout(() => {
+            window.open("https://meet.google.com/new", "_blank", "noopener");
+            close();
+          }, 1500);
+        });
+      }
+
+      // Contact Section: Send a Message Form Submission
+      const contactForm = $("#contactMsgForm");
+      if (contactForm) {
+        contactForm.addEventListener("submit", async e => {
+          e.preventDefault();
+          const name = $("#msgName").value.trim();
+          const email = $("#msgEmail").value.trim();
+          const subject = $("#msgSubject").value.trim() || `Portfolio Inquiry from ${name}`;
+          const message = $("#msgBody").value.trim();
+          const btn = $("#sendMsgBtn");
+          const status = $("#contactMsgStatus");
+
+          btn.disabled = true;
+          btn.querySelector("span").textContent = "Sending Message…";
+          status.className = "form-status";
+          status.textContent = "Delivering message to rastogiansh13@gmail.com…";
+
+          const payload = {
+            _subject: subject,
+            Name: name,
+            Email: email,
+            Message: message,
+            _template: "table"
+          };
+
+          try {
+            const res = await fetch("https://formsubmit.co/ajax/rastogiansh13@gmail.com", {
+              method: "POST",
+              headers: { "Content-Type": "application/json", "Accept": "application/json" },
+              body: JSON.stringify(payload)
+            });
+            if (res.ok) {
+              status.className = "form-status success";
+              status.textContent = "✓ Thank you! Your message has been sent to rastogiansh13@gmail.com. I'll get back to you shortly.";
+              contactForm.reset();
+              btn.disabled = false;
+              btn.querySelector("span").textContent = "Send Message";
+              return;
+            }
+          } catch (_) { }
+
+          // Fallback to mailto
+          status.className = "form-status success";
+          status.textContent = "✓ Opening email client to send to rastogiansh13@gmail.com…";
+          window.location.href = `mailto:rastogiansh13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\n${message}`
+          )}`;
+          btn.disabled = false;
+          btn.querySelector("span").textContent = "Send Message";
+        });
+      }
+      // Tech stack logo popout
+      document.addEventListener("click", e => {
+        const pill = e.target.closest(".skill-pill");
+        if (!pill) return;
+        const tech = pill.dataset.tech;
+        if (!tech) return;
+        const logo = LOGOS[tech] || "";
+        const desc = TECH_INFO[tech] || `Proficient in ${tech} across production systems, scalable architectures, and modern engineering workflows.`;
+        const cat = pill.dataset.cat || "Technical Skill";
+
+        const img = $("#techPopImg");
+        if (logo) {
+          img.src = logo;
+          img.style.display = "block";
+        } else {
+          img.style.display = "none";
+        }
+        $("#techPopName").textContent = tech;
+        $("#techPopCat").textContent = cat;
+        $("#techPopDesc").textContent = desc;
+
+        const askBtn = $("#techPopAskBtn");
+        if (askBtn) {
+          askBtn.onclick = () => {
+            close();
+            show("#chat");
+            ci.value = `Tell me about your experience and projects with ${tech}`;
+            $("#cf").requestSubmit();
+          };
+        }
+        show("#techPopout");
+      });
+      if ($("#techPopClose")) $("#techPopClose").onclick = close;
+      if ($(".now")) $(".now").onclick = () => { $("#pi").value = ""; filt(""); show("#pal"); };
+
       // command palette
       const jump = h => { close(); $(h).scrollIntoView({ behavior: RM ? "auto" : "smooth" }) };
-      const acts = [["Open resume", () => { close(); window.open(RES, "_blank", "noopener") }], ["Go to About", () => jump("#about")], ["Go to Leadership", () => jump("#leadership")], ["Go to Experience", () => jump("#experience")], ["Go to Projects", () => jump("#projects")], ["Go to Skills", () => jump("#skills")], ["Go to Contact", () => jump("#contact")], ["Ask Ansh (AI chat)", () => show("#chat")], ["Open terminal", () => show("#term")], ["Play tic-tac-toe", () => show("#game")], ["Copy email address", () => { close(); navigator.clipboard && navigator.clipboard.writeText("rastogiansh13@gmail.com").then(() => toast("Email copied"), () => toast("rastogiansh13@gmail.com")) }], ["Open GitHub", () => { close(); window.open(G, "_blank", "noopener") }]];
+      const acts = [["Open resume", () => { close(); window.open(RES, "_blank", "noopener") }], ["Book 1-to-1 (Google Meet)", () => { close(); window.open(CAL_URL, "_blank", "noopener") }], ["Go to About", () => jump("#about")], ["Go to Leadership", () => jump("#leadership")], ["Go to Experience", () => jump("#experience")], ["Go to Projects", () => jump("#projects")], ["Go to Skills", () => jump("#skills")], ["Go to Contact", () => jump("#contact")], ["Ask AshR (AI chat)", () => show("#chat")], ["Open terminal", () => show("#term")], ["Play tic-tac-toe", () => show("#game")], ["Copy email address", () => { close(); navigator.clipboard && navigator.clipboard.writeText("rastogiansh13@gmail.com").then(() => toast("Email copied"), () => toast("rastogiansh13@gmail.com")) }], ["Open GitHub", () => { close(); window.open(G, "_blank", "noopener") }]];
       let sel = 0, list = acts; const paint = () => { $("#pl").innerHTML = list.map((a, i) => `<li class="${i === sel ? "s" : ""}" data-i="${i}">${a[0]}</li>`).join("") || "<li>No match</li>" };
       const filt = q => { list = acts.filter(a => a[0].toLowerCase().includes(q.toLowerCase())); sel = 0; paint() };
       $("#pi").addEventListener("input", e => filt(e.target.value));
@@ -2292,6 +3160,7 @@
       const to = $("#to"), ti = $("#ti"); const say = (t, c) => { const d = document.createElement("div"); d.textContent = t; if (c) d.className = c; to.append(d); to.scrollTop = to.scrollHeight };
       say("Ansh’s terminal. Type help.", "m");
       const CM = { help: () => "Commands: about, experience, projects, skills, contact, play, ask <question>, clear, exit", about: () => "Ansh Rastogi. B.Tech at NIT Jalandhar. Full-stack and AI engineer based in Noida.", experience: () => jobs.map(j => j[0] + " at " + j[1]).join("\n"), projects: () => P.map(p => "• " + p.t.split(" — ")[0] + " (" + p.k + ")").join("\n"), skills: () => S.map(s => s[2] + ": " + s[3].join(", ")).join("\n"), contact: () => "rastogiansh13@gmail.com\nlinkedin.com/in/anshrastogi23\ngithub.com/Anshrastogi05", whoami: () => "a visitor about to meet a good engineer", play: () => { show("#game"); return "" }, exit: () => { close(); return "" }, clear: () => { to.innerHTML = ""; return "" }, sudo: () => "Permission granted. Offer letter drafted. Send it to rastogiansh13@gmail.com" };
+      const CM = { help: () => "Commands: about, experience, projects, skills, leadership, contact, play, ask <question>, clear, exit", about: () => "Ansh Rastogi. B.Tech at NIT Jalandhar. Full-stack and AI engineer based in Noida.", experience: () => jobs.map(j => j[0] + " at " + j[1]).join("\n"), projects: () => P.map(p => "• " + p.t.split(" — ")[0] + " (" + p.k + ")").join("\n"), skills: () => S.map(s => s[2] + ": " + s[3].join(", ")).join("\n"), leadership: () => "• President · StrataBiz (NIT Jalandhar Business & Consulting Club)\n• Social Media Head · Institution's Innovation Council (IIC)\n• Operational Director · Bawre Theatre Society", contact: () => "rastogiansh13@gmail.com\nlinkedin.com/in/anshrastogi23\ngithub.com/Anshrastogi05", whoami: () => "a visitor about to meet a good engineer", play: () => { show("#game"); return "" }, exit: () => { close(); return "" }, clear: () => { to.innerHTML = ""; return "" }, sudo: () => "Permission granted. Offer letter drafted. Send it to rastogiansh13@gmail.com" };
       ti.addEventListener("keydown", e => { if (e.key !== "Enter") return; const v = ti.value.trim(); ti.value = ""; say("$ " + v, "u"); const [c, ...r] = v.split(" "); if (c === "ask") { show("#chat"); $("#ci").value = r.join(" "); return } const f = CM[c]; const o = f ? f() : c ? "command not found: " + c + ". Try help." : ""; if (o) say(o) });
       // tic-tac-toe vs a simple bot
       const bd = $("#bd"), gs = $("#gs"), WL = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]; let cells, over;
@@ -2301,9 +3170,9 @@
       const pick = () => { const e = cells.map((v, i) => v ? -1 : i).filter(i => i >= 0), t = m => e.find(i => { cells[i] = m; const w = won(m); cells[i] = ""; return w }); let k = t("O"); if (k === undefined) k = t("X"); if (k === undefined) k = cells[4] ? e[Math.random() * e.length | 0] : 4; return k };
       bd.addEventListener("click", e => { const i = +e.target.dataset.i; if (over || isNaN(i) || cells[i]) return; put(i, "X"); if (won("X")) { over = 1; gs.textContent = "You win!"; return } if (cells.every(Boolean)) { over = 1; gs.textContent = "Draw"; return } put(pick(), "O"); if (won("O")) { over = 1; gs.textContent = "The bot wins" } else if (cells.every(Boolean)) { over = 1; gs.textContent = "Draw" } });
       $("#gr").onclick = reset; reset();
-      // Ask Ansh chat, powered by verified GitHub & LinkedIn knowledge engine + Groq RAG
+      // Ask AshR chat, powered by verified GitHub & LinkedIn knowledge engine + Groq RAG
       const cl = $("#cl"), ci = $("#ci"), msg = (t, c) => { const d = document.createElement("div"); d.className = "msg " + c; d.textContent = t; cl.append(d); cl.scrollTop = cl.scrollHeight; return d };
-      msg("Hi! I'm Ansh's portfolio AI assistant. Ask me anything about his AI platforms, backend architecture, internships, or tech stack — or tap a prompt below!", "bot");
+      msg("Hi! I'm AshR, Ansh's portfolio AI assistant. Ask me anything about his AI platforms, backend architecture, internships, or tech stack — or tap a prompt below!", "bot");
 
       function answerQuery(q) {
         const s = q.toLowerCase().trim();
@@ -2324,7 +3193,7 @@
 
         // Specific Projects
         if (test(/\b(videolens|video-lens|video lens)\b/i)) {
-          return "VideoLens is an AI video intelligence platform built with Python, Streamlit, OpenAI Whisper, and LangChain. It transcribes audio from YouTube or uploaded recordings locally, indexes transcript chunks into a semantic vector store, and provides conversational Q&A with timestamped action-item extraction.";
+          return "VideoLens is an AI video intelligence platform built with Python, Streamlit, OpenAI Whisper, and LangChain. It transcribes audio from YouTube or uploaded recordings locally, indexes transcript chunks into a semantic vector store, and provides conversational Q&A with timestamped action-item extraction. (Live demo available!)";
         }
         if (test(/\b(eventmanager|event management|ticketing|qr ticket)\b/i)) {
           return "EventManager is a full-stack real-time ticketing platform built with React, Node.js, Express, MongoDB, and Socket.IO. It features encrypted QR-coded PDF ticket generation, live gate check-in scanners with instant WebSocket verification, organizer revenue analytics, and CSV attendee export. (Live demo available!)";
@@ -2353,13 +3222,13 @@
 
         // Chip 1: AI & ML Projects
         if (test(/\b(built.*with.*ai|ai.*projects?|artificial intelligence|machine learning|\bml\b|llm|rag|whisper|shap|gpt)\b/i) ||
-            (test(/\bai\b/i) && test(/\b(built|projects?|work|do|done|what|portfolio)\b/i))) {
+          (test(/\bai\b/i) && test(/\b(built|projects?|work|do|done|what|portfolio)\b/i))) {
           return "Ansh has architected multiple production-grade AI & ML systems:\n\n• Adaptive RAG: Agentic AI chatbot using LangGraph cyclic state machines and a Qdrant vector database.\n• VideoLens: Video intelligence assistant with Whisper speech-to-text, LangChain semantic chunking, and conversational Q&A.\n• TrustGuard: Explainable fraud detection platform with sub-50ms FastAPI inference, SMOTE rebalancing, and live SHAP risk attributions.\n• Lovers.Ai CRM: AI-driven wedding platform orchestrating autonomous workflows, task scheduling, and vendor coordination.\n• CareerSpy: AI mock interview coach featuring speech clarity analysis and real-time LLM question generation.";
         }
 
         // Chip 2: Backend Architecture
         if (test(/\b(strong.*in.*backend|backend.*strong|good.*at.*backend)\b/i) ||
-            (test(/\bbackend\b/i) && !test(/\bfrontend\b/i))) {
+          (test(/\bbackend\b/i) && !test(/\bfrontend\b/i))) {
           return "Yes, backend architecture is one of Ansh's primary strengths:\n\n• High-Performance APIs: Built high-throughput microservices in FastAPI, Node.js, and Express with JWT auth, rate limiting, and Redis caching.\n• Low-Level Systems: Engineered a C++ Deep Packet Inspection engine with zero-copy packet parsing and lock-free ring buffers for gigabit network streams.\n• Real-Time WebSockets: Implemented bi-directional event pipelines with Socket.IO in EventManager for live gate check-in verification.\n• Production Databases: Extensive experience with PostgreSQL (Prisma 7), MongoDB, and Redis caching across internships at UBNext and QSkills.";
         }
 
@@ -2447,6 +3316,11 @@
         // Hiring / Role Availability / Graduation
         if (test(/\b(hire|hiring|open to|roles?|opportunity|full time|sde|available|when can he join)\b/i)) {
           return "Ansh is actively open to full-time Software Development Engineer (SDE), Backend Engineer, Full-Stack Developer, and AI Engineer roles for 2026. You can reach out directly via email at rastogiansh13@gmail.com or connect on LinkedIn!";
+        }
+
+        // Leadership & Extracurricular Clubs
+        if (test(/\b(leadership|lead|clubs?|extracurricular|stratabiz|consult\s*corp|iic|innovation council|bawre|theatre|theater)\b/i)) {
+          return "Ansh holds active leadership positions at NIT Jalandhar:\n\n• President / Head · StrataBiz Club: Directed end-to-end execution of ConsultCorp (flagship business hackathon), securing sponsorships, coordinating logistics, and leading operations for 70+ participating teams and 300+ attendees.\n• Social Media Head · Institution's Innovation Council (IIC): Managed social media campaigns and promotional content for innovation initiatives, increasing student participation and expanding digital presence.\n• Operational Director · Bawre Theatre Society: Directed end-to-end theatrical production operations, stage logistics, budget allocation, technical execution, and cast/crew coordination for collegiate stage and street productions.";
         }
 
         // Achievements, Hackathons & Stats
@@ -2559,6 +3433,7 @@
       $$(".chip").forEach(c => c.onclick = () => { ci.value = c.textContent; $("#cf").requestSubmit() });
       $("#cf").addEventListener("submit", async e => {
         e.preventDefault(); const q = ci.value.trim(); if (!q) return; ci.value = "";
+        const starterChips = $(".chips"); if (starterChips) starterChips.style.display = "none";
         msg(q, "me");
         const b = msg("Thinking…", "bot");
         const { text, followups } = await getAnswerData(q);
