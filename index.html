@@ -2063,14 +2063,25 @@
     }
 
     .pass-logo {
-      width: 46px;
-      height: 46px;
-      border-radius: 10px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       object-fit: cover;
       border: 1.5px solid color-mix(in srgb, var(--c) 45%, rgba(255, 255, 255, .15));
       box-shadow: 0 4px 14px rgba(0, 0, 0, .45), 0 0 14px color-mix(in srgb, var(--c) 30%, transparent);
       background: #0b0f19;
       flex-shrink: 0;
+    }
+
+    .pass-logo.is-light {
+      background: #ffffff;
+      padding: 4px;
+      object-fit: contain;
+    }
+
+    .big.strata-word {
+      font-size: clamp(1.35rem, 2.7vw, 1.95rem);
+      letter-spacing: -.02em;
     }
 
     .tg {
@@ -2108,6 +2119,307 @@
       margin-top: 18px;
       opacity: .5;
       background: repeating-linear-gradient(90deg, #cbd5e1 0 2px, transparent 2px 5px, #cbd5e1 5px 6px, transparent 6px 11px);
+    }
+
+    /* ==========================================================================
+       Beehive Photo Showcase (Blank Space in About Me)
+       ========================================================================== */
+    .hive-showcase-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 24px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 60% 40%, rgba(34, 197, 94, .08), transparent 70%),
+                  rgba(255, 255, 255, .015);
+      border: 1px solid rgba(255, 255, 255, .07);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow: hidden;
+      min-height: 480px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
+      cursor: pointer;
+    }
+
+    .hive-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hive-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #86efac;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, .1);
+      border: 1px solid rgba(34, 197, 94, .25);
+    }
+
+    .hive-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: rsGlow 2.5s infinite ease-in-out;
+    }
+
+    .hive-hint {
+      font-size: 11.5px;
+      color: var(--dim);
+      margin: 0;
+      transition: opacity .3s ease;
+    }
+
+    .hive-showcase-wrap:hover .hive-hint {
+      color: #86efac;
+    }
+
+    .beehive-stage {
+      position: relative;
+      width: 100%;
+      height: 390px;
+      margin: 0 auto;
+    }
+
+    /* Hexagon Geometry & Positioning */
+    .hex-cell {
+      position: absolute;
+      width: 195px;
+      height: 222px;
+      transition: all .55s cubic-bezier(.34, 1.45, .64, 1);
+      transform-origin: center center;
+    }
+
+    /* Ambient Honeycomb Wireframe Cells */
+    .hex-deco {
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: rgba(34, 197, 94, .02);
+      border: 1px dashed rgba(34, 197, 94, .2);
+      pointer-events: none;
+      z-index: 1;
+      opacity: .45;
+      transition: all .6s ease;
+    }
+    .hex-deco-1 {
+      top: 5px;
+      left: 15px;
+      width: 135px;
+      height: 155px;
+    }
+    .hex-deco-2 {
+      top: 170px;
+      right: 15px;
+      width: 125px;
+      height: 142px;
+    }
+    .hex-deco-3 {
+      bottom: 5px;
+      left: 20px;
+      width: 110px;
+      height: 126px;
+    }
+
+    /* Interlocking Honeycomb Positioning for Photos */
+    .hex-photo-1 {
+      top: 15px;
+      right: 25px;
+      z-index: 2;
+    }
+
+    .hex-photo-2 {
+      top: 90px;
+      left: 20px;
+      z-index: 3;
+    }
+
+    .hex-photo-3 {
+      top: 170px;
+      left: 155px;
+      z-index: 4;
+    }
+
+    /* Inner Hexagon Container */
+    .hex-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: #090d16;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .6);
+    }
+
+    .hex-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .hex-border {
+      position: absolute;
+      inset: -2px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: linear-gradient(135deg, rgba(34, 197, 94, .85), rgba(56, 189, 248, .55));
+      opacity: 0;
+      transition: opacity .4s ease, filter .4s ease;
+      z-index: 0;
+    }
+
+    .hex-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 14px 16px;
+      background: linear-gradient(to top, rgba(2, 6, 23, .95) 25%, transparent);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all .35s ease;
+    }
+
+    .hex-tag {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #86efac;
+      margin-bottom: 2px;
+    }
+
+    .hex-label b {
+      display: block;
+      font-size: 11px;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Center Beehive Beacon Indicator */
+    .hive-center-beacon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      color: rgba(34, 197, 94, .5);
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity .4s ease, transform .5s ease;
+    }
+    .hive-icon {
+      width: 100%;
+      height: 100%;
+      animation: rotateHive 20s linear infinite;
+    }
+
+    @keyframes rotateHive {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* THE INITIAL HIDDEN STATE: Photos hidden until cursor moves / hovers */
+    .beehive-stage .hex-photo {
+      opacity: 0;
+      transform: scale(.62) translateY(26px);
+      filter: blur(14px) grayscale(75%);
+      pointer-events: none;
+    }
+
+    /* WHEN CURSOR HOVERS / MOVES OVER THE STAGE: BLOOMS UP LIKE A BEEHIVE PATTERN */
+    .hive-showcase-wrap:hover .hex-photo,
+    .hive-showcase-wrap.active .hex-photo {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      filter: blur(0px) grayscale(0%);
+      pointer-events: auto;
+    }
+
+    .hive-showcase-wrap:hover .hex-photo-1,
+    .hive-showcase-wrap.active .hex-photo-1 {
+      transition-delay: .05s;
+    }
+    .hive-showcase-wrap:hover .hex-photo-2,
+    .hive-showcase-wrap.active .hex-photo-2 {
+      transition-delay: .18s;
+    }
+    .hive-showcase-wrap:hover .hex-photo-3,
+    .hive-showcase-wrap.active .hex-photo-3 {
+      transition-delay: .30s;
+    }
+
+    .hive-showcase-wrap:hover .hex-border,
+    .hive-showcase-wrap.active .hex-border {
+      opacity: .8;
+      filter: drop-shadow(0 0 10px rgba(34, 197, 94, .45));
+    }
+
+    .hive-showcase-wrap:hover .hive-center-beacon,
+    .hive-showcase-wrap.active .hive-center-beacon {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.4);
+    }
+
+    .hive-showcase-wrap:hover .hex-deco,
+    .hive-showcase-wrap.active .hex-deco {
+      opacity: .75;
+      border-color: rgba(34, 197, 94, .4);
+    }
+
+    /* INDIVIDUAL CELL HOVER FOCUS */
+    .hex-photo:hover {
+      z-index: 10 !important;
+      transform: scale(1.08) translateY(-4px) !important;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, .85)) !important;
+    }
+    .hex-photo:hover .hex-border {
+      opacity: 1;
+      background: linear-gradient(135deg, #22c55e, #38bdf8);
+      filter: drop-shadow(0 0 18px rgba(34, 197, 94, .75));
+    }
+    .hex-photo:hover .hex-content img {
+      transform: scale(1.1);
+    }
+    .hex-photo:hover .hex-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile Responsiveness */
+    @media(max-width: 600px) {
+      .hive-showcase-wrap {
+        min-height: 420px;
+        padding: 16px;
+      }
+      .beehive-stage {
+        height: 350px;
+      }
+      .hex-cell {
+        width: 150px;
+        height: 170px;
+      }
+      .hex-photo-1 { top: 10px; right: 10px; }
+      .hex-photo-2 { top: 75px; left: 10px; }
+      .hex-photo-3 { top: 155px; left: 95px; }
     }
 
     /* Interactive Skill Pills with Tech Logos */
@@ -2316,9 +2628,7 @@
         <p class="bio">B.Tech at NIT Jalandhar. Building <em>scalable software</em>, AI applications and cloud-native
           systems. 4× hackathon finalist.</p>
         <p class="now"><span><kbd>Ctrl</kbd> <kbd>K</kbd> opens the command palette</span></p>
-        <div class="cta"><a class="btn" id="rs" href="#" target="_blank" rel="noopener">Resume ↓</a></div>
-        <div class="cta"><a class="btn" id="rs" href="Ansh_Rastogi_Resume.pdf" target="_blank" rel="noopener">Resume
-            ↓</a></div>
+        <div class="cta"><a class="btn" id="rs" href="Ansh_Rastogi_Resume.pdf" target="_blank" rel="noopener">Resume ↓</a></div>
         <div class="stats">
           <div class="glass tilt stat">
             <div class="fl"></div><b class="gt" data-n="5" data-s="+">0</b><span>Internships</span>
@@ -2327,7 +2637,6 @@
             <div class="fl"></div><b class="gt" data-n="4" data-s="×">0</b><span>Hackathons</span>
           </div>
           <a class="glass tilt stat lead" href="#leadership">
-            <div class="fl"></div><b class="gt">Leader</b><span>Stratabiz · Consult Corp</span>
             <div class="fl"></div><b class="gt">Leader</b><span>StrataBiz · IIC · Bawre</span>
           </a>
         </div>
@@ -2360,7 +2669,66 @@
               <div class="built"></div>
             </div>
           </div>
-          <div aria-hidden="true"></div>
+          <!-- Beehive Interactive Photo Showcase (Field Moments) -->
+          <div class="hive-showcase-wrap reveal" id="hiveShowcase" aria-label="Field moments from StrataBiz and leadership">
+            <div class="hive-header">
+              <div class="hive-badge">
+                <span class="hive-pulse-dot"></span>
+                <span>In the Field · Leadership</span>
+              </div>
+              <p class="hive-hint">Hover over hive to unveil moments ✦</p>
+            </div>
+
+            <div class="beehive-stage">
+              <!-- Decorative ambient honeycombs -->
+              <div class="hex-cell hex-deco hex-deco-1" aria-hidden="true"></div>
+              <div class="hex-cell hex-deco hex-deco-2" aria-hidden="true"></div>
+              <div class="hex-cell hex-deco hex-deco-3" aria-hidden="true"></div>
+
+              <!-- Photo 1: Keynote presentation at StrataBiz / ConsultCorp -->
+              <div class="hex-cell hex-photo hex-photo-1">
+                <div class="hex-border"></div>
+                <div class="hex-content">
+                  <img src="event_1.jpg" alt="Ansh Rastogi delivering keynote at ConsultCorp" loading="lazy">
+                  <div class="hex-label">
+                    <span class="hex-tag">Keynote</span>
+                    <b>ConsultCorp '26 · 300+ Attendees</b>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Photo 2: Mentoring and coordinating with teams -->
+              <div class="hex-cell hex-photo hex-photo-2">
+                <div class="hex-border"></div>
+                <div class="hex-content">
+                  <img src="event_2.jpg" alt="Ansh Rastogi mentoring students in auditorium" loading="lazy">
+                  <div class="hex-label">
+                    <span class="hex-tag">Mentorship</span>
+                    <b>Coordinating 70+ Teams</b>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Photo 3: Operations & jury coordination -->
+              <div class="hex-cell hex-photo hex-photo-3">
+                <div class="hex-border"></div>
+                <div class="hex-content">
+                  <img src="event_3.jpg" alt="Ansh Rastogi planning operations with jury" loading="lazy">
+                  <div class="hex-label">
+                    <span class="hex-tag">Operations</span>
+                    <b>Jury &amp; Event Operations</b>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Beehive Center Indicator / Trigger -->
+              <div class="hive-center-beacon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" class="hive-icon">
+                  <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2397,9 +2765,9 @@
               <div class="pc-hero">
                 <div>
                   <span class="tg">President · 2026–Present</span>
-                  <b class="big">Head</b>
+                  <b class="big strata-word">STRATABIZ</b>
                 </div>
-                <img src="stratabiz.jpg" class="pass-logo" alt="StrataBiz Club Logo" loading="lazy">
+                <img src="stratabiz.jpg" class="pass-logo is-light" alt="StrataBiz Club Logo" loading="lazy">
               </div>
               <h3>StrataBiz Club</h3>
               <p>Official Business &amp; Consulting Club, NIT Jalandhar</p>
@@ -2419,7 +2787,7 @@
                   <span class="tg">Social Media Head · 2025–Present</span>
                   <b class="big">IIC</b>
                 </div>
-                <img src="iic.jpg" class="pass-logo" alt="IIC Logo" loading="lazy">
+                <img src="iic.png" class="pass-logo is-light" alt="IIC Logo" loading="lazy">
               </div>
               <h3>Institution’s Innovation Council</h3>
               <p>MoE Innovation Cell · Social campaigns &amp; digital outreach</p>
@@ -2439,7 +2807,7 @@
                   <span class="tg">Operational Director</span>
                   <b class="big">Bawre</b>
                 </div>
-                <img src="bawre.jpg" class="pass-logo" alt="Bawre Theatre Logo" loading="lazy">
+                <img src="bawre.jpg" class="pass-logo is-dark" alt="Bawre Theatre Logo" loading="lazy">
               </div>
               <h3>Bawre Theatre Society</h3>
               <p>Official Dramatics Society · Stage &amp; production ops</p>
@@ -2899,7 +3267,6 @@
     (() => {
       const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)], RM = matchMedia("(prefers-reduced-motion:reduce)").matches;
       const toast = t => { const d = document.createElement("div"); d.className = "toast"; d.textContent = t; document.body.append(d); setTimeout(() => d.remove(), 2600) };
-      const RES = "/_blob/66fe6ec30c6c9425dcdbe4894c751ef5"; $("#rs").href = RES;
       const RES = "Ansh_Rastogi_Resume.pdf"; $("#rs").href = RES;
       const CAL_URL = "https://cal.com/ansh-rastogi-qeqqay/30min"; // 1-Click scheduling: Cal.com or Google Calendar appointment schedule link
       const tf = new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", hour12: true }), tk = () => { $("#clk").textContent = tf.format(new Date()).toUpperCase() + " IST" }; tk(); setInterval(tk, 15000);
@@ -3148,6 +3515,13 @@
       });
       if ($("#techPopClose")) $("#techPopClose").onclick = close;
       if ($(".now")) $(".now").onclick = () => { $("#pi").value = ""; filt(""); show("#pal"); };
+
+      // Beehive Photo Showcase interactive hover & cursor tracking
+      const hive = $("#hiveShowcase");
+      if (hive) {
+        hive.addEventListener("pointerenter", () => hive.classList.add("active"));
+        hive.addEventListener("pointerleave", () => hive.classList.remove("active"));
+      }
 
       // command palette
       const jump = h => { close(); $(h).scrollIntoView({ behavior: RM ? "auto" : "smooth" }) };
