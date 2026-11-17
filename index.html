@@ -2240,7 +2240,7 @@
        ========================================================================== */
     .stealth-hive-zone {
       position: relative;
-      min-height: 440px;
+      min-height: 490px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2253,16 +2253,16 @@
 
     .stealth-hive-stage {
       position: relative;
-      width: 410px;
-      height: 410px;
+      width: 450px;
+      height: 485px;
       max-width: 100%;
     }
 
     /* Hexagon Geometry & Positioning */
     .stealth-hex-cell {
       position: absolute;
-      width: 200px;
-      height: 230px;
+      width: 165px;
+      height: 190px;
       opacity: 0;
       transform: scale(.55) translateY(28px);
       filter: blur(14px);
@@ -2273,23 +2273,41 @@
       transform-origin: center center;
     }
 
-    /* Interlocking Honeycomb Positioning */
+    /* Interlocking Honeycomb Positioning (3 columns x 2 rows) */
     .stealth-hex-cell.cell-1 {
-      top: 10px;
-      left: 15px;
+      top: 15px;
+      left: 10px;
       z-index: 2;
     }
 
     .stealth-hex-cell.cell-2 {
-      top: 100px;
-      left: 195px;
+      top: 107px;
+      left: 145px;
       z-index: 3;
     }
 
     .stealth-hex-cell.cell-3 {
-      top: 190px;
-      left: 15px;
+      top: 200px;
+      left: 10px;
+      z-index: 2;
+    }
+
+    .stealth-hex-cell.cell-4 {
+      top: 292px;
+      left: 145px;
       z-index: 4;
+    }
+
+    .stealth-hex-cell.cell-5 {
+      top: 15px;
+      left: 280px;
+      z-index: 2;
+    }
+
+    .stealth-hex-cell.cell-6 {
+      top: 200px;
+      left: 280px;
+      z-index: 3;
     }
 
     /* Hexagon Shape Container */
@@ -2335,25 +2353,17 @@
       pointer-events: auto;
     }
 
-    .stealth-hive-zone:hover .cell-1,
-    .stealth-hive-zone.active .cell-1 {
-      transition-delay: .04s;
-    }
-
-    .stealth-hive-zone:hover .cell-2,
-    .stealth-hive-zone.active .cell-2 {
-      transition-delay: .18s;
-    }
-
-    .stealth-hive-zone:hover .cell-3,
-    .stealth-hive-zone.active .cell-3 {
-      transition-delay: .32s;
-    }
+    .stealth-hive-zone:hover .cell-1, .stealth-hive-zone.active .cell-1 { transition-delay: .02s; }
+    .stealth-hive-zone:hover .cell-2, .stealth-hive-zone.active .cell-2 { transition-delay: .09s; }
+    .stealth-hive-zone:hover .cell-3, .stealth-hive-zone.active .cell-3 { transition-delay: .16s; }
+    .stealth-hive-zone:hover .cell-4, .stealth-hive-zone.active .cell-4 { transition-delay: .23s; }
+    .stealth-hive-zone:hover .cell-5, .stealth-hive-zone.active .cell-5 { transition-delay: .30s; }
+    .stealth-hive-zone:hover .cell-6, .stealth-hive-zone.active .cell-6 { transition-delay: .37s; }
 
     /* INDIVIDUAL CELL HOVER FOCUS */
     .stealth-hex-cell:hover {
       z-index: 10 !important;
-      transform: scale(1.08) translateY(-4px) !important;
+      transform: scale(1.1) translateY(-4px) !important;
     }
 
     .stealth-hex-cell:hover .stealth-hex-border {
@@ -2367,19 +2377,22 @@
 
     @media(max-width: 600px) {
       .stealth-hive-zone {
-        min-height: 380px;
+        min-height: 340px;
       }
       .stealth-hive-stage {
-        width: 320px;
-        height: 340px;
+        width: 310px;
+        height: 330px;
       }
       .stealth-hex-cell {
-        width: 155px;
-        height: 178px;
+        width: 105px;
+        height: 122px;
       }
-      .stealth-hex-cell.cell-1 { top: 10px; left: 10px; }
-      .stealth-hex-cell.cell-2 { top: 80px; left: 150px; }
-      .stealth-hex-cell.cell-3 { top: 150px; left: 10px; }
+      .stealth-hex-cell.cell-1 { top: 10px; left: 5px; }
+      .stealth-hex-cell.cell-2 { top: 70px; left: 92px; }
+      .stealth-hex-cell.cell-3 { top: 130px; left: 5px; }
+      .stealth-hex-cell.cell-4 { top: 190px; left: 92px; }
+      .stealth-hex-cell.cell-5 { top: 10px; left: 179px; }
+      .stealth-hex-cell.cell-6 { top: 130px; left: 179px; }
     }
 
     /* Interactive Skill Pills with Tech Logos */
@@ -2641,13 +2654,31 @@
               <div class="stealth-hex-cell cell-2">
                 <div class="stealth-hex-border"></div>
                 <div class="stealth-hex-wrap">
-                  <img src="team_2.jpg" alt="Trophy award ceremony" loading="lazy">
+                  <img src="team_6.jpg" alt="Ansh delivering keynote presentation" loading="lazy">
                 </div>
               </div>
               <div class="stealth-hex-cell cell-3">
                 <div class="stealth-hex-border"></div>
                 <div class="stealth-hex-wrap">
+                  <img src="team_2.jpg" alt="Trophy award ceremony" loading="lazy">
+                </div>
+              </div>
+              <div class="stealth-hex-cell cell-4">
+                <div class="stealth-hex-border"></div>
+                <div class="stealth-hex-wrap">
                   <img src="team_3.jpg" alt="Team event" loading="lazy">
+                </div>
+              </div>
+              <div class="stealth-hex-cell cell-5">
+                <div class="stealth-hex-border"></div>
+                <div class="stealth-hex-wrap">
+                  <img src="team_5.jpg" alt="Mentoring students in auditorium" loading="lazy">
+                </div>
+              </div>
+              <div class="stealth-hex-cell cell-6">
+                <div class="stealth-hex-border"></div>
+                <div class="stealth-hex-wrap">
+                  <img src="team_4.jpg" alt="Event operations with faculty coordinator" loading="lazy">
                 </div>
               </div>
             </div>
