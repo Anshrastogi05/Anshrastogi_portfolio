@@ -2122,304 +2122,264 @@
     }
 
     /* ==========================================================================
-       Beehive Photo Showcase (Blank Space in About Me)
+       Leadership Flip Passes (Front ID Badge + Back Official Poster)
        ========================================================================== */
-    .hive-showcase-wrap {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .pass-flip {
+      min-height: 420px;
+      height: 420px;
       position: relative;
-      padding: 24px;
-      border-radius: 20px;
-      background: radial-gradient(circle at 60% 40%, rgba(34, 197, 94, .08), transparent 70%),
-                  rgba(255, 255, 255, .015);
-      border: 1px solid rgba(255, 255, 255, .07);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      overflow: hidden;
-      min-height: 480px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, .3);
+      perspective: 1400px;
       cursor: pointer;
     }
 
-    .hive-header {
+    .pass-flip .fin {
+      position: absolute;
+      inset: 0;
+      transform-style: preserve-3d;
+      transition: transform .85s cubic-bezier(.34, 1.4, .64, 1);
+      transform: rotateX(var(--rx, 0deg)) rotateY(calc(var(--ry, 0deg) + var(--rot, 0deg)));
+    }
+
+    .pass-flip.hot .fin {
+      transition: transform .1s linear;
+    }
+
+    .pass-flip.on {
+      --rot: 180deg;
+    }
+
+    .pass-flip .face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      border-radius: 1rem;
+    }
+
+    .pass-flip .face.front {
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+
+    .pass-flip .pc {
+      height: 100%;
+      padding: 42px 20px 18px;
+    }
+
+    .pc-flip-hint {
+      margin-top: auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 2;
+      justify-content: flex-end;
+      padding-top: 10px;
     }
 
-    .hive-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 11px;
-      font-weight: 600;
+    .pc-flip-hint span {
+      font-size: 10.5px;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: #86efac;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, .1);
-      border: 1px solid rgba(34, 197, 94, .25);
-    }
-
-    .hive-pulse-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 8px #22c55e;
-      animation: rsGlow 2.5s infinite ease-in-out;
-    }
-
-    .hive-hint {
-      font-size: 11.5px;
       color: var(--dim);
-      margin: 0;
-      transition: opacity .3s ease;
+      font-weight: 600;
+      transition: color .25s ease;
     }
 
-    .hive-showcase-wrap:hover .hive-hint {
-      color: #86efac;
+    .pass:hover .pc-flip-hint span {
+      color: var(--c);
     }
 
-    .beehive-stage {
+    .pc-poster-back {
+      transform: rotateY(180deg);
+      border-top: 3px solid var(--c);
+      background: #060913;
+      padding: 34px 12px 14px;
       position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 20px 60px color-mix(in srgb, var(--c) 25%, transparent);
+    }
+
+    .pc-poster-img {
       width: 100%;
-      height: 390px;
-      margin: 0 auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .6);
+    }
+
+    .pc-poster-back .pc-flip-hint {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      z-index: 3;
+      background: rgba(3, 7, 18, .75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .pc-poster-back .pc-flip-hint span {
+      color: #94a3b8;
+    }
+
+    .pass:hover .pc-poster-back .pc-flip-hint span {
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       Stealth Organic Beehive Honeycomb (Blank Space in About Me)
+       Completely invisible/stealth when idle; blossoms into realistic honeycomb on hover.
+       Zero container box, zero border, zero overlay, zero headings.
+       ========================================================================== */
+    .stealth-hive-zone {
+      position: relative;
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .stealth-hive-stage {
+      position: relative;
+      width: 410px;
+      height: 410px;
+      max-width: 100%;
     }
 
     /* Hexagon Geometry & Positioning */
-    .hex-cell {
+    .stealth-hex-cell {
       position: absolute;
-      width: 195px;
-      height: 222px;
-      transition: all .55s cubic-bezier(.34, 1.45, .64, 1);
+      width: 200px;
+      height: 230px;
+      opacity: 0;
+      transform: scale(.55) translateY(28px);
+      filter: blur(14px);
+      pointer-events: none;
+      transition: opacity .65s cubic-bezier(.34, 1.4, .64, 1),
+                  transform .65s cubic-bezier(.34, 1.4, .64, 1),
+                  filter .65s ease;
       transform-origin: center center;
     }
 
-    /* Ambient Honeycomb Wireframe Cells */
-    .hex-deco {
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      background: rgba(34, 197, 94, .02);
-      border: 1px dashed rgba(34, 197, 94, .2);
-      pointer-events: none;
-      z-index: 1;
-      opacity: .45;
-      transition: all .6s ease;
-    }
-    .hex-deco-1 {
-      top: 5px;
+    /* Interlocking Honeycomb Positioning */
+    .stealth-hex-cell.cell-1 {
+      top: 10px;
       left: 15px;
-      width: 135px;
-      height: 155px;
-    }
-    .hex-deco-2 {
-      top: 170px;
-      right: 15px;
-      width: 125px;
-      height: 142px;
-    }
-    .hex-deco-3 {
-      bottom: 5px;
-      left: 20px;
-      width: 110px;
-      height: 126px;
-    }
-
-    /* Interlocking Honeycomb Positioning for Photos */
-    .hex-photo-1 {
-      top: 15px;
-      right: 25px;
       z-index: 2;
     }
 
-    .hex-photo-2 {
-      top: 90px;
-      left: 20px;
+    .stealth-hex-cell.cell-2 {
+      top: 100px;
+      left: 195px;
       z-index: 3;
     }
 
-    .hex-photo-3 {
-      top: 170px;
-      left: 155px;
+    .stealth-hex-cell.cell-3 {
+      top: 190px;
+      left: 15px;
       z-index: 4;
     }
 
-    /* Inner Hexagon Container */
-    .hex-content {
+    /* Hexagon Shape Container */
+    .stealth-hex-wrap {
       position: relative;
       width: 100%;
       height: 100%;
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      background: #090d16;
+      background: #090e18;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, .6);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, .7);
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .5));
+      transition: filter .4s ease, transform .4s cubic-bezier(.34, 1.4, .64, 1);
     }
 
-    .hex-content img {
+    .stealth-hex-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
+      display: block;
       transition: transform .6s cubic-bezier(.2, .8, .2, 1);
     }
 
-    .hex-border {
+    /* Subtle honey-golden / emerald hex accent border */
+    .stealth-hex-border {
       position: absolute;
-      inset: -2px;
+      inset: 0;
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      background: linear-gradient(135deg, rgba(34, 197, 94, .85), rgba(56, 189, 248, .55));
+      background: linear-gradient(135deg, rgba(234, 179, 8, .75), rgba(34, 197, 94, .75));
       opacity: 0;
-      transition: opacity .4s ease, filter .4s ease;
-      z-index: 0;
-    }
-
-    .hex-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 10px 14px 16px;
-      background: linear-gradient(to top, rgba(2, 6, 23, .95) 25%, transparent);
-      text-align: center;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all .35s ease;
-    }
-
-    .hex-tag {
-      display: inline-block;
-      font-size: 9.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: #86efac;
-      margin-bottom: 2px;
-    }
-
-    .hex-label b {
-      display: block;
-      font-size: 11px;
-      color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Center Beehive Beacon Indicator */
-    .hive-center-beacon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      color: rgba(34, 197, 94, .5);
+      transition: opacity .45s ease;
       pointer-events: none;
       z-index: 1;
-      transition: opacity .4s ease, transform .5s ease;
-    }
-    .hive-icon {
-      width: 100%;
-      height: 100%;
-      animation: rotateHive 20s linear infinite;
     }
 
-    @keyframes rotateHive {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* THE INITIAL HIDDEN STATE: Photos hidden until cursor moves / hovers */
-    .beehive-stage .hex-photo {
-      opacity: 0;
-      transform: scale(.62) translateY(26px);
-      filter: blur(14px) grayscale(75%);
-      pointer-events: none;
-    }
-
-    /* WHEN CURSOR HOVERS / MOVES OVER THE STAGE: BLOOMS UP LIKE A BEEHIVE PATTERN */
-    .hive-showcase-wrap:hover .hex-photo,
-    .hive-showcase-wrap.active .hex-photo {
+    /* HOVER / MOUSEMOVE ON THE ZONE: BLOOM INTO HONEYCOMB PATTERN */
+    .stealth-hive-zone:hover .stealth-hex-cell,
+    .stealth-hive-zone.active .stealth-hex-cell {
       opacity: 1;
       transform: scale(1) translateY(0);
-      filter: blur(0px) grayscale(0%);
+      filter: blur(0px);
       pointer-events: auto;
     }
 
-    .hive-showcase-wrap:hover .hex-photo-1,
-    .hive-showcase-wrap.active .hex-photo-1 {
-      transition-delay: .05s;
+    .stealth-hive-zone:hover .cell-1,
+    .stealth-hive-zone.active .cell-1 {
+      transition-delay: .04s;
     }
-    .hive-showcase-wrap:hover .hex-photo-2,
-    .hive-showcase-wrap.active .hex-photo-2 {
+
+    .stealth-hive-zone:hover .cell-2,
+    .stealth-hive-zone.active .cell-2 {
       transition-delay: .18s;
     }
-    .hive-showcase-wrap:hover .hex-photo-3,
-    .hive-showcase-wrap.active .hex-photo-3 {
-      transition-delay: .30s;
-    }
 
-    .hive-showcase-wrap:hover .hex-border,
-    .hive-showcase-wrap.active .hex-border {
-      opacity: .8;
-      filter: drop-shadow(0 0 10px rgba(34, 197, 94, .45));
-    }
-
-    .hive-showcase-wrap:hover .hive-center-beacon,
-    .hive-showcase-wrap.active .hive-center-beacon {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(1.4);
-    }
-
-    .hive-showcase-wrap:hover .hex-deco,
-    .hive-showcase-wrap.active .hex-deco {
-      opacity: .75;
-      border-color: rgba(34, 197, 94, .4);
+    .stealth-hive-zone:hover .cell-3,
+    .stealth-hive-zone.active .cell-3 {
+      transition-delay: .32s;
     }
 
     /* INDIVIDUAL CELL HOVER FOCUS */
-    .hex-photo:hover {
+    .stealth-hex-cell:hover {
       z-index: 10 !important;
       transform: scale(1.08) translateY(-4px) !important;
-      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, .85)) !important;
-    }
-    .hex-photo:hover .hex-border {
-      opacity: 1;
-      background: linear-gradient(135deg, #22c55e, #38bdf8);
-      filter: drop-shadow(0 0 18px rgba(34, 197, 94, .75));
-    }
-    .hex-photo:hover .hex-content img {
-      transform: scale(1.1);
-    }
-    .hex-photo:hover .hex-label {
-      opacity: 1;
-      transform: translateY(0);
     }
 
-    /* Mobile Responsiveness */
+    .stealth-hex-cell:hover .stealth-hex-border {
+      opacity: .85;
+      filter: drop-shadow(0 0 14px rgba(234, 179, 8, .6));
+    }
+
+    .stealth-hex-cell:hover .stealth-hex-wrap img {
+      transform: scale(1.08);
+    }
+
     @media(max-width: 600px) {
-      .hive-showcase-wrap {
-        min-height: 420px;
-        padding: 16px;
+      .stealth-hive-zone {
+        min-height: 380px;
       }
-      .beehive-stage {
-        height: 350px;
+      .stealth-hive-stage {
+        width: 320px;
+        height: 340px;
       }
-      .hex-cell {
-        width: 150px;
-        height: 170px;
+      .stealth-hex-cell {
+        width: 155px;
+        height: 178px;
       }
-      .hex-photo-1 { top: 10px; right: 10px; }
-      .hex-photo-2 { top: 75px; left: 10px; }
-      .hex-photo-3 { top: 155px; left: 95px; }
+      .stealth-hex-cell.cell-1 { top: 10px; left: 10px; }
+      .stealth-hex-cell.cell-2 { top: 80px; left: 150px; }
+      .stealth-hex-cell.cell-3 { top: 150px; left: 10px; }
     }
 
     /* Interactive Skill Pills with Tech Logos */
@@ -2669,63 +2629,26 @@
               <div class="built"></div>
             </div>
           </div>
-          <!-- Beehive Interactive Photo Showcase (Field Moments) -->
-          <div class="hive-showcase-wrap reveal" id="hiveShowcase" aria-label="Field moments from StrataBiz and leadership">
-            <div class="hive-header">
-              <div class="hive-badge">
-                <span class="hive-pulse-dot"></span>
-                <span>In the Field · Leadership</span>
-              </div>
-              <p class="hive-hint">Hover over hive to unveil moments ✦</p>
-            </div>
-
-            <div class="beehive-stage">
-              <!-- Decorative ambient honeycombs -->
-              <div class="hex-cell hex-deco hex-deco-1" aria-hidden="true"></div>
-              <div class="hex-cell hex-deco hex-deco-2" aria-hidden="true"></div>
-              <div class="hex-cell hex-deco hex-deco-3" aria-hidden="true"></div>
-
-              <!-- Photo 1: Keynote presentation at StrataBiz / ConsultCorp -->
-              <div class="hex-cell hex-photo hex-photo-1">
-                <div class="hex-border"></div>
-                <div class="hex-content">
-                  <img src="event_1.jpg" alt="Ansh Rastogi delivering keynote at ConsultCorp" loading="lazy">
-                  <div class="hex-label">
-                    <span class="hex-tag">Keynote</span>
-                    <b>ConsultCorp '26 · 300+ Attendees</b>
-                  </div>
+          <!-- Stealth Beehive Honeycomb: Organic, realistic bloom on hover without container box, overlays, or headings -->
+          <div class="stealth-hive-zone reveal" id="hiveZone">
+            <div class="stealth-hive-stage">
+              <div class="stealth-hex-cell cell-1">
+                <div class="stealth-hex-border"></div>
+                <div class="stealth-hex-wrap">
+                  <img src="team_1.jpg" alt="StrataBiz team at NIT Jalandhar" loading="lazy">
                 </div>
               </div>
-
-              <!-- Photo 2: Mentoring and coordinating with teams -->
-              <div class="hex-cell hex-photo hex-photo-2">
-                <div class="hex-border"></div>
-                <div class="hex-content">
-                  <img src="event_2.jpg" alt="Ansh Rastogi mentoring students in auditorium" loading="lazy">
-                  <div class="hex-label">
-                    <span class="hex-tag">Mentorship</span>
-                    <b>Coordinating 70+ Teams</b>
-                  </div>
+              <div class="stealth-hex-cell cell-2">
+                <div class="stealth-hex-border"></div>
+                <div class="stealth-hex-wrap">
+                  <img src="team_2.jpg" alt="Trophy award ceremony" loading="lazy">
                 </div>
               </div>
-
-              <!-- Photo 3: Operations & jury coordination -->
-              <div class="hex-cell hex-photo hex-photo-3">
-                <div class="hex-border"></div>
-                <div class="hex-content">
-                  <img src="event_3.jpg" alt="Ansh Rastogi planning operations with jury" loading="lazy">
-                  <div class="hex-label">
-                    <span class="hex-tag">Operations</span>
-                    <b>Jury &amp; Event Operations</b>
-                  </div>
+              <div class="stealth-hex-cell cell-3">
+                <div class="stealth-hex-border"></div>
+                <div class="stealth-hex-wrap">
+                  <img src="team_3.jpg" alt="Team event" loading="lazy">
                 </div>
-              </div>
-
-              <!-- Beehive Center Indicator / Trigger -->
-              <div class="hive-center-beacon" aria-hidden="true">
-                <svg viewBox="0 0 40 40" class="hive-icon">
-                  <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="none" stroke="currentColor" stroke-width="2"/>
-                </svg>
               </div>
             </div>
           </div>
@@ -2759,64 +2682,99 @@
           <h2 style="margin-bottom:36px">Leading as well as <span class="gt">building</span></h2>
         </div>
         <div class="passes reveal">
+          <!-- Card 1: StrataBiz (Front ID Badge + Back Official Poster) -->
           <div class="pass" style="--c:#22c55e;--dl:0.0s">
-            <div class="glass tilt pc">
-              <div class="fl"></div><i class="hole"></i>
-              <div class="pc-hero">
-                <div>
-                  <span class="tg">President · 2026–Present</span>
-                  <b class="big strata-word">STRATABIZ</b>
+            <div class="pass-flip flip tilt">
+              <div class="fin">
+                <div class="face front glass pc">
+                  <div class="fl"></div><i class="hole"></i>
+                  <div class="pc-hero">
+                    <div>
+                      <span class="tg">President · 2026–Present</span>
+                      <b class="big strata-word">STRATABIZ</b>
+                    </div>
+                    <img src="stratabiz.jpg" class="pass-logo is-light" alt="StrataBiz Club Logo" loading="lazy">
+                  </div>
+                  <h3>StrataBiz Club</h3>
+                  <p>Official Business &amp; Consulting Club, NIT Jalandhar</p>
+                  <div class="pills">
+                    <span class="pill">Leadership</span>
+                    <span class="pill">Consulting</span>
+                    <span class="pill">Operations</span>
+                  </div>
+                  <div class="bar"></div>
+                  <div class="pc-flip-hint"><span>Tap / Click to view poster ↻</span></div>
                 </div>
-                <img src="stratabiz.jpg" class="pass-logo is-light" alt="StrataBiz Club Logo" loading="lazy">
+                <div class="face back glass pc-poster-back">
+                  <div class="fl"></div><i class="hole"></i>
+                  <img src="lead_stratabiz.jpg" alt="President Ansh Rastogi Official Poster" class="pc-poster-img" loading="lazy">
+                  <div class="pc-flip-hint"><span>Back to badge ↺</span></div>
+                </div>
               </div>
-              <h3>StrataBiz Club</h3>
-              <p>Official Business &amp; Consulting Club, NIT Jalandhar</p>
-              <div class="pills">
-                <span class="pill">Leadership</span>
-                <span class="pill">Consulting</span>
-                <span class="pill">Operations</span>
-              </div>
-              <div class="bar"></div>
             </div>
           </div>
-          <div class="pass" style="--c:#38bdf8;--dl:-1.7s">
-            <div class="glass tilt pc">
-              <div class="fl"></div><i class="hole"></i>
-              <div class="pc-hero">
-                <div>
-                  <span class="tg">Social Media Head · 2025–Present</span>
-                  <b class="big">IIC</b>
+
+          <!-- Card 2: Bawre Theatre (Front ID Badge + Back Official Poster) -->
+          <div class="pass" style="--c:#c084fc;--dl:-1.7s">
+            <div class="pass-flip flip tilt">
+              <div class="fin">
+                <div class="face front glass pc">
+                  <div class="fl"></div><i class="hole"></i>
+                  <div class="pc-hero">
+                    <div>
+                      <span class="tg">Operational Director</span>
+                      <b class="big">Bawre</b>
+                    </div>
+                    <img src="bawre.jpg" class="pass-logo is-dark" alt="Bawre Theatre Logo" loading="lazy">
+                  </div>
+                  <h3>Bawre Theatre Society</h3>
+                  <p>Official Dramatics Society · Stage &amp; production ops</p>
+                  <div class="pills">
+                    <span class="pill">Stage Ops</span>
+                    <span class="pill">Logistics</span>
+                    <span class="pill">Production</span>
+                  </div>
+                  <div class="bar"></div>
+                  <div class="pc-flip-hint"><span>Tap / Click to view poster ↻</span></div>
                 </div>
-                <img src="iic.png" class="pass-logo is-light" alt="IIC Logo" loading="lazy">
+                <div class="face back glass pc-poster-back">
+                  <div class="fl"></div><i class="hole"></i>
+                  <img src="lead_bawre.jpg" alt="Operations Director Ansh Rastogi Official Poster" class="pc-poster-img" loading="lazy">
+                  <div class="pc-flip-hint"><span>Back to badge ↺</span></div>
+                </div>
               </div>
-              <h3>Institution’s Innovation Council</h3>
-              <p>MoE Innovation Cell · Social campaigns &amp; digital outreach</p>
-              <div class="pills">
-                <span class="pill">Media Campaigns</span>
-                <span class="pill">Promotions</span>
-                <span class="pill">Outreach</span>
-              </div>
-              <div class="bar"></div>
             </div>
           </div>
-          <div class="pass" style="--c:#c084fc;--dl:-3.4s">
-            <div class="glass tilt pc">
-              <div class="fl"></div><i class="hole"></i>
-              <div class="pc-hero">
-                <div>
-                  <span class="tg">Operational Director</span>
-                  <b class="big">Bawre</b>
+
+          <!-- Card 3: IIC (Front ID Badge + Back Official Poster) -->
+          <div class="pass" style="--c:#38bdf8;--dl:-3.4s">
+            <div class="pass-flip flip tilt">
+              <div class="fin">
+                <div class="face front glass pc">
+                  <div class="fl"></div><i class="hole"></i>
+                  <div class="pc-hero">
+                    <div>
+                      <span class="tg">Social Media Head · 2025–Present</span>
+                      <b class="big">IIC</b>
+                    </div>
+                    <img src="iic.png" class="pass-logo is-light" alt="IIC Logo" loading="lazy">
+                  </div>
+                  <h3>Institution’s Innovation Council</h3>
+                  <p>MoE Innovation Cell · Social campaigns &amp; digital outreach</p>
+                  <div class="pills">
+                    <span class="pill">Media Campaigns</span>
+                    <span class="pill">Promotions</span>
+                    <span class="pill">Outreach</span>
+                  </div>
+                  <div class="bar"></div>
+                  <div class="pc-flip-hint"><span>Tap / Click to view poster ↻</span></div>
                 </div>
-                <img src="bawre.jpg" class="pass-logo is-dark" alt="Bawre Theatre Logo" loading="lazy">
+                <div class="face back glass pc-poster-back">
+                  <div class="fl"></div><i class="hole"></i>
+                  <img src="lead_iic.jpg" alt="Social Media Head Official Poster" class="pc-poster-img" loading="lazy">
+                  <div class="pc-flip-hint"><span>Back to badge ↺</span></div>
+                </div>
               </div>
-              <h3>Bawre Theatre Society</h3>
-              <p>Official Dramatics Society · Stage &amp; production ops</p>
-              <div class="pills">
-                <span class="pill">Stage Ops</span>
-                <span class="pill">Logistics</span>
-                <span class="pill">Production</span>
-              </div>
-              <div class="bar"></div>
             </div>
           </div>
         </div>
@@ -3361,6 +3319,8 @@
           close();
         };
       }
+      const hz = $("#hiveZone");
+      if (hz) hz.addEventListener("pointerdown", () => hz.classList.toggle("active"));
       if ($("#calBookingBtn")) {
         $("#calBookingBtn").href = CAL_URL;
       }
