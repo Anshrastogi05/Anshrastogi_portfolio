@@ -3800,15 +3800,29 @@
       }
 
       async function getAnswerData(q) {
-        // Attempt to connect to local Structured RAG server if active
+        // Connect to Render cloud RAG API (or local server when developing)
+        const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+        const ragEndpoint = isLocal ? "http://localhost:8000/api/ask" : "https://ansh-rag-api.onrender.com/api/ask";
+        
         try {
-          const res = await fetch("http://localhost:8000/api/ask", {
+          let res = await fetch(ragEndpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query: q, top_k: 3 }),
-            signal: AbortSignal.timeout ? AbortSignal.timeout(12000) : undefined
-          });
-          if (res.ok) {
+            signal: AbortSignal.timeout ? AbortSignal.timeout(18000) : undefined
+          }).catch(() => null);
+
+          // If on localhost and local server isn't running, fall back to Render cloud endpoint
+          if ((!res || !res.ok) && isLocal) {
+            res = await fetch("https://ansh-rag-api.onrender.com/api/ask", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ query: q, top_k: 3 }),
+              signal: AbortSignal.timeout ? AbortSignal.timeout(18000) : undefined
+            }).catch(() => null);
+          }
+
+          if (res && res.ok) {
             const data = await res.json();
             if (data && data.executive_summary) {
               let text = data.executive_summary;
