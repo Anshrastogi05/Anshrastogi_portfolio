@@ -67,9 +67,28 @@ class StructuredRagResponse(BaseModel):
 # 2. Retriever Engine
 # ==========================================
 class PortfolioRetriever:
-    def __init__(self, corpus_path: str = "knowledge_base/corpus.json"):
+    def __init__(self, corpus_path: Optional[str] = None):
+        if corpus_path is None:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            corpus_path = os.path.join(base_dir, "knowledge_base", "corpus.json")
+            if not os.path.exists(corpus_path):
+                corpus_path = os.path.join("knowledge_base", "corpus.json")
+
         if not os.path.exists(corpus_path):
-            raise FileNotFoundError(f"Knowledge corpus not found at {corpus_path}")
+            print(f"[Warning] Knowledge corpus not found at {corpus_path}. Initializing fallback corpus.")
+            self.corpus = [
+                {
+                    "id": "ansh_rastogi_bio",
+                    "title": "Ansh Rastogi — Profile & Bio",
+                    "category": "Bio",
+                    "source": "Portfolio",
+                    "source_url": "https://github.com/Anshrastogi05",
+                    "tags": ["Bio", "NIT Jalandhar", "Full-Stack", "AI Engineer"],
+                    "content": "Ansh Rastogi is a B.Tech student at NIT Jalandhar (graduating 2026), 4x hackathon finalist, full-stack engineer, and AI specialist proficient in Python, C++, React, Next.js, and RAG pipelines."
+                }
+            ]
+            return
+
         with open(corpus_path, "r", encoding="utf-8") as f:
             self.corpus = json.load(f)
 

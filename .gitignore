@@ -72,13 +72,9 @@ Desktop.ini
 # ==========================================
 *.log
 
-knowledge_base/corpus.json
-knowledge_base/github_data.json
-
 # ==========================================
 # Local Media & Asset Files (Ignored from Git)
 # ==========================================
 assets/
 *.jpg
 *.jpeg
-*.png

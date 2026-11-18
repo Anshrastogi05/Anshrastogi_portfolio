@@ -1,0 +1,518 @@
+[
+  {
+    "id": "linkedin_profile_bio",
+    "title": "Ansh Rastogi \u2014 Professional Overview & Bio",
+    "source": "LinkedIn: https://www.linkedin.com/in/anshrastogi23/",
+    "source_url": "https://www.linkedin.com/in/anshrastogi23/",
+    "category": "Biography & Education",
+    "content": "Ansh Rastogi is a Full-Stack Developer, AI Engineer, and Backend Architect based in Noida, India. He is currently pursuing his B.Tech at Dr. B. R. Ambedkar National Institute of Technology (NIT) Jalandhar in the Department of Instrumentation and Control Engineering, graduating in the Class of 2026. Ansh is actively open to full-time SDE, Backend, Full-Stack, and AI engineering roles. He is a 4x Hackathon Finalist, has completed 5 professional internships, and maintains 31+ public GitHub repositories. Contact: rastogiansh13@gmail.com.",
+    "tags": [
+      "bio",
+      "nit jalandhar",
+      "b.tech",
+      "2026",
+      "education",
+      "contact",
+      "noida"
+    ]
+  },
+  {
+    "id": "linkedin_leadership",
+    "title": "Campus Leadership & Extracurriculars \u2014 StrataBiz NITJ",
+    "source": "LinkedIn & NIT Jalandhar",
+    "source_url": "https://www.linkedin.com/in/anshrastogi23/",
+    "category": "Leadership",
+    "content": "At NIT Jalandhar, Ansh served as a core member and student head of StrataBiz, the official Business Analytics and Consulting Club of NIT Jalandhar. He has organized national-level case study competitions, mentored junior engineers in software development, and is a 4x national hackathon finalist.",
+    "tags": [
+      "stratabiz",
+      "nit jalandhar",
+      "leadership",
+      "consulting",
+      "hackathon",
+      "finalist"
+    ]
+  },
+  {
+    "id": "internship_lovers_ai",
+    "title": "Lovers.Ai \u2014 AI Full-Stack Intern",
+    "source": "LinkedIn: Lovers.Ai Experience",
+    "source_url": "https://www.linkedin.com/in/anshrastogi23/",
+    "category": "Work Experience",
+    "content": "Role: AI Full-Stack Intern at Lovers.Ai. Built AI-powered wedding planning features with workflow automation, intelligent task orchestration, and real-time collaboration tools. Tech stack: React.js, Node.js, OpenAI API, AI Agents. Also developed the open-source Lover.ai-crm and LoversAi repositories on GitHub.",
+    "tags": [
+      "lovers.ai",
+      "ai intern",
+      "full-stack",
+      "openai",
+      "ai agents",
+      "react",
+      "node.js"
+    ]
+  },
+  {
+    "id": "internship_ubnext",
+    "title": "UBNext \u2014 Full-Stack Developer Intern",
+    "source": "LinkedIn: UBNext Experience",
+    "source_url": "https://www.linkedin.com/in/anshrastogi23/",
+    "category": "Work Experience",
+    "content": "Role: Full-Stack Developer Intern at UBNext. Developed production-ready web applications on a scalable backend, with real-time features, REST API integrations, and database performance optimization. Tech stack: Next.js, PostgreSQL, Redis, Docker. Associated with proprietary enterprise logistics repositories including boxesnbottles.",
+    "tags": [
+      "ubnext",
+      "full-stack intern",
+      "next.js",
+      "postgresql",
+      "redis",
+      "docker",
+      "boxesnbottles"
+    ]
+  },
+  {
+    "id": "internship_qskills",
+    "title": "QSkills \u2014 Backend Developer Intern",
+    "source": "LinkedIn: QSkills Experience",
+    "source_url": "https://www.linkedin.com/in/anshrastogi23/",
+    "category": "Work Experience",
+    "content": "Role: Backend Developer Intern at QSkills. Built and maintained scalable REST APIs, implemented secure JWT authentication, and significantly reduced response latency via Redis caching strategies. Tech stack: Express.js, MongoDB, JWT, REST APIs, Redis.",
+    "tags": [
+      "qskills",
+      "backend intern",
+      "express.js",
+      "mongodb",
+      "jwt",
+      "redis",
+      "rest apis"
+    ]
+  },
+  {
+    "id": "internship_edulyt",
+    "title": "Edulyt India \u2014 Data Analyst Intern",
+    "source": "LinkedIn: Edulyt India Experience",
+    "source_url": "https://www.linkedin.com/in/anshrastogi23/",
+    "category": "Work Experience",
+    "content": "Role: Data Analyst Intern at Edulyt India. Analyzed high-volume transaction datasets using Python, Pandas, and NumPy. Designed interactive business intelligence dashboards and automated management reporting pipelines in Power BI.",
+    "tags": [
+      "edulyt",
+      "data analyst intern",
+      "python",
+      "power bi",
+      "pandas",
+      "numpy",
+      "dashboards"
+    ]
+  },
+  {
+    "id": "internship_ad_infocom",
+    "title": "AD Infocom Pvt. Ltd. \u2014 Frontend Developer Intern",
+    "source": "LinkedIn: AD Infocom Experience",
+    "source_url": "https://www.linkedin.com/in/anshrastogi23/",
+    "category": "Work Experience",
+    "content": "Role: Frontend Developer Intern at AD Infocom Pvt. Ltd. Built modern, accessible UI components and landing pages, translating complex Figma design specifications into high-performance React.js code styled with Tailwind CSS.",
+    "tags": [
+      "ad infocom",
+      "frontend intern",
+      "react.js",
+      "tailwind css",
+      "figma",
+      "ui/ux"
+    ]
+  },
+  {
+    "id": "gh_video_lens",
+    "title": "GitHub: Video-Lens (Python)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Video-Lens",
+    "source_url": "https://github.com/Anshrastogi05/Video-Lens",
+    "category": "AI & ML Project",
+    "content": "Repository: Video-Lens. Language: Python. Last pushed: 2026-10-29. Description: AI assistant that turns YouTube videos and meeting recordings into summaries, action items, key decisions, and a chat you can ask questions. Built with Streamlit and RAG.. Topics: None. URL: https://github.com/Anshrastogi05/Video-Lens.",
+    "tags": [
+      "video-lens",
+      "python"
+    ]
+  },
+  {
+    "id": "gh_wind_forecast_portal",
+    "title": "GitHub: Wind-Forecast-Portal (Python)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Wind-Forecast-Portal",
+    "source_url": "https://github.com/Anshrastogi05/Wind-Forecast-Portal",
+    "category": "GitHub Project",
+    "content": "Repository: Wind-Forecast-Portal. Language: Python. Last pushed: 2026-10-25. Description: Repository for Wind-Forecast-Portal. Topics: None. URL: https://github.com/Anshrastogi05/Wind-Forecast-Portal.",
+    "tags": [
+      "wind-forecast-portal",
+      "python"
+    ]
+  },
+  {
+    "id": "gh_smartshopai",
+    "title": "GitHub: SmartshopAi (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/SmartshopAi",
+    "source_url": "https://github.com/Anshrastogi05/SmartshopAi",
+    "category": "AI & ML Project",
+    "content": "Repository: SmartshopAi. Language: JavaScript. Last pushed: 2026-10-10. Description: Repository for SmartshopAi. Topics: None. URL: https://github.com/Anshrastogi05/SmartshopAi.",
+    "tags": [
+      "smartshopai",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_mox_plyer",
+    "title": "GitHub: mox-plyer (TypeScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/mox-plyer",
+    "source_url": "https://github.com/Anshrastogi05/mox-plyer",
+    "category": "GitHub Project",
+    "content": "Repository: mox-plyer. Language: TypeScript. Last pushed: 2026-10-01. Description: Repository for mox-plyer. Topics: None. URL: https://github.com/Anshrastogi05/mox-plyer.",
+    "tags": [
+      "mox-plyer",
+      "typescript"
+    ]
+  },
+  {
+    "id": "gh_event_management_system",
+    "title": "GitHub: Event-management-system (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Event-management-system",
+    "source_url": "https://github.com/Anshrastogi05/Event-management-system",
+    "category": "Full-Stack Project",
+    "content": "Repository: Event-management-system. Language: JavaScript. Last pushed: 2026-09-25. Description:  EventManager is a full\u2011stack event management system where customers discover events, register, get QR\u2011coded tickets (PDF), post reviews, and organizers manage events, participants, exports (CSV), and real-time check\u2011ins.. Topics: crud-application, jwt-authentication, nodejs, pdf-generation, qrcode, react. URL: https://github.com/Anshrastogi05/Event-management-system.",
+    "tags": [
+      "event-management-system",
+      "javascript",
+      "crud-application",
+      "jwt-authentication",
+      "nodejs",
+      "pdf-generation",
+      "qrcode",
+      "react"
+    ]
+  },
+  {
+    "id": "gh_fleetops",
+    "title": "GitHub: FleetOps (TypeScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/FleetOps",
+    "source_url": "https://github.com/Anshrastogi05/FleetOps",
+    "category": "Full-Stack Project",
+    "content": "Repository: FleetOps. Language: TypeScript. Last pushed: 2026-09-02. Description: Repository for FleetOps. Topics: None. URL: https://github.com/Anshrastogi05/FleetOps.",
+    "tags": [
+      "fleetops",
+      "typescript"
+    ]
+  },
+  {
+    "id": "gh_adaptive_rag_main",
+    "title": "GitHub: Adaptive-Rag-main (Python)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Adaptive-Rag-main",
+    "source_url": "https://github.com/Anshrastogi05/Adaptive-Rag-main",
+    "category": "AI & ML Project",
+    "content": "Repository: Adaptive-Rag-main. Language: Python. Last pushed: 2026-08-25. Description: Repository for Adaptive-Rag-main. Topics: None. URL: https://github.com/Anshrastogi05/Adaptive-Rag-main.",
+    "tags": [
+      "adaptive-rag-main",
+      "python"
+    ]
+  },
+  {
+    "id": "gh_careerspy",
+    "title": "GitHub: CareerSpy (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/CareerSpy",
+    "source_url": "https://github.com/Anshrastogi05/CareerSpy",
+    "category": "AI & ML Project",
+    "content": "Repository: CareerSpy. Language: JavaScript. Last pushed: 2026-08-18. Description: Repository for CareerSpy. Topics: None. URL: https://github.com/Anshrastogi05/CareerSpy.",
+    "tags": [
+      "careerspy",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_lover_ai_crm",
+    "title": "GitHub: Lover.ai-crm (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Lover.ai-crm",
+    "source_url": "https://github.com/Anshrastogi05/Lover.ai-crm",
+    "category": "AI & ML Project",
+    "content": "Repository: Lover.ai-crm. Language: JavaScript. Last pushed: 2026-08-01. Description: Repository for Lover.ai-crm. Topics: None. URL: https://github.com/Anshrastogi05/Lover.ai-crm.",
+    "tags": [
+      "lover.ai-crm",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_anshrastogi05",
+    "title": "GitHub: Anshrastogi05 (Unspecified)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Anshrastogi05",
+    "source_url": "https://github.com/Anshrastogi05/Anshrastogi05",
+    "category": "GitHub Project",
+    "content": "Repository: Anshrastogi05. Language: Unspecified. Last pushed: 2026-07-29. Description: Repository for Anshrastogi05. Topics: None. URL: https://github.com/Anshrastogi05/Anshrastogi05.",
+    "tags": [
+      "anshrastogi05",
+      "unspecified"
+    ]
+  },
+  {
+    "id": "gh_deep_packet_inspection",
+    "title": "GitHub: Deep-Packet-Inspection (C++)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Deep-Packet-Inspection",
+    "source_url": "https://github.com/Anshrastogi05/Deep-Packet-Inspection",
+    "category": "Systems & Networking",
+    "content": "Repository: Deep-Packet-Inspection. Language: C++. Last pushed: 2026-07-01. Description: Repository for Deep-Packet-Inspection. Topics: None. URL: https://github.com/Anshrastogi05/Deep-Packet-Inspection.",
+    "tags": [
+      "deep-packet-inspection",
+      "c++"
+    ]
+  },
+  {
+    "id": "gh_wedding_studio",
+    "title": "GitHub: wedding_studio (TypeScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/wedding_studio",
+    "source_url": "https://github.com/Anshrastogi05/wedding_studio",
+    "category": "GitHub Project",
+    "content": "Repository: wedding_studio. Language: TypeScript. Last pushed: 2026-06-19. Description: Repository for wedding_studio. Topics: None. URL: https://github.com/Anshrastogi05/wedding_studio.",
+    "tags": [
+      "wedding_studio",
+      "typescript"
+    ]
+  },
+  {
+    "id": "gh_lover_ai",
+    "title": "GitHub: Lover.ai (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Lover.ai",
+    "source_url": "https://github.com/Anshrastogi05/Lover.ai",
+    "category": "AI & ML Project",
+    "content": "Repository: Lover.ai. Language: JavaScript. Last pushed: 2026-06-12. Description: Repository for Lover.ai. Topics: None. URL: https://github.com/Anshrastogi05/Lover.ai.",
+    "tags": [
+      "lover.ai",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_loversai",
+    "title": "GitHub: LoversAi (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/LoversAi",
+    "source_url": "https://github.com/Anshrastogi05/LoversAi",
+    "category": "AI & ML Project",
+    "content": "Repository: LoversAi. Language: JavaScript. Last pushed: 2026-06-12. Description: Repository for LoversAi. Topics: None. URL: https://github.com/Anshrastogi05/LoversAi.",
+    "tags": [
+      "loversai",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_customer_shopping_behavior_analysis",
+    "title": "GitHub: Customer-Shopping-Behavior-Analysis (Jupyter Notebook)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Customer-Shopping-Behavior-Analysis",
+    "source_url": "https://github.com/Anshrastogi05/Customer-Shopping-Behavior-Analysis",
+    "category": "Full-Stack Project",
+    "content": "Repository: Customer-Shopping-Behavior-Analysis. Language: Jupyter Notebook. Last pushed: 2026-04-28. Description: Built a full data pipeline (Python \u2192 PostgreSQL \u2192 Power BI) to analyze retail transactions, perform customer segmentation, and visualize key business insights.. Topics: None. URL: https://github.com/Anshrastogi05/Customer-Shopping-Behavior-Analysis.",
+    "tags": [
+      "customer-shopping-behavior-analysis",
+      "jupyter notebook"
+    ]
+  },
+  {
+    "id": "gh_trustguard",
+    "title": "GitHub: TrustGuard (Jupyter Notebook)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/TrustGuard",
+    "source_url": "https://github.com/Anshrastogi05/TrustGuard",
+    "category": "AI & ML Project",
+    "content": "Repository: TrustGuard. Language: Jupyter Notebook. Last pushed: 2026-04-10. Description: Repository for TrustGuard. Topics: None. URL: https://github.com/Anshrastogi05/TrustGuard.",
+    "tags": [
+      "trustguard",
+      "jupyter notebook"
+    ]
+  },
+  {
+    "id": "gh_exec_os",
+    "title": "GitHub: exec-os (TypeScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/exec-os",
+    "source_url": "https://github.com/Anshrastogi05/exec-os",
+    "category": "GitHub Project",
+    "content": "Repository: exec-os. Language: TypeScript. Last pushed: 2026-04-02. Description: Repository for exec-os. Topics: None. URL: https://github.com/Anshrastogi05/exec-os.",
+    "tags": [
+      "exec-os",
+      "typescript"
+    ]
+  },
+  {
+    "id": "gh_leetreviewer",
+    "title": "GitHub: leetreviewer (TypeScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/leetreviewer",
+    "source_url": "https://github.com/Anshrastogi05/leetreviewer",
+    "category": "GitHub Project",
+    "content": "Repository: leetreviewer. Language: TypeScript. Last pushed: 2026-04-01. Description: Repository for leetreviewer. Topics: None. URL: https://github.com/Anshrastogi05/leetreviewer.",
+    "tags": [
+      "leetreviewer",
+      "typescript"
+    ]
+  },
+  {
+    "id": "gh_boxesnbottles",
+    "title": "GitHub: boxesnbottles (Unspecified)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/boxesnbottles",
+    "source_url": "https://github.com/Anshrastogi05/boxesnbottles",
+    "category": "GitHub Project",
+    "content": "Repository: boxesnbottles. Language: Unspecified. Last pushed: 2026-03-01. Description: This Project is a property of UBNext LLP and anybody outside the organization is not allowed or intended to use this code or material for personal use.. Topics: None. URL: https://github.com/Anshrastogi05/boxesnbottles.",
+    "tags": [
+      "boxesnbottles",
+      "unspecified"
+    ]
+  },
+  {
+    "id": "gh_ai_virtual_assistant",
+    "title": "GitHub: AI-Virtual-Assistant (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/AI-Virtual-Assistant",
+    "source_url": "https://github.com/Anshrastogi05/AI-Virtual-Assistant",
+    "category": "AI & ML Project",
+    "content": "Repository: AI-Virtual-Assistant. Language: JavaScript. Last pushed: 2026-02-08. Description: Repository for AI-Virtual-Assistant. Topics: None. URL: https://github.com/Anshrastogi05/AI-Virtual-Assistant.",
+    "tags": [
+      "ai-virtual-assistant",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_projectory",
+    "title": "GitHub: Projectory (TypeScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Projectory",
+    "source_url": "https://github.com/Anshrastogi05/Projectory",
+    "category": "GitHub Project",
+    "content": "Repository: Projectory. Language: TypeScript. Last pushed: 2026-02-07. Description: Repository for Projectory. Topics: None. URL: https://github.com/Anshrastogi05/Projectory.",
+    "tags": [
+      "projectory",
+      "typescript"
+    ]
+  },
+  {
+    "id": "gh_hld",
+    "title": "GitHub: HLD (Unspecified)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/HLD",
+    "source_url": "https://github.com/Anshrastogi05/HLD",
+    "category": "GitHub Project",
+    "content": "Repository: HLD. Language: Unspecified. Last pushed: 2026-01-03. Description: Repository for HLD. Topics: None. URL: https://github.com/Anshrastogi05/HLD.",
+    "tags": [
+      "hld",
+      "unspecified"
+    ]
+  },
+  {
+    "id": "gh_ansh_portfolio_main",
+    "title": "GitHub: Ansh-Portfolio-main (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Ansh-Portfolio-main",
+    "source_url": "https://github.com/Anshrastogi05/Ansh-Portfolio-main",
+    "category": "AI & ML Project",
+    "content": "Repository: Ansh-Portfolio-main. Language: JavaScript. Last pushed: 2025-12-22. Description: Repository for Ansh-Portfolio-main. Topics: None. URL: https://github.com/Anshrastogi05/Ansh-Portfolio-main.",
+    "tags": [
+      "ansh-portfolio-main",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_grocify",
+    "title": "GitHub: Grocify (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Grocify",
+    "source_url": "https://github.com/Anshrastogi05/Grocify",
+    "category": "GitHub Project",
+    "content": "Repository: Grocify. Language: JavaScript. Last pushed: 2025-11-28. Description: Repository for Grocify. Topics: None. URL: https://github.com/Anshrastogi05/Grocify.",
+    "tags": [
+      "grocify",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_smart_summariser_chrome_extension",
+    "title": "GitHub: Smart-Summariser-chrome-extension (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Smart-Summariser-chrome-extension",
+    "source_url": "https://github.com/Anshrastogi05/Smart-Summariser-chrome-extension",
+    "category": "GitHub Project",
+    "content": "Repository: Smart-Summariser-chrome-extension. Language: JavaScript. Last pushed: 2025-11-23. Description: Repository for Smart-Summariser-chrome-extension. Topics: None. URL: https://github.com/Anshrastogi05/Smart-Summariser-chrome-extension.",
+    "tags": [
+      "smart-summariser-chrome-extension",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_paste_app",
+    "title": "GitHub: Paste-App (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Paste-App",
+    "source_url": "https://github.com/Anshrastogi05/Paste-App",
+    "category": "GitHub Project",
+    "content": "Repository: Paste-App. Language: JavaScript. Last pushed: 2025-08-20. Description: A app that enables easy to handle code snippets and use them in future for reference.. Topics: None. URL: https://github.com/Anshrastogi05/Paste-App.",
+    "tags": [
+      "paste-app",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_obsy_agency",
+    "title": "GitHub: obsy_Agency (HTML)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/obsy_Agency",
+    "source_url": "https://github.com/Anshrastogi05/obsy_Agency",
+    "category": "GitHub Project",
+    "content": "Repository: obsy_Agency. Language: HTML. Last pushed: 2025-07-11. Description: Repository for obsy_Agency. Topics: None. URL: https://github.com/Anshrastogi05/obsy_Agency.",
+    "tags": [
+      "obsy_agency",
+      "html"
+    ]
+  },
+  {
+    "id": "gh_express_mine",
+    "title": "GitHub: express-mine (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/express-mine",
+    "source_url": "https://github.com/Anshrastogi05/express-mine",
+    "category": "GitHub Project",
+    "content": "Repository: express-mine. Language: JavaScript. Last pushed: 2025-07-06. Description: Fast, unopinionated, minimalist web framework for node.. Topics: None. URL: https://github.com/Anshrastogi05/express-mine.",
+    "tags": [
+      "express-mine",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_tic_tac_game",
+    "title": "GitHub: Tic-Tac-Game (JavaScript)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/Tic-Tac-Game",
+    "source_url": "https://github.com/Anshrastogi05/Tic-Tac-Game",
+    "category": "GitHub Project",
+    "content": "Repository: Tic-Tac-Game. Language: JavaScript. Last pushed: 2025-07-05. Description: A basic Og Tic-Tac fun game,. Topics: None. URL: https://github.com/Anshrastogi05/Tic-Tac-Game.",
+    "tags": [
+      "tic-tac-game",
+      "javascript"
+    ]
+  },
+  {
+    "id": "gh_system_design",
+    "title": "GitHub: system_design (Unspecified)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/system_design",
+    "source_url": "https://github.com/Anshrastogi05/system_design",
+    "category": "Systems & Networking",
+    "content": "Repository: system_design. Language: Unspecified. Last pushed: 2024-05-10. Description: Preparation links and resources for system design questions. Topics: None. URL: https://github.com/Anshrastogi05/system_design.",
+    "tags": [
+      "system_design",
+      "unspecified"
+    ]
+  },
+  {
+    "id": "gh_sundown",
+    "title": "GitHub: sundown (Unspecified)",
+    "source": "GitHub Repo: https://github.com/Anshrastogi05/sundown",
+    "source_url": "https://github.com/Anshrastogi05/sundown",
+    "category": "GitHub Project",
+    "content": "Repository: sundown. Language: Unspecified. Last pushed: 2024-01-04. Description: Repository for sundown. Topics: None. URL: https://github.com/Anshrastogi05/sundown.",
+    "tags": [
+      "sundown",
+      "unspecified"
+    ]
+  },
+  {
+    "id": "technical_skills_matrix",
+    "title": "Ansh Rastogi \u2014 Complete Technical Skills Matrix",
+    "source": "Portfolio & GitHub Profile",
+    "source_url": "https://github.com/Anshrastogi05",
+    "category": "Technical Skills",
+    "content": "Programming Languages: C++, Python, JavaScript, TypeScript, SQL, C. Frontend Frameworks: React.js, Next.js (React 19 & Next.js 16), Tailwind CSS, Redux, Three.js, WebGL. Backend Architectures: Node.js, Express.js, FastAPI, Socket.IO, REST APIs, Microservices. Databases & Storage: PostgreSQL (Prisma 7), MongoDB, Redis (caching and pub/sub), MySQL, Elasticsearch. AI / ML & Agentic Frameworks: LangGraph, LangChain, OpenAI API, Whisper, SHAP, scikit-learn, Qdrant, RAG. Cloud, Containers & DevOps: Docker, Kubernetes, AWS, GitHub Actions CI/CD.",
+    "tags": [
+      "skills",
+      "languages",
+      "python",
+      "c++",
+      "react",
+      "next.js",
+      "fastapi",
+      "docker",
+      "postgres",
+      "redis",
+      "langgraph"
+    ]
+  }
+]
