@@ -5,109 +5,214 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/anshrastogi23)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Anshrastogi05)
 
-A high-performance, developer-first personal portfolio engineered with vanilla web standards, interactive 3D WebGL visualizations, a keyboard-driven command palette, and an AI-powered conversational assistant (**Ask AshR**).
+A modern, developer-first personal engineering portfolio built with vanilla web standards, interactive 3D WebGL visualizations, a keyboard-driven command palette, interactive 3D flip cards, a stealth organic honeycomb gallery, and a verified AI-powered conversational assistant (**Ask AshR**) powered by a **Structured RAG pipeline (Pydantic + Instructor + Groq)**.
 
 ---
 
 ## ✨ Key Features & Architecture
 
 ### 🌐 3D Interactive WebGL Network Sphere
-* Custom particle globe with dynamic rotational physics and mouse/touch telemetry.
-* Zero external bloat—smooth 60 FPS canvas rendering without blocking the critical render path.
+* Custom procedural particle sphere engineered with Three.js WebGL.
+* Dynamic rotational physics responding to mouse and touch telemetry.
+* Zero-bloat, lazy-loaded initialization that never blocks first paint (60 FPS).
 
-### 🤖 "Ask AshR" — AI Knowledge Engine & RAG Assistant
-* Conversational AI assistant grounded in verified technical background, internships, and project repositories.
-* Features fast keyword matching with dynamic follow-up suggestions, plus an optional FastAPI + Groq RAG pipeline (`rag_pipeline.py`).
+### 🤖 "Ask AshR" — Structured RAG AI Assistant
+* **Corpus-Grounded Intelligence:** Built on a verified knowledge base (`knowledge_base/corpus.json`) curated directly from GitHub repositories and LinkedIn work records.
+* **Pydantic Validation (`rag_pipeline.py`):** Uses strict Pydantic schemas (`StructuredRagResponse`, `Citation`) to eliminate hallucination, guarantee structured output, and provide exact source attribution.
+* **Instructor + Groq LLM:** Leverages the `instructor` library with high-throughput Groq models (`openai/gpt-oss-120b`, Llama 3) for sub-second structured inference.
+* **Smart Hybrid Architecture:** Queries the live Python RAG server when online (`http://localhost:8000/api/ask`), and seamlessly falls back to a fast client-side keyword engine when deployed as a static site.
+* **Dynamic Follow-Up Prompts:** Automatically generates context-aware follow-up chips after every answer.
+
+### 🐝 Stealth Organic Beehive / Honeycomb (About Me)
+* **Zero Container / Pure Stealth:** Looks completely natural and empty when idle—no container box, borders, or text overlays.
+* **Organic Hexagonal Bloom:** Hovering or moving the cursor across the space triggers an interlocking 6-cell geometric honeycomb bloom featuring verified leadership and event moments from NIT Jalandhar.
+* **Tessellated Geometry:** Precise 30°/60° regular hexagonal nesting with amber-emerald edge highlights on focus.
+
+### 🪪 3D Flip Leadership Passes
+* Conference VIP badge aesthetic complete with lanyard ribbon, swing physics, hole punch, and barcode detailing.
+* **Interactive 3D Card Flip:** Clicking any card smoothly rotates 180° in 3D perspective to reveal the official leadership posters on the backside:
+  1. **STRATABIZ Club** (President · Led ConsultCorp with 300+ attendees) ➔ Official President poster
+  2. **Bawre Theatre Society** (Operational Director · Stage & production ops) ➔ Official Director poster
+  3. **Institution's Innovation Council (IIC)** (Social Media Head · Digital outreach) ➔ Official Head poster
+
+### 🗂️ Interactive Project Architecture Cards
+* **Front:** Visual project cards with live demo links, repository buttons, and interactive tech tags.
+* **Back (3D Flip):** Clean, spacious technical breakdown highlighting system architecture, latency targets, and engineering decisions.
+* **Tech Stack Inspector:** Clicking any skill tag opens an interactive details modal displaying official tech logos, production context, and a 1-click shortcut to ask the AI assistant about that technology.
 
 ### ⌨️ Developer-First Ergonomics
-* **Raycast-Style Command Palette (`Ctrl + K` / `Cmd + K`):** Instant keyboard navigation across sections, terminal, games, and resume downloads.
-* **Interactive Terminal CLI:** Built-in shell supporting commands like `about`, `projects`, `experience`, `skills`, `leadership`, `contact`, and `sudo`.
+* **Raycast-Style Command Palette (`Ctrl + K` / `Cmd + K`):** Instant keyboard navigation across sections, terminal, games, and resume download.
+* **Interactive Terminal CLI:** Built-in bash-like shell supporting `about`, `projects`, `experience`, `skills`, `leadership`, `contact`, and `sudo`.
 * **Playable Mini-Game:** Interactive Tic-Tac-Toe with minimax logic.
 
-### 🏷️ Interactive Tech Stack & Popouts
-* Detailed tech pill directory featuring official SVG devicons.
-* Interactive details modal revealing production use-cases, architecture notes, and instant *"Ask AshR"* prompt shortcuts.
-
-### 🪪 Tactile Leadership Passes
-* Physical conference VIP lanyard pass styling with CSS swinging animation, hole punch, barcode strips, and official NIT Jalandhar club emblems:
-  * **StrataBiz Club** (President · Led ConsultCorp with 300+ attendees)
-  * **Institution's Innovation Council** (Social Media Head · Digital outreach)
-  * **Bawre Theatre Society** (Operational Director · Stage & production logistics)
-
-### 📅 Seamless 1-Click Scheduling & Contact
-* **Cal.com 1-Click Booking:** Instant Google Meet appointment scheduling via live calendar slots.
-* **Direct Custom Request Modal:** Fallback form for custom meeting proposals.
-* **Instant Inbox Messaging:** Integrated AJAX form delivering directly to email with real-time validation.
+### 📅 Seamless 1-Click Scheduling
+* **Cal.com 1-Click Booking:** Directly book real-time Google Meet appointment slots without email back-and-forth.
+* **Direct Proposal Modal:** Clean fallback form to send project proposals directly to email.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** HTML5, Modern CSS3 (Glassmorphism, CSS Variables, 3D Transforms), Vanilla JavaScript (ES6+), Three.js / Canvas WebGL
-* **AI / Backend (Optional):** Python 3, FastAPI, Groq SDK, LangChain, ChromaDB / Qdrant, RAG Architecture
-* **Icons & Assets:** Devicon SVGs, Custom Club Emblems, Optimized Typography
-* **Deployment:** Vercel / GitHub Pages
+| Domain | Technologies |
+| :--- | :--- |
+| **Frontend** | HTML5, Modern CSS3 (Glassmorphism, CSS Custom Properties, 3D Transforms), Vanilla JavaScript (ES6+), Three.js (WebGL) |
+| **AI / RAG Pipeline** | Python 3, **Pydantic v2** (`BaseModel`, `Field`), **Instructor**, **Groq SDK** (`gpt-oss-120b`), Custom Retrieval Engine |
+| **Assets & Styling** | Devicon SVGs, Custom Club Emblems, Responsive Grid / Flexbox |
+| **Hosting & CI/CD** | GitHub Pages, Vercel, Netlify |
+
+---
+
+## 📁 Project Directory Structure
+
+```text
+Ansh_portfolio/
+├── assets/                  # Consolidated local images & documents (.gitignored)
+│   ├── ansh.jpg             # Profile avatar
+│   ├── stratabiz.jpg        # Club logos
+│   ├── bawre.jpg
+│   ├── iic.jpg
+│   ├── lead_stratabiz.jpg   # Official leadership posters (card backsides)
+│   ├── lead_bawre.jpg
+│   ├── lead_iic.jpg
+│   ├── team_1.jpg ... team_6.jpg # Beehive honeycomb event photos
+│   └── resume.pdf
+├── knowledge_base/          # Verified portfolio knowledge corpus
+│   └── corpus.json
+├── index.html               # Main single-page portfolio application
+├── rag_pipeline.py          # Production RAG pipeline (Pydantic + Instructor + Groq)
+├── Ansh_Rastogi_Resume.pdf  # Downloadable PDF resume
+├── .env.example             # Example environment configuration
+├── .gitignore               # Ignored files, virtual environments, and media assets
+└── README.md                # Project documentation
+```
 
 ---
 
 ## 🚀 Running Locally
 
-Clone the repository:
+### 1. Clone the repository
 ```bash
 git clone https://github.com/Anshrastogi05/Anshrastogi_portfolio.git
 cd Anshrastogi_portfolio
 ```
 
-### Option 1: Python Built-in Server (Fastest)
-```bash
-python -m http.server 3000
-```
-Open your browser and visit: **`http://localhost:3000`**
+### 2. Launch Frontend (Choose any method)
 
-### Option 2: VS Code Live Server
-1. Open the project in VS Code / IDE.
-2. Right-click `index.html` → **"Open with Live Server"**.
+* **Python HTTP Server (Fastest):**
+  ```bash
+  python -m http.server 3000
+  ```
+  Visit: **`http://localhost:3000`**
 
-### Option 3: Node.js `serve` / `npx`
-```bash
-npx serve .
-```
+* **VS Code Live Server:**
+  Right-click `index.html` → Select **"Open with Live Server"**.
 
----
-
-## 🧠 (Optional) Running the Local RAG Backend
-
-To power the AI chatbot with the local FastAPI + Groq pipeline:
-
-1. Create a virtual environment and install dependencies:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   pip install fastapi uvicorn groq chromadb langchain pydantic
-   ```
-2. Configure `.env`:
-   ```env
-   GROQ_API_KEY=your_groq_api_key_here
-   ```
-3. Start the backend:
-   ```bash
-   python rag_pipeline.py
-   ```
-   *The portfolio will automatically route live queries through `http://localhost:8000/api/ask`.*
+* **Node.js (`npx`):**
+  ```bash
+  npx serve .
+  ```
 
 ---
 
-## 🚢 Deployment
+## 🧠 Running the Pydantic RAG Backend (Optional)
 
-### Deploy to Vercel (Recommended)
-1. Push your repository to GitHub.
-2. Sign in to [Vercel](https://vercel.com) and click **"Add New..." → "Project"**.
-3. Import `Anshrastogi_portfolio` and click **Deploy**.
+To enable the live Groq-powered AI pipeline for the chatbot:
 
-### Deploy to GitHub Pages
-1. Go to your repository on GitHub → **Settings** → **Pages**.
-2. Set **Source** to `Deploy from a branch` → Select `main` and `/(root)`.
-3. Click **Save**. Your site will be live at `https://<username>.github.io/<repo>/`.
+### 1. Set up Python environment
+```bash
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# macOS / Linux
+source venv/bin/activate
+```
+
+### 2. Install dependencies
+```bash
+pip install pydantic instructor groq python-dotenv
+```
+
+### 3. Configure API Key
+Create a `.env` file in the project root:
+```env
+GROQ_API_KEY=gsk_your_groq_api_key_here
+```
+*(Get a free high-speed API key at [console.groq.com](https://console.groq.com/))*
+
+### 4. Run the server or CLI
+
+* **Run as HTTP Server for the web portfolio:**
+  ```bash
+  python rag_pipeline.py --serve --port 8000
+  ```
+  *The portfolio chatbot will automatically route live queries through `http://localhost:8000/api/ask`.*
+
+* **Test queries directly in your terminal:**
+  ```bash
+  python rag_pipeline.py -q "What has Ansh built with AI?"
+  ```
+
+---
+
+## 🚢 Deployment Guide
+
+You can deploy this portfolio to the web in under 2 minutes.
+
+> [!IMPORTANT]
+> **Asset Note:** Because `assets/` is currently in `.gitignore`, Git will not push local image files to GitHub.
+> To display your photos on the live deployed site, choose **one** of the two options below before deploying:
+> * **Option A (Include Assets in Git - Recommended for easy deployment):**
+>   In `.gitignore`, remove or comment out `assets/`, `*.jpg`, and `*.jpeg`, then commit them:
+>   ```bash
+>   git add assets/
+>   git commit -m "chore: track assets for live deployment"
+>   git push origin main
+>   ```
+> * **Option B (External CDN):**
+>   Keep `assets/` gitignored and update `src="..."` URLs in `index.html` to point to Cloudinary, Imgur, or AWS S3.
+
+---
+
+### Method 1: Deploy to GitHub Pages (100% Free & Automatic)
+
+1. **Push your code to GitHub:**
+   ```bash
+   git add .
+   git commit -m "feat: complete portfolio setup"
+   git push origin main
+   ```
+2. On GitHub, navigate to your repository:
+   * Click **Settings** (top tab).
+   * In the left sidebar, click **Pages**.
+   * Under **Build and deployment → Branch**:
+     * Branch: `main`
+     * Folder: `/(root)`
+   * Click **Save**.
+3. In ~60 seconds, your site will be live at:
+   `https://<your-username>.github.io/<repository-name>/`
+
+---
+
+### Method 2: Deploy to Vercel (Fastest & Custom Domains)
+
+1. Go to [vercel.com](https://vercel.com) and log in with your GitHub account.
+2. Click **"Add New..." → "Project"**.
+3. Select your `Anshrastogi_portfolio` repository from the list.
+4. Leave settings as default (Framework Preset: **Other**, Root Directory: `./`).
+5. Click **Deploy**.
+6. Vercel will instantly generate a global CDN URL (e.g., `https://anshrastogi-portfolio.vercel.app`) with automatic SSL and zero-downtime updates on every `git push`.
+
+---
+
+### Method 3: Deploy to Netlify
+
+1. Go to [netlify.com](https://www.netlify.com/) and log in with GitHub.
+2. Click **"Add new site" → "Import an existing project"**.
+3. Choose GitHub and select `Anshrastogi_portfolio`.
+4. Publish directory: leave blank or `.`.
+5. Click **Deploy site**.
 
 ---
 
@@ -116,10 +221,10 @@ To power the AI chatbot with the local FastAPI + Groq pipeline:
 * **Email:** [rastogiansh13@gmail.com](mailto:rastogiansh13@gmail.com)
 * **LinkedIn:** [linkedin.com/in/anshrastogi23](https://linkedin.com/in/anshrastogi23)
 * **GitHub:** [github.com/Anshrastogi05](https://github.com/Anshrastogi05)
-* **Schedule a 1-to-1:** [Cal.com (Google Meet)](https://cal.com/ansh-rastogi-qeqqay/30min)
+* **Schedule a 1-to-1:** [Cal.com Appointment](https://cal.com/ansh-rastogi-qeqqay/30min)
 
 ---
 
 <p align="center">
-  Designed &amp; Engineered by <b>Ansh Rastogi</b> · Built with speed, precision, and clean code.
+  Designed &amp; Engineered by <b>Ansh Rastogi</b> · Crafted with speed, precision, and clean code.
 </p>
