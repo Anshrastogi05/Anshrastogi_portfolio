@@ -305,7 +305,7 @@ def main():
     parser.add_argument("--query", "-q", type=str, default="What has Ansh built with AI?", help="Question to ask")
     parser.add_argument("--top_k", "-k", type=int, default=3, help="Number of context chunks to retrieve")
     parser.add_argument("--serve", action="store_true", help="Launch HTTP JSON API server")
-    parser.add_argument("--port", type=int, default=8000, help="Port for HTTP API server")
+    parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", 8000)), help="Port for HTTP API server")
     args = parser.parse_args()
 
     if args.serve:
